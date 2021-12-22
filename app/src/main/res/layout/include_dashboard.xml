@@ -11,6 +11,7 @@
         android:layout_weight="1">
 
         <ImageView
+            android:id="@+id/i1"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -18,6 +19,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
+            android:id="@+id/i2"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -25,6 +27,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
+            android:id="@+id/i3"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -32,42 +35,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/contentDescription"
-            android:src="@drawable/ic_black_circle" />
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/contentDescription"
-            android:src="@drawable/ic_black_circle" />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/contentDescription"
-            android:src="@drawable/ic_black_circle" />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/contentDescription"
-            android:src="@drawable/ic_black_circle" />
-
-        <ImageView
+            android:id="@+id/i4"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -83,6 +51,7 @@
         android:layout_weight="1">
 
         <ImageView
+            android:id="@+id/i5"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -90,6 +59,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
+            android:id="@+id/i6"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -97,6 +67,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
+            android:id="@+id/i7"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -104,42 +75,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/contentDescription"
-            android:src="@drawable/ic_black_circle" />
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/contentDescription"
-            android:src="@drawable/ic_black_circle" />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/contentDescription"
-            android:src="@drawable/ic_black_circle" />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/contentDescription"
-            android:src="@drawable/ic_black_circle" />
-
-        <ImageView
+            android:id="@+id/i8"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -155,6 +91,7 @@
         android:layout_weight="1">
 
         <ImageView
+            android:id="@+id/i9"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -162,6 +99,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
+            android:id="@+id/i10"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -169,6 +107,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
+            android:id="@+id/i11"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -176,6 +115,87 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
+            android:id="@+id/i12"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/ic_black_circle" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/i13"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/ic_black_circle" />
+
+        <ImageView
+            android:id="@+id/i14"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/ic_black_circle" />
+
+        <ImageView
+            android:id="@+id/i15"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/ic_black_circle" />
+
+        <ImageView
+            android:id="@+id/i16"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/ic_black_circle" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/i17"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/ic_black_circle" />
+
+        <ImageView
+            android:id="@+id/i18"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/ic_black_circle" />
+
+        <ImageView
+            android:id="@+id/i19"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/ic_black_circle" />
+
+        <ImageView
+            android:id="@+id/i20"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"

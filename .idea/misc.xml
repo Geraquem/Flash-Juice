@@ -5,8 +5,11 @@
       <map>
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/back.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/bg_record.xml" value="0.3828125" />
+        <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_heart.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_juice.xml" value="0.3828125" />
+        <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_poison.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_trophy.xml" value="0.3828125" />
+        <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_wine.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/play.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/layout/fragment_dashboard.xml" value="0.36666666666666664" />
@@ -15,7 +18,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
