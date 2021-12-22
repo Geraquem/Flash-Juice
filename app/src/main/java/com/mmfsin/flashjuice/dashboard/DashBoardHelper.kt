@@ -3,8 +3,9 @@ package com.mmfsin.flashjuice.dashboard
 import android.content.Context
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
+import com.mmfsin.flashjuice.R
 
-class DashBoardListHelper {
+class DashBoardHelper {
 
     fun getImageViewList(context: Context, activity: FragmentActivity?): List<ImageView> {
         val images = mutableListOf<ImageView>()
@@ -31,6 +32,30 @@ class DashBoardListHelper {
                     add(i)
                 }
             }
+        }
+    }
+
+    fun clickableImages(images: List<ImageView>, isClickable: Boolean) {
+        for (image in images) {
+            image.isClickable = isClickable
+        }
+    }
+
+    fun getDisappearedTime(level: Int): Long {
+        return when {
+            level == 1 -> 1000
+            level < 3 -> 900
+            level < 5 -> 700
+            level < 7 -> 600
+            level < 9 -> 500
+            level < 12 -> 400
+            level < 16 -> 300
+            level < 18 -> 350
+            level < 20 -> 200
+            level < 22 -> 170
+            level < 24 -> 150
+            level < 26 -> 140
+            else -> 130
         }
     }
 }

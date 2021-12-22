@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/lifes"
+                android:layout_toStartOf="@+id/lifesText"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:text="@string/level"
@@ -53,5 +53,15 @@
             layout="@layout/include_dashboard" />
 
     </LinearLayout>
+
+    <include
+        android:id="@+id/goodResult"
+        layout="@layout/include_result_good"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/badResult"
+        layout="@layout/include_result_bad"
+        android:visibility="gone" />
 
 </RelativeLayout>

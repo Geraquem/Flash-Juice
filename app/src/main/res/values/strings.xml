@@ -8,4 +8,6 @@
     <string name="record">NIVEL MÁXIMO ALCANZADO: %1$s</string>
 
     <string name="level">NIVEL %1$s</string>
+
+    <string name="nextLevel">SIGUIENTE NIVEL</string>
 </resources>

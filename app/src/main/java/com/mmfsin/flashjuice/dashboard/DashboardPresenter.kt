@@ -2,57 +2,70 @@ package com.mmfsin.flashjuice.dashboard
 
 import android.content.Context
 import android.os.CountDownTimer
+import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
-import com.mmfsin.flashjuice.R
 
-class DashboardPresenter {
+class DashboardPresenter(private val view: DashboardView) {
 
-    private val helper by lazy { DashBoardListHelper() }
+    private val helper by lazy { DashBoardHelper() }
+
+    private fun clickableImages(images: List<ImageView>, isClickable: Boolean) =
+        helper.clickableImages(images, isClickable)
 
     fun getImageViewList(context: Context, activity: FragmentActivity?): List<ImageView> {
         return helper.getImageViewList(context, activity)
     }
 
-    fun startGame(images: List<ImageView>) {
-        for (image in images) {
-            image.setImageResource(R.drawable.ic_black_circle)
-            clickableImages(images, false)
-        }
+    fun startGame(images: List<ImageView>, level: Int) {
+        view.updateLevel()
+        view.updateLifes()
+        view.putBlackCircles()
+
+        clickableImages(images, false)
 
         object : CountDownTimer(1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
 
             override fun onFinish() {
-                putRandomImages(images)
+                firstPhase(images, level)
             }
         }.start()
     }
 
-    private fun putRandomImages(images: List<ImageView>) {
+    private fun firstPhase(images: List<ImageView>, level: Int) {
         val juices = helper.getJuicyList()
+        view.putJuices(juices)
+
         val poisons = helper.getPoisonList(juices)
-
-        for (i in juices) {
-            images[i].setImageResource(R.drawable.ic_juice)
+        when {
+            level < 2 -> view.putPoisonsFirstPhase(poisons)
+            else -> view.putPoisonsSecondPhase(poisons)
         }
 
-        for (i in poisons) {
-            images[i].setImageResource(chooseRandomPoison())
-        }
+        secondPhase(images, level)
     }
 
-    private fun chooseRandomPoison(): Int {
-        return when ((0..1).random()) {
-            0 -> R.drawable.ic_poison
-            1 -> R.drawable.ic_wine
-            else -> R.drawable.ic_poison
-        }
+    private fun secondPhase(images: List<ImageView>, level: Int) {
+        object : CountDownTimer(helper.getDisappearedTime(level), 1000) {
+            override fun onTick(millisUntilFinished: Long) {}
+
+            override fun onFinish() {
+                view.putBlackCircles()
+                clickableImages(images, true)
+                view.setImageViewListeners()
+            }
+        }.start()
     }
 
-    private fun clickableImages(images: List<ImageView>, isClickable: Boolean) {
-        for (image in images) {
-            image.isClickable = isClickable
+    fun updateUI(life: Int, numJuices: Int) {
+        if (life <= 0) {
+            view.showBadResult(View.VISIBLE)
         }
+        if (numJuices == 5) {
+            view.showGoodResult(View.VISIBLE)
+        }
+        view.updateLifes()
     }
+
 }
