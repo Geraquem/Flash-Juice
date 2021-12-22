@@ -3,6 +3,9 @@
 
     <string name="contentDescription">contentDescription</string>
 
-    <string name="findJuices">ENCUENTRA LOS\n5 ZUMOS DE NARANJA</string>
+    <string name="findJuices">ENCUENTRA LOS</string>
+    <string name="findJuices2"><b>5 ZUMOS DE NARANJA</b></string>
     <string name="record">NIVEL MÁXIMO ALCANZADO: %1$s</string>
+
+    <string name="level">NIVEL %1$s</string>
 </resources>
