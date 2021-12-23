@@ -25,6 +25,8 @@ class DashboardFragment : Fragment(), DashboardView {
     private lateinit var mContext: Context
 
     private lateinit var images: List<ImageView>
+    private lateinit var endJuices: List<ImageView>
+
     private lateinit var goodPhrases: List<String>
     private lateinit var badPhrases: List<String>
 
@@ -45,6 +47,7 @@ class DashboardFragment : Fragment(), DashboardView {
 
         goodPhrases = presenter.getResultPhrases(mContext, true)
         badPhrases = presenter.getResultPhrases(mContext, false)
+        endJuices = presenter.getJuicesImageViewList(mContext, activity)
 
         images = presenter.getImageViewList(mContext, activity)
         presenter.startGame(images, level)
@@ -74,8 +77,8 @@ class DashboardFragment : Fragment(), DashboardView {
     }
 
     override fun putBlackCircles() {
-        for (i in images.indices) {
-            images[i].setImageResource(R.drawable.ic_black_circle)
+        for (image in images) {
+            image.setImageResource(R.drawable.ic_black_circle)
         }
     }
 
@@ -141,6 +144,7 @@ class DashboardFragment : Fragment(), DashboardView {
 
     override fun showBadResult(view: Int) {
         badResultText.text = presenter.setPhrase(badPhrases)
+        presenter.setJuiceErrors(endJuices, numJuices)
         badResult.visibility = view
     }
 

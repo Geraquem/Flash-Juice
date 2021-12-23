@@ -17,14 +17,20 @@
             android:id="@+id/badResultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginBottom="30dp"
-            android:text="sdafsdkdsbfkjbsd"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/badresult"
             android:gravity="center"
             android:textAllCaps="true"
             android:textColor="@color/design_default_color_error"
-            android:textSize="45sp" />
+            android:textSize="35sp" />
+
+        <include
+            android:id="@+id/fiveJuices"
+            layout="@layout/include_five_errors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp" />
 
         <ImageView
             android:id="@+id/retryButton"

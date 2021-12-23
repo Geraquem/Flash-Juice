@@ -5,10 +5,13 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
+import com.mmfsin.flashjuice.dashboard.helper.DashBoardHelper
+import com.mmfsin.flashjuice.dashboard.helper.EndGameHelper
 
 class DashboardPresenter(private val view: DashboardView) {
 
     private val helper by lazy { DashBoardHelper() }
+    private val endGameHelper by lazy { EndGameHelper() }
 
     private fun clickableImages(images: List<ImageView>, isClickable: Boolean) =
         helper.clickableImages(images, isClickable)
@@ -17,12 +20,12 @@ class DashboardPresenter(private val view: DashboardView) {
         return helper.getResultPhrases(context, isGood)
     }
 
-    fun setPhrase(phrases: List<String>): String {
-        return phrases[(phrases.indices).random()]
-    }
-
     fun getImageViewList(context: Context, activity: FragmentActivity?): List<ImageView> {
         return helper.getImageViewList(context, activity)
+    }
+
+    fun getJuicesImageViewList(context: Context, activity: FragmentActivity?): List<ImageView> {
+        return endGameHelper.getFiveJuices(context, activity)
     }
 
     fun startGame(images: List<ImageView>, level: Int) {
@@ -71,9 +74,17 @@ class DashboardPresenter(private val view: DashboardView) {
         if (life <= 0) {
             view.showBadResult(View.VISIBLE)
         }
-        if (numJuices == 5) {
+        if (numJuices <= 5) {
             view.showGoodResult(View.VISIBLE)
         }
         view.updateLifes()
+    }
+
+    fun setPhrase(phrases: List<String>): String {
+        return phrases[(phrases.indices).random()]
+    }
+
+    fun setJuiceErrors(endJuices: List<ImageView>, numJuices: Int) {
+        endGameHelper.setJuiceErrors(endJuices, numJuices)
     }
 }

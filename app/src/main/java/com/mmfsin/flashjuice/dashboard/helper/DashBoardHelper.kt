@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.dashboard
+package com.mmfsin.flashjuice.dashboard.helper
 
 import android.content.Context
 import android.widget.ImageView
