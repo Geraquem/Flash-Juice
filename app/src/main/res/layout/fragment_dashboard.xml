@@ -15,10 +15,10 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_marginHorizontal="30dp"
             android:layout_width="match_parent"
-            android:layout_marginBottom="30dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="30dp">
 
             <TextView
                 android:id="@+id/levelText"
@@ -35,14 +35,14 @@
 
             <TextView
                 android:id="@+id/lifesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="25sp"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 app:drawableEndCompat="@drawable/ic_heart" />
 
         </RelativeLayout>

@@ -13,6 +13,14 @@ class DashboardPresenter(private val view: DashboardView) {
     private fun clickableImages(images: List<ImageView>, isClickable: Boolean) =
         helper.clickableImages(images, isClickable)
 
+    fun getResultPhrases(context: Context, isGood: Boolean): List<String> {
+        return helper.getResultPhrases(context, isGood)
+    }
+
+    fun setPhrase(phrases: List<String>): String {
+        return phrases[(phrases.indices).random()]
+    }
+
     fun getImageViewList(context: Context, activity: FragmentActivity?): List<ImageView> {
         return helper.getImageViewList(context, activity)
     }
@@ -68,5 +76,4 @@ class DashboardPresenter(private val view: DashboardView) {
         }
         view.updateLifes()
     }
-
 }

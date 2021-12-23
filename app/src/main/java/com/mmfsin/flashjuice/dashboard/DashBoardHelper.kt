@@ -3,8 +3,17 @@ package com.mmfsin.flashjuice.dashboard
 import android.content.Context
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
+import com.mmfsin.flashjuice.R
 
 class DashBoardHelper {
+
+    fun getResultPhrases(context: Context, isGood: Boolean): List<String> {
+        return if (isGood) {
+            context.resources.getStringArray(R.array.goodPhrases).toList()
+        } else {
+            context.resources.getStringArray(R.array.badPhrases).toList()
+        }
+    }
 
     fun getImageViewList(context: Context, activity: FragmentActivity?): List<ImageView> {
         val images = mutableListOf<ImageView>()

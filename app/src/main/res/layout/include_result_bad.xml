@@ -6,12 +6,33 @@
     android:clickable="true"
     android:focusable="true">
 
-    <ImageView
-        android:id="@+id/retryButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:contentDescription="@string/contentDescription"
-        android:src="@drawable/retry" />
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/badResultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="30dp"
+            android:text="sdafsdkdsbfkjbsd"
+            android:fontFamily="@font/badresult"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="45sp" />
+
+        <ImageView
+            android:id="@+id/retryButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/retry" />
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -10,4 +10,19 @@
     <string name="level">NIVEL %1$s</string>
 
     <string name="nextLevel">SIGUIENTE NIVEL</string>
+
+    <!--  GOOD PHRASES  -->
+    <string-array name="goodPhrases">
+        <item>CHAMPION</item>
+    </string-array>
+
+    <!--  BAD PHRASES  -->
+    <string-array name="badPhrases">
+        <item>A VER SI ESTAMOS MÁS RÁPIDOS LA PRÓXIMA VEZ</item>
+        <item>NO VES TRES EN UN BURRO ¿EH?</item>
+        <item>QUE DESASTRE…</item>
+        <item>IGUAL DEBERÍAS LLAMAR AL OCULISTA</item>
+        <item>TIENES UNA DESTREZA VISUAL CASI NULA</item>
+    </string-array>
+
 </resources>

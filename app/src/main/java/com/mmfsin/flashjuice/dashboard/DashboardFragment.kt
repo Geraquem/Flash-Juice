@@ -9,7 +9,9 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.mmfsin.flashjuice.R
 import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.include_result_bad.*
 import kotlinx.android.synthetic.main.include_result_bad.view.*
+import kotlinx.android.synthetic.main.include_result_good.*
 import kotlinx.android.synthetic.main.include_result_good.view.*
 
 class DashboardFragment : Fragment(), DashboardView {
@@ -23,6 +25,8 @@ class DashboardFragment : Fragment(), DashboardView {
     private lateinit var mContext: Context
 
     private lateinit var images: List<ImageView>
+    private lateinit var goodPhrases: List<String>
+    private lateinit var badPhrases: List<String>
 
     private var level = 1
     private var lifes = 5
@@ -38,6 +42,9 @@ class DashboardFragment : Fragment(), DashboardView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        goodPhrases = presenter.getResultPhrases(mContext, true)
+        badPhrases = presenter.getResultPhrases(mContext, false)
 
         images = presenter.getImageViewList(mContext, activity)
         presenter.startGame(images, level)
@@ -128,10 +135,12 @@ class DashboardFragment : Fragment(), DashboardView {
     }
 
     override fun showGoodResult(view: Int) {
+        goodResultText.text = presenter.setPhrase(goodPhrases)
         goodResult.visibility = view
     }
 
     override fun showBadResult(view: Int) {
+        badResultText.text = presenter.setPhrase(badPhrases)
         badResult.visibility = view
     }
 
