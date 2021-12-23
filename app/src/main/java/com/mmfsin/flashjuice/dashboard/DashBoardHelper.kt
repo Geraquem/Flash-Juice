@@ -52,9 +52,9 @@ class DashBoardHelper {
             level < 18 -> 350
             level < 20 -> 200
             level < 22 -> 170
-            level < 24 -> 150
-            level < 26 -> 140
-            else -> 130
+            level < 24 -> 165
+            level < 26 -> 160
+            else -> 155
         }
     }
 }

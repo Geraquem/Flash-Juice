@@ -39,8 +39,9 @@ class DashboardPresenter(private val view: DashboardView) {
 
         val poisons = helper.getPoisonList(juices)
         when {
-            level < 2 -> view.putPoisonsFirstPhase(poisons)
-            else -> view.putPoisonsSecondPhase(poisons)
+            level < 2 -> view.putPoisons(poisons, 0)
+            level < 3 -> view.putPoisons(poisons, 1)
+            else -> view.putPoisons(poisons, 2)
         }
 
         secondPhase(images, level)

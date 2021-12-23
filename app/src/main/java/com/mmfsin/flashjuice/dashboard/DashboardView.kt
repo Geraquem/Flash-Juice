@@ -4,8 +4,7 @@ interface DashboardView {
 
     fun putBlackCircles()
     fun putJuices(juices: List<Int>)
-    fun putPoisonsFirstPhase(poisons: List<Int>)
-    fun putPoisonsSecondPhase(poisons: List<Int>)
+    fun putPoisons(poisons: List<Int>, phase: Int)
 
     fun setImageViewListeners()
 

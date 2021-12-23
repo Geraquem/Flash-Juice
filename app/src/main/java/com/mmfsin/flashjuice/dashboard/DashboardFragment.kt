@@ -15,17 +15,18 @@ import kotlinx.android.synthetic.main.include_result_good.view.*
 class DashboardFragment : Fragment(), DashboardView {
 
     private val juiceTAG = "JUICE"
-    private val poisonTAG = "POISON"
+    private val poison1TAG = "POISON1"
     private val poison2TAG = "POISON2"
+    private val poison3TAG = "POISON3"
 
     private val presenter by lazy { DashboardPresenter(this) }
     private lateinit var mContext: Context
 
     private lateinit var images: List<ImageView>
 
-    var level = 1
-    var lifes = 5
-    var numJuices = 0
+    private var level = 1
+    private var lifes = 5
+    private var numJuices = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,23 +79,20 @@ class DashboardFragment : Fragment(), DashboardView {
         }
     }
 
-    override fun putPoisonsFirstPhase(poisons: List<Int>) {
+    override fun putPoisons(poisons: List<Int>, phase: Int) {
         for (i in poisons) {
-            images[i].setImageResource(R.drawable.ic_poison)
-            images[i].tag = poisonTAG
-        }
-    }
-
-    override fun putPoisonsSecondPhase(poisons: List<Int>) {
-        for (i in poisons) {
-            when ((0..1).random()) {
+            when ((0..phase).random()) {
                 0 -> {
-                    images[i].setImageResource(R.drawable.ic_poison)
-                    images[i].tag = poisonTAG
+                    images[i].setImageResource(R.drawable.ic_poison_one)
+                    images[i].tag = poison1TAG
                 }
                 1 -> {
-                    images[i].setImageResource(R.drawable.ic_wine)
+                    images[i].setImageResource(R.drawable.ic_poison_two)
                     images[i].tag = poison2TAG
+                }
+                2 -> {
+                    images[i].setImageResource(R.drawable.ic_poison_three)
+                    images[i].tag = poison3TAG
                 }
             }
         }
@@ -113,20 +111,17 @@ class DashboardFragment : Fragment(), DashboardView {
     }
 
     private fun imageOnClick(image: ImageView, isGoodClick: Boolean) {
-        when {
-            isGoodClick -> {
-                numJuices++
-                image.setImageResource(R.drawable.ic_juice)
+        if (isGoodClick) {
+            numJuices++
+            image.setImageResource(R.drawable.ic_juice)
+        } else {
+            lifes--
+            when (image.tag) {
+                poison1TAG -> image.setImageResource(R.drawable.ic_poison_one)
+                poison2TAG -> image.setImageResource(R.drawable.ic_poison_two)
+                else -> image.setImageResource(R.drawable.ic_poison_three)
             }
 
-            !isGoodClick -> {
-                lifes--
-                if (image.tag == poisonTAG) {
-                    image.setImageResource(R.drawable.ic_poison)
-                } else {
-                    image.setImageResource(R.drawable.ic_wine)
-                }
-            }
         }
         image.isClickable = false
         presenter.updateUI(lifes, numJuices)

@@ -15,9 +15,9 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_marginHorizontal="40dp"
+            android:layout_marginHorizontal="30dp"
             android:layout_width="match_parent"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="30dp"
             android:layout_height="wrap_content">
 
             <TextView
@@ -43,7 +43,6 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"
                 app:drawableEndCompat="@drawable/ic_heart" />
 
         </RelativeLayout>
