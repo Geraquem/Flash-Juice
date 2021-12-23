@@ -18,7 +18,6 @@ class EndGameHelper {
     }
 
     fun setJuiceErrors(endJuices: List<ImageView>, numJuices: Int) {
-
         if (numJuices == 0) {
             for (juice in endJuices) {
                 juice.setImageResource(R.drawable.ic_cross)

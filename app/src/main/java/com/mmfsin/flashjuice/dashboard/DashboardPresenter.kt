@@ -74,7 +74,7 @@ class DashboardPresenter(private val view: DashboardView) {
         if (life <= 0) {
             view.showBadResult(View.VISIBLE)
         }
-        if (numJuices <= 5) {
+        if (numJuices == 5) {
             view.showGoodResult(View.VISIBLE)
         }
         view.updateLifes()
