@@ -3,7 +3,6 @@ package com.mmfsin.flashjuice.dashboard
 import android.content.Context
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
-import com.mmfsin.flashjuice.R
 
 class DashBoardHelper {
 
