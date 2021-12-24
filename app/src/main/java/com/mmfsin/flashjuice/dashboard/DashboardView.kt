@@ -13,4 +13,6 @@ interface DashboardView {
 
     fun showGoodResult(view: Int)
     fun showBadResult(view: Int)
+
+    fun checkHighScore(isGameEnd: Boolean)
 }

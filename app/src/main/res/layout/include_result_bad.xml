@@ -18,27 +18,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/badresult"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/result"
             android:gravity="center"
             android:textAllCaps="true"
             android:textColor="@color/design_default_color_error"
-            android:textSize="35sp" />
+            android:textSize="45sp" />
+
+
+        <TextView
+            android:id="@+id/badResultLevelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/levelFailed"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp"/>
 
         <include
             android:id="@+id/fiveJuices"
             layout="@layout/include_five_errors"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp" />
-
-        <ImageView
-            android:id="@+id/retryButton"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:contentDescription="@string/contentDescription"
-            android:src="@drawable/retry" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/retryButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/contentDescription"
+        android:src="@drawable/retry" />
 
 </RelativeLayout>

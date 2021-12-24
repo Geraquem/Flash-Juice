@@ -78,7 +78,6 @@
         android:layout_marginHorizontal="20dp"
         android:drawablePadding="8dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/record"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:drawableEndCompat="@drawable/ic_trophy"

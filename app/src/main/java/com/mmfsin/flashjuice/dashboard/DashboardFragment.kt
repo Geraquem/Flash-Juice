@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.mmfsin.flashjuice.IListener
 import com.mmfsin.flashjuice.R
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.include_result_bad.*
@@ -14,7 +16,8 @@ import kotlinx.android.synthetic.main.include_result_bad.view.*
 import kotlinx.android.synthetic.main.include_result_good.*
 import kotlinx.android.synthetic.main.include_result_good.view.*
 
-class DashboardFragment : Fragment(), DashboardView {
+class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Fragment(),
+    DashboardView {
 
     private val juiceTAG = "JUICE"
     private val poison1TAG = "POISON1"
@@ -139,13 +142,24 @@ class DashboardFragment : Fragment(), DashboardView {
 
     override fun showGoodResult(view: Int) {
         goodResultText.text = presenter.setPhrase(goodPhrases)
+        goodResultLevelText.text = getString(R.string.levelCompleted, level.toString())
         goodResult.visibility = view
     }
 
     override fun showBadResult(view: Int) {
         badResultText.text = presenter.setPhrase(badPhrases)
+        badResultLevelText.text = getString(R.string.levelFailed, level.toString())
         presenter.setJuiceErrors(endJuices, numJuices)
         badResult.visibility = view
+    }
+
+    override fun checkHighScore(isGameEnd: Boolean) {
+        if (level > savedHighScore) {
+            listener.putNewHighScore(level)
+            if (isGameEnd) {
+                Toast.makeText(mContext, getString(R.string.newRecord), Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun onAttach(context: Context) {

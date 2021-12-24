@@ -3,6 +3,9 @@
 
     <string name="contentDescription">contentDescription</string>
 
+    <string name="saved_high_score_level">maximo nivel alcanzado</string>
+    <string name="newRecord">¡NUEVO RECORD!</string>
+
     <string name="findJuices">ENCUENTRA LOS</string>
     <string name="findJuices2"><b>5 ZUMOS DE NARANJA</b></string>
     <string name="record">NIVEL MÁXIMO ALCANZADO: %1$s</string>
@@ -11,18 +14,32 @@
 
     <string name="nextLevel">SIGUIENTE NIVEL</string>
 
+    <string name="levelCompleted">NIVEL %1$s COMPLETADO</string>
+    <string name="levelFailed">NIVEL %1$s FALLIDO</string>
+
     <!--  GOOD PHRASES  -->
     <string-array name="goodPhrases">
-        <item>CHAMPION</item>
+        <item>VENGA, A POR EL SIGUIENTE</item>
+        <item>PERFECTÍSIMO</item>
+        <item>¡MUY BIEEEEN!</item>
+        <item>TREMENDÍSIMO</item>
+        <item>GENIAL GENIAL</item>
+        <item>MENUDA VISTA DE LINCE</item>
+        <item>LO TIENES</item>
     </string-array>
 
     <!--  BAD PHRASES  -->
     <string-array name="badPhrases">
-        <item>A VER SI ESTAMOS MÁS RÁPIDOS LA PRÓXIMA VEZ</item>
+        <item>A VER SI ESTAMOS MÁS AVISPAOS LA PRÓXIMA VEZ</item>
         <item>NO VES TRES EN UN BURRO ¿EH?</item>
         <item>QUE DESASTRE…</item>
         <item>IGUAL DEBERÍAS LLAMAR AL OCULISTA</item>
         <item>TIENES UNA DESTREZA VISUAL CASI NULA</item>
+        <item>FATAL FATAL FATAL</item>
+        <item>SIEMPRE PUEDES VOLVER A INTENTARLO</item>
+        <item>TODOS SABEMOS QUE HAS HECHO LO QUE HAS PODIDO</item>
+        <item>FRACASO ABSOLUTO</item>
+        <item>LO DE PONERTE GAFAS,\n¿CÓMO LO VES?</item>
     </string-array>
 
 </resources>

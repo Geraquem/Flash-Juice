@@ -19,34 +19,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/goodresult"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/result"
             android:gravity="center"
             android:textAllCaps="true"
+            android:text="GENIAL GENIAL"
             android:textColor="@color/green"
             android:textSize="45sp" />
+
+        <TextView
+            android:id="@+id/goodResultLevelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/levelCompleted"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp"/>
 
         <include
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
             layout="@layout/include_five_juices" />
 
-        <TextView
-            android:id="@+id/nextLevel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_next_level"
-            android:elevation="5dp"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="15dp"
-            android:text="@string/nextLevel"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:drawableEndCompat="@drawable/ic_next_level" />
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/nextLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_next_level"
+        android:elevation="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/nextLevel"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
 </RelativeLayout>

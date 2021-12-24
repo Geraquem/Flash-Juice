@@ -73,8 +73,10 @@ class DashboardPresenter(private val view: DashboardView) {
     fun updateUI(life: Int, numJuices: Int) {
         if (life <= 0) {
             view.showBadResult(View.VISIBLE)
+            view.checkHighScore(true)
         }
         if (numJuices == 5) {
+            view.checkHighScore(false)
             view.showGoodResult(View.VISIBLE)
         }
         view.updateLifes()
