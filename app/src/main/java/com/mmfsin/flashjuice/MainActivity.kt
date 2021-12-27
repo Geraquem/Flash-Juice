@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.mmfsin.flashjuice.dashboard.DashboardFragment
 import com.mmfsin.flashjuice.records.RecordsFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,26 +17,21 @@ class MainActivity : AppCompatActivity(), IListener {
         val savedHighScore = getLevelRecord()
         recordText.text = getString(R.string.record, savedHighScore.toString())
 
-        playButton.setOnClickListener {
-            recordText.visibility = View.GONE
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, DashboardFragment(this, savedHighScore))
-                .addToBackStack(null).commit()
-        }
+        rankingButton.setOnClickListener { goToFragment(RecordsFragment()) }
+        playButton.setOnClickListener { goToFragment(DashboardFragment(this, savedHighScore)) }
+    }
 
-
+    private fun goToFragment(fragment: Fragment) {
         recordText.visibility = View.GONE
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, RecordsFragment())
+            .replace(R.id.fragmentContainer, fragment)
             .addToBackStack(null).commit()
-
     }
 
     private fun getLevelRecord(): Int {
         val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return 1
         return sharedPref.getInt(getString(R.string.saved_high_score_level), 1)
     }
-
 
     override fun onBackPressed() {
         recordText.visibility = View.VISIBLE
