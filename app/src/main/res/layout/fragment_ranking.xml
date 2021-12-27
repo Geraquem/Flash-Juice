@@ -6,12 +6,12 @@
     android:clickable="true"
     android:focusable="true">
 
-    <TextView
-        android:id="@+id/record"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="10dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="lmsbafjlaksdhfkñahsadhkñ"
-        android:textSize="16sp" />
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bg_ranking" />
 
 </RelativeLayout>

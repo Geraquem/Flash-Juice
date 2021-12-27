@@ -2,6 +2,7 @@
     <string name="app_name">Flash Juice</string>
 
     <string name="contentDescription">contentDescription</string>
+    <string name="somethingWentWrong">Algo ha salido mal :(</string>
 
     <string name="saved_high_score_level">maximo nivel alcanzado</string>
     <string name="newRecord">¡NUEVO RECORD!</string>

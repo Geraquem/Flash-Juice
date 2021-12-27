@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.mmfsin.flashjuice.dashboard.DashboardFragment
-import com.mmfsin.flashjuice.records.RecordsFragment
+import com.mmfsin.flashjuice.ranking.RankingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), IListener {
@@ -17,11 +17,12 @@ class MainActivity : AppCompatActivity(), IListener {
         val savedHighScore = getLevelRecord()
         recordText.text = getString(R.string.record, savedHighScore.toString())
 
-        rankingButton.setOnClickListener { goToFragment(RecordsFragment()) }
+        rankingButton.setOnClickListener { goToFragment(RankingFragment()) }
         playButton.setOnClickListener { goToFragment(DashboardFragment(this, savedHighScore)) }
     }
 
     private fun goToFragment(fragment: Fragment) {
+        rankingButton.visibility = View.GONE
         recordText.visibility = View.GONE
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity(), IListener {
     }
 
     override fun onBackPressed() {
+        rankingButton.visibility = View.VISIBLE
         recordText.visibility = View.VISIBLE
         super.onBackPressed()
     }
