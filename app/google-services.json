@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "677197579980",
+    "firebase_url": "https://flashjuicerecords-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "flashjuicerecords",
+    "storage_bucket": "flashjuicerecords.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677197579980:android:67d26b3bd17f4d6ba82469",
+        "android_client_info": {
+          "package_name": "com.mmfsin.flashjuice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677197579980-crctc3ds8jvi5vl82sqligrcapov43bm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mmfsin.flashjuice",
+            "certificate_hash": "f5bd6c9971b43c591fc3ac406ea0e9de752577a3"
+          }
+        },
+        {
+          "client_id": "677197579980-tdaolpvrajrh1vf6vfkms38ja2d98kn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhAmg3fMWtn0iDhyqmg_D1Y7q5IBGqlrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677197579980-tdaolpvrajrh1vf6vfkms38ja2d98kn1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

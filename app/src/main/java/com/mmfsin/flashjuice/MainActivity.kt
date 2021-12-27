@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.mmfsin.flashjuice.dashboard.DashboardFragment
+import com.mmfsin.flashjuice.records.RecordsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), IListener {
@@ -21,6 +22,13 @@ class MainActivity : AppCompatActivity(), IListener {
                 .replace(R.id.fragmentContainer, DashboardFragment(this, savedHighScore))
                 .addToBackStack(null).commit()
         }
+
+
+        recordText.visibility = View.GONE
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, RecordsFragment())
+            .addToBackStack(null).commit()
+
     }
 
     private fun getLevelRecord(): Int {
