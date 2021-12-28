@@ -22,7 +22,10 @@ class RViewAdapter(private var records: List<RecordDTO>) :
         holder.bind(records[position])
     }
 
-    override fun getItemCount() = records.size
+    override fun getItemCount() = when {
+        (records.size > 14) -> 15
+        else -> records.size
+    }
 
     class RecordHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val bdg = RowRankingBinding.bind(view)

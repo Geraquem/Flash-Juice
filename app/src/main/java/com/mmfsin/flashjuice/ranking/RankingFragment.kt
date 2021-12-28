@@ -31,18 +31,16 @@ class RankingFragment : Fragment(), RankingView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //loading visible
-        presenter.getRanking()
-    }
 
-    override fun showLoading(visibility: Int) {
+        loading.visibility = View.VISIBLE
+        presenter.getRanking()
     }
 
     override fun fillRecyclerViewData(records: List<RecordDTO>) {
         recyclerView.layoutManager = LinearLayoutManager(mContext)
         adapter = RViewAdapter(records)
         recyclerView.adapter = adapter
-//        loading gone
+        loading.visibility = View.GONE
     }
 
     override fun showMessageError() {

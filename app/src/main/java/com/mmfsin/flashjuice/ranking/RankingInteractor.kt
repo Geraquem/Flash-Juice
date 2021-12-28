@@ -20,7 +20,7 @@ class RankingInteractor(private val listener: IRanking) : Fragment() {
     }
 
     interface IRanking {
-        fun resultOk(list: List<RecordDTO>)
+        fun resultOk(records: List<RecordDTO>)
         fun resultKo()
     }
 }

@@ -43,4 +43,8 @@
         <item>LO DE PONERTE GAFAS,\n¿CÓMO LO VES?</item>
     </string-array>
 
+    <string name="bestScore">MEJORES PUNTUACIONES</string>
+    <string name="nameRanking">NOMBRE</string>
+    <string name="levelRanking">NIVEL</string>
+
 </resources>
