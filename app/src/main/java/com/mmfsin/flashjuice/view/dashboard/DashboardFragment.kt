@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.dashboard
+package com.mmfsin.flashjuice.view.dashboard
 
 import android.content.Context
 import android.os.Bundle
@@ -33,7 +33,7 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
     private lateinit var goodPhrases: List<String>
     private lateinit var badPhrases: List<String>
 
-    private var level = 1
+    private var level = 51
     private var lifes = 5
     private var numJuices = 0
 
@@ -137,7 +137,7 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
 
         }
         image.isClickable = false
-        presenter.updateUI(lifes, numJuices)
+        presenter.updateUI(lifes, numJuices, level)
     }
 
     override fun showGoodResult(view: Int) {
@@ -160,6 +160,10 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
                 Toast.makeText(mContext, getString(R.string.newRecord), Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun showNewRecordFragment() {
+        listener.showNewRecordFragment()
     }
 
     override fun onAttach(context: Context) {

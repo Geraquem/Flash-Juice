@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.dashboard
+package com.mmfsin.flashjuice.view.dashboard
 
 interface DashboardView {
 
@@ -15,4 +15,5 @@ interface DashboardView {
     fun showBadResult(view: Int)
 
     fun checkHighScore(isGameEnd: Boolean)
+    fun showNewRecordFragment()
 }

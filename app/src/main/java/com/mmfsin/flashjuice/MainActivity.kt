@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.mmfsin.flashjuice.dashboard.DashboardFragment
-import com.mmfsin.flashjuice.ranking.RankingFragment
+import com.mmfsin.flashjuice.view.dashboard.DashboardFragment
+import com.mmfsin.flashjuice.view.ranking.RankingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), IListener {
@@ -47,5 +47,9 @@ class MainActivity : AppCompatActivity(), IListener {
             apply()
         }
         recordText.text = getString(R.string.record, newHighScore.toString())
+    }
+
+    override fun showNewRecordFragment() {
+        TODO("Not yet implemented")
     }
 }

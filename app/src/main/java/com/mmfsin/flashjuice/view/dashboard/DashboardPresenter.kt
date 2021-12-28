@@ -1,17 +1,21 @@
-package com.mmfsin.flashjuice.dashboard
+package com.mmfsin.flashjuice.view.dashboard
 
 import android.content.Context
 import android.os.CountDownTimer
 import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
-import com.mmfsin.flashjuice.dashboard.helper.DashBoardHelper
-import com.mmfsin.flashjuice.dashboard.helper.EndGameHelper
+import com.mmfsin.flashjuice.repository.FirebaseRepo
+import com.mmfsin.flashjuice.view.dashboard.helper.DashBoardHelper
+import com.mmfsin.flashjuice.view.dashboard.helper.EndGameHelper
+import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
 
-class DashboardPresenter(private val view: DashboardView) {
+class DashboardPresenter(private val view: DashboardView) : FirebaseRepo.IRanking {
 
     private val helper by lazy { DashBoardHelper() }
     private val endGameHelper by lazy { EndGameHelper() }
+
+    private val repository by lazy { FirebaseRepo(this) }
 
     private fun clickableImages(images: List<ImageView>, isClickable: Boolean) =
         helper.clickableImages(images, isClickable)
@@ -70,10 +74,11 @@ class DashboardPresenter(private val view: DashboardView) {
         }.start()
     }
 
-    fun updateUI(life: Int, numJuices: Int) {
+    fun updateUI(life: Int, numJuices: Int, level: Int) {
         if (life <= 0) {
             view.showBadResult(View.VISIBLE)
             view.checkHighScore(true)
+            repository.getRankingLevels(level)
         }
         if (numJuices == 5) {
             view.checkHighScore(false)
@@ -89,4 +94,16 @@ class DashboardPresenter(private val view: DashboardView) {
     fun setJuiceErrors(endJuices: List<ImageView>, numJuices: Int) {
         endGameHelper.setJuiceErrors(endJuices, numJuices)
     }
+
+    override fun returnTopLevels(level: Int, levels: List<Long>) {
+        for (recordLevel in levels) {
+            if (level > recordLevel) {
+                view.showNewRecordFragment()
+                break
+            }
+        }
+    }
+
+    override fun returnRecords(records: List<RecordDTO>) {}
+    override fun resultKo() {}
 }

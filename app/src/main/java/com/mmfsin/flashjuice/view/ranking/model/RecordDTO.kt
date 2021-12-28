@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.ranking.model
+package com.mmfsin.flashjuice.view.ranking.model
 
 data class RecordDTO(
     val name: String? = "",

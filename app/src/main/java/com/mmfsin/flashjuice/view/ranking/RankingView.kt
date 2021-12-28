@@ -1,6 +1,6 @@
-package com.mmfsin.flashjuice.ranking
+package com.mmfsin.flashjuice.view.ranking
 
-import com.mmfsin.flashjuice.ranking.model.RecordDTO
+import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
 
 interface RankingView {
     fun fillRecyclerViewData(records: List<RecordDTO>)

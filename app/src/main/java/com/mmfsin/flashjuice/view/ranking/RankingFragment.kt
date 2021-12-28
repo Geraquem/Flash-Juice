@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.ranking
+package com.mmfsin.flashjuice.view.ranking
 
 import android.content.Context
 import android.os.Bundle
@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mmfsin.flashjuice.R
-import com.mmfsin.flashjuice.ranking.adapter.RViewAdapter
-import com.mmfsin.flashjuice.ranking.model.RecordDTO
+import com.mmfsin.flashjuice.view.ranking.adapter.RViewAdapter
+import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
 import kotlinx.android.synthetic.main.fragment_ranking.*
 
 class RankingFragment : Fragment(), RankingView {
