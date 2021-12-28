@@ -19,7 +19,7 @@ class RViewAdapter(private var records: List<RecordDTO>) :
     }
 
     override fun onBindViewHolder(holder: RecordHolder, position: Int) {
-        holder.bind(records[position])
+        holder.bind(records[position], position)
     }
 
     override fun getItemCount() = when {
@@ -29,7 +29,9 @@ class RViewAdapter(private var records: List<RecordDTO>) :
 
     class RecordHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val bdg = RowRankingBinding.bind(view)
-        fun bind(record: RecordDTO) {
+        fun bind(record: RecordDTO, position: Int) {
+            val positionStr = (position + 1).toString() + "."
+            bdg.recordPosition.text = positionStr
             bdg.recordName.text = record.name
             bdg.recordLevel.text = record.level.toString()
         }

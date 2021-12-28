@@ -4,16 +4,17 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.mmfsin.flashjuice.ranking.model.RecordDTO
+import java.util.*
 
 class RankingInteractor(private val listener: IRanking) : Fragment() {
 
     fun getRanking() {
-        Firebase.database.reference.child("records").get().addOnSuccessListener {
+        Firebase.database.reference.child("records").get().addOnSuccessListener { it ->
             val records = mutableListOf<RecordDTO>()
             for (record in it.children) {
                 records.add(RecordDTO(record.key, record.value as Long))
             }
-            listener.resultOk(records)
+            listener.resultOk(records.sortedByDescending { it.level })
         }.addOnFailureListener {
             listener.resultKo()
         }
