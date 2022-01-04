@@ -5,14 +5,17 @@
       <map>
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/back.xml" value="0.3828125" />
+        <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/bg_edit_text_new_record.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/bg_next_level.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/bg_ranking.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/bg_record.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_back.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_black_circle.xml" value="0.3828125" />
+        <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_checked_svgrepo_com.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_cross.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_heart.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_juice.xml" value="0.3828125" />
+        <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_new_record_cancel.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_next_level.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_poison.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/ic_poison_five.xml" value="0.3828125" />
@@ -29,6 +32,7 @@
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/drawable/retry.xml" value="0.3828125" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/layout/fragment_dashboard.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/layout/fragment_new_record.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/layout/fragment_ranking.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/layout/fragment_records.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gershon/Desktop/projects/FlashJuice/app/src/main/res/layout/fragment_start.xml" value="0.36666666666666664" />

@@ -47,4 +47,8 @@
     <string name="nameRanking">NOMBRE</string>
     <string name="levelRanking">NIVEL</string>
 
+    <string name="newWorldRecord">¡NUEVO RECORD MUNDIAL!</string>
+    <string name="levelNewRecord">NIVEL ALCANZADO: %1$s</string>
+    <string name="hintNameNewRecord">INTRODUCE TU NOMBRE</string>
+
 </resources>

@@ -2,14 +2,82 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#9AE4E1E1"
     android:clickable="true"
     android:focusable="true">
 
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NEW RECORD FRAGMENT" />
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="25dp"
+        android:background="@drawable/bg_ranking"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/rich"
+            android:gravity="center"
+            android:text="@string/newWorldRecord"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/levelNewRecord"
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="50dp"
+            android:autofillHints="name"
+            android:background="@drawable/bg_edit_text_new_record"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="@string/hintNameNewRecord"
+            android:inputType="textPersonName"
+            android:lines="1"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/okButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="0.5"
+                android:contentDescription="@string/contentDescription"
+                android:src="@drawable/ic_new_record_cancel" />
+
+            <ImageView
+                android:id="@+id/cancelButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="0.5"
+                android:contentDescription="@string/contentDescription"
+                android:src="@drawable/ic_new_record_ok" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -13,6 +13,7 @@ class FirebaseRepo(private val listener: IRanking) {
                 records.add(RecordDTO(record.key, record.value as Long))
             }
             listener.returnRecords(records.sortedByDescending { it.level })
+
         }.addOnFailureListener {
             listener.resultKo()
         }
@@ -25,6 +26,7 @@ class FirebaseRepo(private val listener: IRanking) {
                 levels.add(record.value as Long)
             }
             listener.returnTopLevels(level, levels.sortedByDescending { it })
+
         }.addOnFailureListener {
             listener.resultKo()
         }
