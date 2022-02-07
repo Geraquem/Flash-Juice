@@ -33,7 +33,7 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
     private lateinit var goodPhrases: List<String>
     private lateinit var badPhrases: List<String>
 
-    private var level = 1
+    private var level = 56
     private var lifes = 5
     private var numJuices = 0
 

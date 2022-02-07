@@ -15,7 +15,10 @@ class NewRecordPresenter(val view: NewRecordView) : FirebaseRepo.IRanking {
         view.newRecordWrote()
     }
 
+    override fun somethingWentWrong() {
+        view.somethingWentWrong()
+    }
+
     override fun returnRecords(records: List<RecordDTO>) {}
     override fun returnTopLevels(level: Int, levels: List<Long>) {}
-    override fun resultKo() {}
 }

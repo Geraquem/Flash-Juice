@@ -16,7 +16,7 @@ class RankingPresenter(val view: RankingView) : FirebaseRepo.IRanking {
         view.fillRecyclerViewData(records)
     }
 
-    override fun resultKo() {
+    override fun somethingWentWrong() {
         view.showMessageError()
     }
 

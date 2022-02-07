@@ -14,7 +14,7 @@ class FirebaseRepo(private val listener: IRanking) {
             }
             listener.returnRecords(records.sortedByDescending { it.level })
         }.addOnFailureListener {
-            listener.resultKo()
+            listener.somethingWentWrong()
         }
     }
 
@@ -26,7 +26,7 @@ class FirebaseRepo(private val listener: IRanking) {
             }
             listener.returnTopLevels(level, levels.sortedByDescending { it })
         }.addOnFailureListener {
-            listener.resultKo()
+            listener.somethingWentWrong()
         }
     }
 
@@ -39,7 +39,7 @@ class FirebaseRepo(private val listener: IRanking) {
             val sortedRecords = records.sortedByDescending { it.level }
             writeNewRecord(userName, level, sortedRecords)
         }.addOnFailureListener {
-            listener.resultKo()
+            listener.somethingWentWrong()
         }
     }
 
@@ -47,13 +47,11 @@ class FirebaseRepo(private val listener: IRanking) {
         val reference = Firebase.database.reference.child("records")
 
         val lowestRecord = records.last()
-        println("---------------------------------------------- ****")
-        println(lowestRecord)
-
         lowestRecord.name?.let { reference.child(it).removeValue() }
         reference.child(userName).setValue(level).addOnCompleteListener {
             when{
                 it.isSuccessful -> listener.newRecordWrote()
+                else -> listener.somethingWentWrong()
             }
         }
     }
@@ -62,6 +60,6 @@ class FirebaseRepo(private val listener: IRanking) {
         fun returnRecords(records: List<RecordDTO>)
         fun returnTopLevels(level: Int, levels: List<Long>)
         fun newRecordWrote()
-        fun resultKo()
+        fun somethingWentWrong()
     }
 }

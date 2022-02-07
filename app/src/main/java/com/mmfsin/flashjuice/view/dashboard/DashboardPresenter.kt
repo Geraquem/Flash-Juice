@@ -106,5 +106,5 @@ class DashboardPresenter(private val view: DashboardView) : FirebaseRepo.IRankin
 
     override fun returnRecords(records: List<RecordDTO>) {}
     override fun newRecordWrote() {}
-    override fun resultKo() {}
+    override fun somethingWentWrong() {}
 }
