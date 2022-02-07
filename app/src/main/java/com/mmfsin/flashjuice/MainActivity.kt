@@ -11,6 +11,7 @@ import com.mmfsin.flashjuice.view.ranking.RankingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), IListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -42,8 +43,15 @@ class MainActivity : AppCompatActivity(), IListener {
         recordText.text = getString(R.string.record, newHighScore.toString())
     }
 
-    override fun showNewRecordFragment() {
+    override fun showNewRecordFragment(level: Int) {
         supportFragmentManager.popBackStack()
-        goToFragment(NewRecordFragment())
+        goToFragment(NewRecordFragment(this, level))
+    }
+
+    override fun closeNewRecordFragment(goToRecordsFragment: Boolean) {
+        supportFragmentManager.popBackStack()
+        if(goToRecordsFragment){
+            goToFragment(RankingFragment())
+        }
     }
 }

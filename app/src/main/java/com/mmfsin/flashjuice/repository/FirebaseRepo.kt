@@ -13,7 +13,6 @@ class FirebaseRepo(private val listener: IRanking) {
                 records.add(RecordDTO(record.key, record.value as Long))
             }
             listener.returnRecords(records.sortedByDescending { it.level })
-
         }.addOnFailureListener {
             listener.resultKo()
         }
@@ -26,15 +25,43 @@ class FirebaseRepo(private val listener: IRanking) {
                 levels.add(record.value as Long)
             }
             listener.returnTopLevels(level, levels.sortedByDescending { it })
-
         }.addOnFailureListener {
             listener.resultKo()
+        }
+    }
+
+    fun setNewRecord(userName: String, level: Int) {
+        Firebase.database.reference.child("records").get().addOnSuccessListener { it ->
+            val records = mutableListOf<RecordDTO>()
+            for (record in it.children) {
+                records.add(RecordDTO(record.key, record.value as Long))
+            }
+            val sortedRecords = records.sortedByDescending { it.level }
+            writeNewRecord(userName, level, sortedRecords)
+        }.addOnFailureListener {
+            listener.resultKo()
+        }
+    }
+
+    private fun writeNewRecord(userName: String, level: Int, records: List<RecordDTO>) {
+        val reference = Firebase.database.reference.child("records")
+
+        val lowestRecord = records.last()
+        println("---------------------------------------------- ****")
+        println(lowestRecord)
+
+        lowestRecord.name?.let { reference.child(it).removeValue() }
+        reference.child(userName).setValue(level).addOnCompleteListener {
+            when{
+                it.isSuccessful -> listener.newRecordWrote()
+            }
         }
     }
 
     interface IRanking {
         fun returnRecords(records: List<RecordDTO>)
         fun returnTopLevels(level: Int, levels: List<Long>)
+        fun newRecordWrote()
         fun resultKo()
     }
 }

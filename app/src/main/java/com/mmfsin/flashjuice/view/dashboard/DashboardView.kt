@@ -14,6 +14,6 @@ interface DashboardView {
     fun showGoodResult(view: Int)
     fun showBadResult(view: Int)
 
-    fun checkHighScore(isGameEnd: Boolean)
-    fun showNewRecordFragment()
+    fun checkHighScore(isEndGame: Boolean)
+    fun showNewRecordFragment(level: Int)
 }

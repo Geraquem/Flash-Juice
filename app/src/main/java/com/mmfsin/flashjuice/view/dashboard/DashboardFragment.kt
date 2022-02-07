@@ -134,7 +134,6 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
                 poison2TAG -> image.setImageResource(R.drawable.ic_poison_two)
                 else -> image.setImageResource(R.drawable.ic_poison_three)
             }
-
         }
         image.isClickable = false
         presenter.updateUI(lifes, numJuices, level)
@@ -153,17 +152,17 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
         badResult.visibility = view
     }
 
-    override fun checkHighScore(isGameEnd: Boolean) {
+    override fun checkHighScore(isEndGame: Boolean) {
         if (level > savedHighScore) {
             listener.putNewHighScore(level)
-            if (isGameEnd) {
+            if (isEndGame) {
                 Toast.makeText(mContext, getString(R.string.newRecord), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    override fun showNewRecordFragment() {
-        listener.showNewRecordFragment()
+    override fun showNewRecordFragment(level: Int) {
+        listener.showNewRecordFragment(level)
     }
 
     override fun onAttach(context: Context) {

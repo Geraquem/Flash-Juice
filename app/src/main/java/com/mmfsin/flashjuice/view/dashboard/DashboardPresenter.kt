@@ -54,8 +54,8 @@ class DashboardPresenter(private val view: DashboardView) : FirebaseRepo.IRankin
 
         val poisons = helper.getPoisonList(juices)
         when {
-            level < 2 -> view.putPoisons(poisons, 0)
-            level < 3 -> view.putPoisons(poisons, 1)
+            level < 5 -> view.putPoisons(poisons, 0)
+            level < 10 -> view.putPoisons(poisons, 1)
             else -> view.putPoisons(poisons, 2)
         }
 
@@ -97,13 +97,14 @@ class DashboardPresenter(private val view: DashboardView) : FirebaseRepo.IRankin
 
     override fun returnTopLevels(level: Int, levels: List<Long>) {
         for (recordLevel in levels) {
-            if (level > recordLevel) {
-                view.showNewRecordFragment()
+            if (level >= recordLevel) {
+                view.showNewRecordFragment(level)
                 break
             }
         }
     }
 
     override fun returnRecords(records: List<RecordDTO>) {}
+    override fun newRecordWrote() {}
     override fun resultKo() {}
 }

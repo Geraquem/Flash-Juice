@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.mmfsin.flashjuice.IListener
 import com.mmfsin.flashjuice.R
+import kotlinx.android.synthetic.main.fragment_new_record.*
 
-class NewRecordFragment() : Fragment(), NewRecordView {
+class NewRecordFragment(val listener: IListener, val level: Int) : Fragment(), NewRecordView {
 
     private lateinit var mContext: Context
 
@@ -25,6 +27,20 @@ class NewRecordFragment() : Fragment(), NewRecordView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        levelReached.text = getString(R.string.levelNewRecord, level.toString())
+
+        cancelButton.setOnClickListener { listener.closeNewRecordFragment(false) }
+
+        okButton.setOnClickListener {
+            if (userName.text.toString() != "") {
+                okButton.isEnabled = false
+                presenter.writeNewRecordFragment(userName.text.toString(), level)
+            }
+        }
+    }
+
+    override fun newRecordWrote() {
+        listener.closeNewRecordFragment(true)
     }
 
     override fun onAttach(context: Context) {

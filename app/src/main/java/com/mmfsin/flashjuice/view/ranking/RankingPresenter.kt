@@ -21,4 +21,5 @@ class RankingPresenter(val view: RankingView) : FirebaseRepo.IRanking {
     }
 
     override fun returnTopLevels(level: Int, levels: List<Long>) {}
+    override fun newRecordWrote() {}
 }
