@@ -25,12 +25,12 @@
             android:gravity="center"
             android:text="@string/bestScore"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="25sp"/>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0.75dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:background="@color/black" />
 
         <LinearLayout
@@ -49,13 +49,14 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:contentDescription="@string/contentDescription"
-                android:src="@drawable/ic_poison_one" />
+                android:src="@drawable/ic_poison_two" />
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:contentDescription="@string/contentDescription"
-                android:src="@drawable/ic_poison_two" />
+                android:src="@drawable/ic_poison_one" />
+
 
             <ImageView
                 android:layout_width="40dp"
@@ -116,11 +117,11 @@
 
         <ProgressBar
             android:id="@+id/loading"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_margin="40dp"
-            android:progressTint="@color/black" />
+            android:indeterminateTint="@color/black" />
 
     </LinearLayout>
 

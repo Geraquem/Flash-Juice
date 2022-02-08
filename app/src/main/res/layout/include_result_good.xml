@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:clickable="true"
     android:focusable="true">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieGoodResult"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/linearGood"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        app:lottie_rawRes="@raw/good_result" />
+
     <LinearLayout
+        android:id="@+id/linearGood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginHorizontal="20dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -17,28 +29,27 @@
             android:id="@+id/goodResultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="30dp"
             android:fontFamily="@font/result"
             android:gravity="center"
             android:textAllCaps="true"
             android:textColor="@color/green"
-            android:textSize="45sp" />
+            android:textSize="50sp" />
 
         <TextView
             android:id="@+id/goodResultLevelText"
             android:layout_width="wrap_content"
-            android:textColor="@color/black"
             android:layout_height="wrap_content"
-            android:text="@string/levelCompleted"
+            android:layout_marginBottom="5dp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:textSize="18sp"
-            android:layout_marginBottom="5dp"/>
+            android:text="@string/levelCompleted"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
         <include
+            layout="@layout/include_five_juices"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            layout="@layout/include_five_juices" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
@@ -46,15 +57,15 @@
         android:id="@+id/nextLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/bg_next_level"
         android:elevation="5dp"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:layout_alignParentBottom="true"
         android:text="@string/nextLevel"
         android:textColor="@color/white"
         android:textSize="20sp" />

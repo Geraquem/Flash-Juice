@@ -1,6 +1,7 @@
 package com.mmfsin.flashjuice.view.dashboard
 
 import android.content.Context
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +34,7 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
     private lateinit var goodPhrases: List<String>
     private lateinit var badPhrases: List<String>
 
-    private var level = 56
+    private var level = 1
     private var lifes = 5
     private var numJuices = 0
 
@@ -47,6 +48,11 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val animationDrawable = mainBackground.background as AnimationDrawable
+        animationDrawable.setEnterFadeDuration(2000)
+        animationDrawable.setExitFadeDuration(4000)
+        animationDrawable.start()
 
         goodPhrases = presenter.getResultPhrases(mContext, true)
         badPhrases = presenter.getResultPhrases(mContext, false)
@@ -143,6 +149,7 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
         goodResultText.text = presenter.setPhrase(goodPhrases)
         goodResultLevelText.text = getString(R.string.levelCompleted, level.toString())
         goodResult.visibility = view
+        lottieGoodResult.playAnimation()
     }
 
     override fun showBadResult(view: Int) {
@@ -150,6 +157,7 @@ class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Frag
         badResultLevelText.text = getString(R.string.levelFailed, level.toString())
         presenter.setJuiceErrors(endJuices, numJuices)
         badResult.visibility = view
+        lottieBadResult.playAnimation()
     }
 
     override fun checkHighScore(isEndGame: Boolean) {
