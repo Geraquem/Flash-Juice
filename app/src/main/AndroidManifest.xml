@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_flash_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FlashJuice">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4515698012373396~6482281123"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

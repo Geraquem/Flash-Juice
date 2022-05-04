@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.include_result_bad.view.*
 import kotlinx.android.synthetic.main.include_result_good.*
 import kotlinx.android.synthetic.main.include_result_good.view.*
 
-class DashboardFragment(val listener: IListener, val savedHighScore: Int) : Fragment(),
+class DashboardFragment(private val listener: IListener, private val savedHighScore: Int) : Fragment(),
     DashboardView {
 
     private val juiceTAG = "JUICE"

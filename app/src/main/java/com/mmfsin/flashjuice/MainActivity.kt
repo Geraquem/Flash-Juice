@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.mmfsin.flashjuice.view.dashboard.DashboardFragment
 import com.mmfsin.flashjuice.view.newrecord.NewRecordFragment
 import com.mmfsin.flashjuice.view.ranking.RankingFragment
@@ -15,6 +17,10 @@ class MainActivity : AppCompatActivity(), IListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        MobileAds.initialize(this) {}
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         val savedHighScore = getLevelRecord()
         recordText.text = getString(R.string.record, savedHighScore.toString())
