@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+            ads:adUnitId="ca-app-pub-4515698012373396/1011049328" />
 
     </FrameLayout>
 
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/frameAd"
-        android:background="#D7D8D0D0"
+        android:background="#DFD8D0D0"
         android:contentDescription="@string/contentDescription" />
 
     <ImageView
@@ -75,7 +75,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="12dp"
             android:fontFamily="@font/rich"
             android:gravity="center"
             android:text="@string/app_name"
@@ -86,7 +86,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="64dp"
             android:orientation="vertical">
 
             <TextView
@@ -116,6 +116,8 @@
         <ImageView
             android:id="@+id/playButton"
             android:layout_width="80dp"
+            android:elevation="6dp"
+            android:clipChildren="false"
             android:layout_height="80dp"
             android:contentDescription="@string/contentDescription"
             android:src="@drawable/play" />
