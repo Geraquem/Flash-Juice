@@ -5,4 +5,6 @@ interface IListener {
     fun showNewRecordFragment(level: Int)
     fun closeNewRecordFragment(goToRecordsFragment: Boolean)
     fun closeKeyboard()
+
+    fun somethingWentWrong()
 }

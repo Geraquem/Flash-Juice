@@ -5,15 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mmfsin.flashjuice.IListener
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.view.ranking.adapter.RViewAdapter
 import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
 import kotlinx.android.synthetic.main.fragment_ranking.*
-
-class RankingFragment : Fragment(), RankingView {
+class RankingFragment(private val listener: IListener) : Fragment(), RankingView {
 
     private lateinit var mContext: Context
 
@@ -44,7 +43,8 @@ class RankingFragment : Fragment(), RankingView {
     }
 
     override fun showMessageError() {
-        Toast.makeText(mContext, getString(R.string.somethingWentWrong), Toast.LENGTH_SHORT).show()
+        presenter.getRanking()
+        listener.somethingWentWrong()
     }
 
     override fun onAttach(context: Context) {
@@ -52,3 +52,4 @@ class RankingFragment : Fragment(), RankingView {
         mContext = context
     }
 }
+

@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.gms.ads.AdRequest
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity(), IListener {
 
         ranking.setOnClickListener {
             ll_main.visibility = View.GONE
-            goToFragment(RankingFragment())
+            goToFragment(RankingFragment(this))
         }
 
         playButton.setOnClickListener { goToFragment(DashboardFragment(this, savedHighScore)) }
@@ -64,7 +65,7 @@ class MainActivity : AppCompatActivity(), IListener {
     override fun closeNewRecordFragment(goToRecordsFragment: Boolean) {
         supportFragmentManager.popBackStack()
         if (goToRecordsFragment) {
-            goToFragment(RankingFragment())
+            goToFragment(RankingFragment(this))
         }
     }
 
@@ -73,6 +74,10 @@ class MainActivity : AppCompatActivity(), IListener {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
             imm?.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    override fun somethingWentWrong() {
+        Toast.makeText(this, getString(R.string.somethingWentWrong), Toast.LENGTH_SHORT).show()
     }
 
     override fun onBackPressed() {
