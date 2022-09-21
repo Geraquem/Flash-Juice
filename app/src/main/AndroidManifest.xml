@@ -14,7 +14,8 @@
             android:value="ca-app-pub-4515698012373396~6482281123" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
