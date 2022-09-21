@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/black">
+        android:background="@color/black"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
+        ads:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
@@ -21,134 +23,152 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-4515698012373396/1011049328" />
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+        <!--            ads:adUnitId="ca-app-pub-4515698012373396/1011049328" />-->
 
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/frameAd"
-        android:layout_marginStart="30dp"
-        android:orientation="horizontal">
-
-        <FrameLayout
-            android:layout_width="25dp"
-            android:layout_height="match_parent"
-            android:background="@color/black" />
-
-        <FrameLayout
-            android:layout_width="25dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"
-            android:background="@color/black" />
-
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/frameAd"
-        android:background="#DFD8D0D0"
-        android:contentDescription="@string/contentDescription" />
-
-    <ImageView
-        android:id="@+id/rankingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/frameAd"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="15dp"
-        android:background="@drawable/bg_button_ranking"
-        android:contentDescription="@string/contentDescription"
-        android:elevation="5dp"
-        android:padding="12dp"
-        android:src="@drawable/ic_ranking" />
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_left"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        ads:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        ads:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        ads:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        ads:layout_constraintGuide_percent="0.8" />
+
+    <include
+        layout="@layout/include_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
+        ads:layout_constraintTop_toBottomOf="@id/frameAd" />
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_linear_main"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:elevation="24dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="24dp"
+        ads:layout_constraintBottom_toBottomOf="@id/gl_bottom"
+        ads:layout_constraintLeft_toLeftOf="@id/gl_left"
+        ads:layout_constraintRight_toRightOf="@id/gl_right"
+        ads:layout_constraintTop_toTopOf="@id/gl_top">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/rich"
             android:gravity="center"
-            android:text="@string/app_name"
+            android:text="@string/app_name_slash"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="50sp" />
+            android:textSize="56sp" />
 
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="64dp"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="@string/findJuices"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="@string/findJuices"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="@string/findJuices2"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="@string/findJuices2"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <include layout="@layout/include_five_juices" />
-
-        </LinearLayout>
+        <include layout="@layout/include_five_juices" />
 
         <ImageView
             android:id="@+id/playButton"
-            android:layout_width="80dp"
-            android:elevation="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="24dp"
             android:clipChildren="false"
-            android:layout_height="80dp"
             android:contentDescription="@string/contentDescription"
-            android:src="@drawable/play" />
+            android:src="@drawable/ic_play_button" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/recordText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:contentDescription="@string/contentDescription"
+                android:drawablePadding="2dp"
+                android:fontFamily="@font/result"
+                android:gravity="center"
+                android:text="@string/record"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                ads:drawableBottomCompat="@drawable/ic_trophy" />
+
+            <TextView
+                android:id="@+id/ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/contentDescription"
+                android:drawablePadding="2dp"
+                android:fontFamily="@font/result"
+                android:gravity="center"
+                android:text="@string/see_records"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                ads:drawableBottomCompat="@drawable/ic_ranking_trophy"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/recordText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/bg_record"
-        android:drawablePadding="8dp"
-        android:elevation="5dp"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="8dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:drawableEndCompat="@drawable/ic_trophy"
-        app:drawableStartCompat="@drawable/ic_trophy" />
-
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainer"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/frameAd"
-        android:elevation="10dp" />
+        android:layout_height="0dp"
+        android:elevation="100dp"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
+        ads:layout_constraintTop_toBottomOf="@id/frameAd" />
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

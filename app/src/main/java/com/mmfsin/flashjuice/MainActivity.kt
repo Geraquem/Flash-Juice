@@ -2,6 +2,7 @@ package com.mmfsin.flashjuice
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -25,13 +26,17 @@ class MainActivity : AppCompatActivity(), IListener {
         val savedHighScore = getLevelRecord()
         recordText.text = getString(R.string.record, savedHighScore.toString())
 
-        rankingButton.setOnClickListener { goToFragment(RankingFragment()) }
+        ranking.setOnClickListener {
+            ll_main.visibility = View.GONE
+            goToFragment(RankingFragment())
+        }
+
         playButton.setOnClickListener { goToFragment(DashboardFragment(this, savedHighScore)) }
     }
 
     private fun goToFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
+            .replace(R.id.fragment_container, fragment)
             .addToBackStack(null).commit()
     }
 
@@ -66,5 +71,10 @@ class MainActivity : AppCompatActivity(), IListener {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
             imm?.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        ll_main.visibility = View.VISIBLE
     }
 }

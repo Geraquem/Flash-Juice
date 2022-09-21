@@ -1,15 +1,18 @@
 <resources>
     <string name="app_name">Flash Juice</string>
 
+    <string name="app_name_slash">Flash\nJuice</string>
+
     <string name="contentDescription">contentDescription</string>
     <string name="somethingWentWrong">Algo ha salido mal :(</string>
 
     <string name="saved_high_score_level">maximo nivel alcanzado</string>
-    <string name="newRecord">¡NUEVO RECORD!</string>
+    <string name="newRecord">¡NUEVO RECORD PERSONAL!</string>
 
     <string name="findJuices">ENCUENTRA LOS</string>
     <string name="findJuices2"><b>5 ZUMOS DE NARANJA</b></string>
-    <string name="record">NIVEL MÁXIMO ALCANZADO: %1$s</string>
+    <string name="see_records">VER RANKING</string>
+    <string name="record">RECORD %1$s</string>
 
     <string name="level">NIVEL %1$s</string>
 
@@ -43,7 +46,7 @@
         <item>LO DE PONERTE GAFAS,\n¿CÓMO LO VES?</item>
     </string-array>
 
-    <string name="bestScore">MEJORES PUNTUACIONES</string>
+    <string name="bestScore">RANKING MUNDIAL</string>
     <string name="nameRanking">NOMBRE</string>
     <string name="levelRanking">NIVEL</string>
 
