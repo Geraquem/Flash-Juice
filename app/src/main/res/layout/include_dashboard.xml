@@ -11,7 +11,7 @@
         android:layout_weight="1">
 
         <ImageView
-            android:id="@+id/i1"
+            android:id="@+id/image1"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -19,7 +19,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i2"
+            android:id="@+id/image2"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -27,7 +27,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i3"
+            android:id="@+id/image3"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -35,47 +35,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i4"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/content_description"
-            android:src="@drawable/ic_black_circle" />
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_weight="1">
-
-        <ImageView
-            android:id="@+id/i5"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/content_description"
-            android:src="@drawable/ic_black_circle" />
-
-        <ImageView
-            android:id="@+id/i6"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/content_description"
-            android:src="@drawable/ic_black_circle" />
-
-        <ImageView
-            android:id="@+id/i7"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.25"
-            android:contentDescription="@string/content_description"
-            android:src="@drawable/ic_black_circle" />
-
-        <ImageView
-            android:id="@+id/i8"
+            android:id="@+id/image4"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -91,7 +51,7 @@
         android:layout_weight="1">
 
         <ImageView
-            android:id="@+id/i9"
+            android:id="@+id/image5"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -99,7 +59,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i10"
+            android:id="@+id/image6"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -107,7 +67,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i11"
+            android:id="@+id/image7"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -115,7 +75,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i12"
+            android:id="@+id/image8"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -131,7 +91,7 @@
         android:layout_weight="1">
 
         <ImageView
-            android:id="@+id/i13"
+            android:id="@+id/image9"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -139,7 +99,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i14"
+            android:id="@+id/image10"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -147,7 +107,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i15"
+            android:id="@+id/image11"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -155,7 +115,47 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i16"
+            android:id="@+id/image12"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/ic_black_circle" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/image13"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/ic_black_circle" />
+
+        <ImageView
+            android:id="@+id/image14"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/ic_black_circle" />
+
+        <ImageView
+            android:id="@+id/image15"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.25"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/ic_black_circle" />
+
+        <ImageView
+            android:id="@+id/image16"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -170,7 +170,7 @@
         android:layout_weight="1">
 
         <ImageView
-            android:id="@+id/i17"
+            android:id="@+id/image17"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -178,7 +178,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i18"
+            android:id="@+id/image18"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -186,7 +186,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i19"
+            android:id="@+id/image19"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"
@@ -194,7 +194,7 @@
             android:src="@drawable/ic_black_circle" />
 
         <ImageView
-            android:id="@+id/i20"
+            android:id="@+id/image20"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="0.25"

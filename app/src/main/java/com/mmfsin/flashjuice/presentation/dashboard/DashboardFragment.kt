@@ -6,12 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.fragment.app.viewModels
+import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BaseFragment
 import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
 import com.mmfsin.flashjuice.domain.models.Difficult
 import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
+import com.mmfsin.flashjuice.domain.models.Positions
+import com.mmfsin.flashjuice.domain.models.Tags.JUICE
 import com.mmfsin.flashjuice.presentation.MainActivity
 import com.mmfsin.flashjuice.presentation.menu.MenuDialog
 import com.mmfsin.flashjuice.utils.countDown
@@ -32,7 +35,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 //    private lateinit var goodPhrases: List<String>
 //    private lateinit var badPhrases: List<String>
 //
-//    private var level = 1
 //    private var lifes = 5
 //    private var numJuices = 0
 
@@ -41,6 +43,10 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private lateinit var mContext: Context
 
     private var difficult: Difficult = NORMAL
+
+    private lateinit var images: List<ImageView>
+    private var level = 1
+    private var duration: Long = 1000
 
     override fun inflateView(
         inflater: LayoutInflater, container: ViewGroup?
@@ -57,17 +63,13 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun showMenuDialog() {
         val menuDialog = MenuDialog { diff ->
             difficult = diff
-            countDown(1000) { startGame() }
+            countDown(10) { viewModel.getImages(binding.table) }
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
     }
 
     override fun setUI() {
         binding.apply { }
-    }
-
-    private fun startGame() {
-        viewModel.getJuices()
     }
 
     override fun setListeners() {
@@ -77,8 +79,46 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     override fun observe() {
         viewModel.event.observe(this) { event ->
             when (event) {
-                is DashboardEvent.ImageHeight -> {}
-                is DashboardEvent.SomethingWentWrong -> error()
+                is DashboardEvent.GetImages -> {
+                    images = event.images
+                    viewModel.getPositions(level)
+                }
+
+                is DashboardEvent.GetPositions -> {
+                    duration = event.positions.duration
+                    startGame(event.positions)
+                }
+
+                is DashboardEvent.SWW -> error()
+            }
+        }
+    }
+
+
+    private fun startGame(positions: Positions) {
+        binding.apply {
+            try {
+                setNonImages()
+                countDown(1000) {
+                    setJuices(positions.juices)
+                    countDown(duration) { setNonImages() }
+                }
+
+            } catch (e: Exception) {
+                error()
+            }
+        }
+    }
+
+    private fun setNonImages() {
+        images.forEach { it.setImageResource(R.drawable.ic_black_circle) }
+    }
+
+    private fun setJuices(juicesPositions: List<Int>) {
+        binding.apply {
+            for (i in juicesPositions) {
+                images[i].setImageResource(R.drawable.ic_juice)
+                images[i].tag = JUICE
             }
         }
     }
