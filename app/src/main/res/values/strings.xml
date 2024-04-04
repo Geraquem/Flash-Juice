@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Flash Juice</string>
+    <string name="app_name">Zumito veloz</string>
     <string name="content_description">contentDescription</string>
 
     <!-- ADS -->
@@ -13,7 +13,11 @@
     <string name="error_description">Inténtalo de nuevo más tarde</string>
     <string name="error_btn">Aceptar</string>
 
-
+    <!-- MENU -->
+    <string name="menu_description">Encuentra los 5 zumitos antes de que les vayan las vitaminas</string>
+    <string name="menu_difficult">Elige la dificultad de juego</string>
+    <string name="menu_normal">Normal</string>
+    <string name="menu_hard">Difícil</string>
 
 
 

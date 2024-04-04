@@ -2,6 +2,7 @@ package com.mmfsin.flashjuice.zzzzzzdelete.view.dashboard
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.mmfsin.flashjuice.base.BaseFragmentNoVM
 import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
 import com.mmfsin.flashjuice.domain.models.Difficult
 import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
+import com.mmfsin.flashjuice.presentation.MainActivity
 import com.mmfsin.flashjuice.presentation.menu.MenuDialog
 import com.mmfsin.flashjuice.utils.countDown
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,7 +44,10 @@ class DashboardFragment : BaseFragmentNoVM<FragmentDashboardBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        countDown(750) { showMenuDialog() }
+        countDown(750) {
+            showMenuDialog()
+//            showBanner()
+        }
     }
 
     private fun showMenuDialog() {
@@ -51,6 +56,14 @@ class DashboardFragment : BaseFragmentNoVM<FragmentDashboardBinding>() {
             Toast.makeText(mContext, difficult.name, Toast.LENGTH_SHORT).show()
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
+    }
+
+    private fun showBanner() {
+        try {
+            (activity as MainActivity).bannerVisibility(true)
+        } catch (e: Exception) {
+            Log.e("BANNER", "Error showing banner")
+        }
     }
 
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

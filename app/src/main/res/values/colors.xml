@@ -14,4 +14,7 @@
     <color name="gray_background">#A3E4E1E1</color>
 
     <color name="cancel">#FD8E8E</color>
+
+    <color name="normal">#9CDCFF</color>
+    <color name="hard">#81B6D3</color>
 </resources>

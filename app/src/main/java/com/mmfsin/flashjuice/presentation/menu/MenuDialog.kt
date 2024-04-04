@@ -14,6 +14,10 @@ class MenuDialog(val difficult: (difficult: Difficult) -> Unit) :
 
     override fun setCustomViewDialog(dialog: Dialog) = bottomViewDialog(dialog)
 
+    override fun setUI() {
+        isCancelable = false
+    }
+
     override fun setListeners() {
         binding.apply {
             btnNormal.setOnClickListener { setDifficult(NORMAL) }
