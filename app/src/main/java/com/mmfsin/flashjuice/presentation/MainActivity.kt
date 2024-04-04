@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun bannerVisibility(visible: Boolean) {
-        val view = if (visible) View.VISIBLE else View.INVISIBLE
+        val view = if (visible) View.VISIBLE else View.GONE
         binding.flBanner.visibility = view
     }
 

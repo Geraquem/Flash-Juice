@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BaseFragment
@@ -14,7 +15,8 @@ import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
 import com.mmfsin.flashjuice.domain.models.Difficult
 import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
 import com.mmfsin.flashjuice.domain.models.Positions
-import com.mmfsin.flashjuice.domain.models.Tags.JUICE
+import com.mmfsin.flashjuice.domain.models.Tags
+import com.mmfsin.flashjuice.domain.models.Tags.*
 import com.mmfsin.flashjuice.presentation.MainActivity
 import com.mmfsin.flashjuice.presentation.menu.MenuDialog
 import com.mmfsin.flashjuice.utils.countDown
@@ -81,6 +83,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
             when (event) {
                 is DashboardEvent.GetImages -> {
                     images = event.images
+                    setImagesListeners()
                     viewModel.getPositions(level)
                 }
 
@@ -98,10 +101,20 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun startGame(positions: Positions) {
         binding.apply {
             try {
-                setNonImages()
+                areImagesClickable(enabled = false)
+                setBlackImages()
                 countDown(1000) {
                     setJuices(positions.juices)
-                    countDown(duration) { setNonImages() }
+                    setPoisons(positions.poisons1, R.drawable.ic_poison_one, POISON1)
+                    positions.poisons2?.let { setPoisons(it, R.drawable.ic_poison_two, POISON2) }
+                    positions.poisons3?.let { setPoisons(it, R.drawable.ic_poison_three, POISON3) }
+                    positions.poisons4?.let { setPoisons(it, R.drawable.ic_error, POISON4) }
+
+                    /** hide again */
+                    countDown(duration) {
+                        setBlackImages()
+                        countDown(100) { areImagesClickable(enabled = true) }
+                    }
                 }
 
             } catch (e: Exception) {
@@ -110,7 +123,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         }
     }
 
-    private fun setNonImages() {
+    private fun setBlackImages() {
         images.forEach { it.setImageResource(R.drawable.ic_black_circle) }
     }
 
@@ -119,6 +132,27 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
             for (i in juicesPositions) {
                 images[i].setImageResource(R.drawable.ic_juice)
                 images[i].tag = JUICE
+            }
+        }
+    }
+
+    private fun setPoisons(poisonsPositions: List<Int>, poisonImage: Int, tag: Tags) {
+        binding.apply {
+            for (i in poisonsPositions) {
+                images[i].setImageResource(poisonImage)
+                images[i].tag = tag
+            }
+        }
+    }
+
+    private fun areImagesClickable(enabled: Boolean) {
+        images.forEach { image -> image.isEnabled = enabled }
+    }
+
+    private fun setImagesListeners() {
+        images.forEach { image ->
+            image.setOnClickListener {
+                Toast.makeText(mContext, image.tag.toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -16,6 +16,9 @@ class MenuDialog(val difficult: (difficult: Difficult) -> Unit) :
 
     override fun setUI() {
         isCancelable = false
+
+        /** delete */
+        setDifficult(NORMAL)
     }
 
     override fun setListeners() {
