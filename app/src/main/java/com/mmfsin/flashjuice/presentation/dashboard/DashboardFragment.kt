@@ -1,23 +1,26 @@
 package com.mmfsin.flashjuice.presentation.dashboard
 
 import android.content.Context
-import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BaseFragment
 import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
 import com.mmfsin.flashjuice.domain.models.Difficult
+import com.mmfsin.flashjuice.domain.models.Difficult.HARD
 import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
 import com.mmfsin.flashjuice.domain.models.Positions
 import com.mmfsin.flashjuice.domain.models.Tags
-import com.mmfsin.flashjuice.domain.models.Tags.*
+import com.mmfsin.flashjuice.domain.models.Tags.JUICE
+import com.mmfsin.flashjuice.domain.models.Tags.POISON1
+import com.mmfsin.flashjuice.domain.models.Tags.POISON2
+import com.mmfsin.flashjuice.domain.models.Tags.POISON3
+import com.mmfsin.flashjuice.domain.models.Tags.POISON4
 import com.mmfsin.flashjuice.presentation.MainActivity
 import com.mmfsin.flashjuice.presentation.menu.MenuDialog
 import com.mmfsin.flashjuice.utils.countDown
@@ -51,6 +54,11 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private var level = 1
     private var duration: Long = 1000
 
+    private var poisonOne: Int = R.drawable.ic_poison_one
+    private var poisonTwo: Int = R.drawable.ic_poison_two
+    private var poisonThree: Int = R.drawable.ic_poison_three
+    private var poisonFour: Int = R.drawable.ic_error
+
     override fun inflateView(
         inflater: LayoutInflater, container: ViewGroup?
     ) = FragmentDashboardBinding.inflate(inflater, container, false)
@@ -66,6 +74,12 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun showMenuDialog() {
         val menuDialog = MenuDialog { diff ->
             difficult = diff
+            if (diff == HARD) {
+                poisonOne = R.drawable.ic_black_circle_trans
+                poisonTwo = R.drawable.ic_black_circle_trans
+                poisonThree = R.drawable.ic_black_circle_trans
+                poisonFour = R.drawable.ic_black_circle_trans
+            }
             countDown(10) { viewModel.getImages(binding.table) }
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
@@ -76,7 +90,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     }
 
     override fun setListeners() {
-        binding.apply { }
+        binding.apply { lifesText.setOnClickListener { viewModel.getPositions(level) } }
     }
 
     override fun observe() {
@@ -105,11 +119,11 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                 areImagesClickable(enabled = false)
                 setBlackImages()
                 countDown(1000) {
+                    setPoisons(positions.poisons1, poisonOne, POISON1)
+                    positions.poisons2?.let { setPoisons(it, poisonTwo, POISON2) }
+                    positions.poisons3?.let { setPoisons(it, poisonThree, POISON3) }
+                    positions.poisons4?.let { setPoisons(it, poisonFour, POISON4) }
                     setJuices(positions.juices)
-                    setPoisons(positions.poisons1, R.drawable.ic_poison_one, POISON1)
-                    positions.poisons2?.let { setPoisons(it, R.drawable.ic_poison_two, POISON2) }
-                    positions.poisons3?.let { setPoisons(it, R.drawable.ic_poison_three, POISON3) }
-                    positions.poisons4?.let { setPoisons(it, R.drawable.ic_error, POISON4) }
 
                     /** hide again */
                     countDown(duration) {
@@ -155,10 +169,10 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
             image.setOnClickListener {
                 val result = when (image.tag) {
                     JUICE -> R.drawable.ic_juice
-                    POISON1 -> R.drawable.ic_poison_one
-                    POISON2 -> R.drawable.ic_poison_two
-                    POISON3 -> R.drawable.ic_poison_three
-                    POISON4 -> R.drawable.ic_error
+                    POISON1 -> poisonOne
+                    POISON2 -> poisonTwo
+                    POISON3 -> poisonThree
+                    POISON4 -> poisonFour
                     else -> R.drawable.ic_error
                 }
                 image.setImageResource(result)

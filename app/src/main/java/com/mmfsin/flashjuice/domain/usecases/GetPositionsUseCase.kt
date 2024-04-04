@@ -12,18 +12,18 @@ class GetPositionsUseCase @Inject constructor() :
 
         val juices = linkedSetOf<Int>()
         var poisons1 = listOf<Int>()
-        val poisons2 = listOf<Int>()
-        val poisons3 = listOf<Int>()
-        val poisons4 = listOf<Int>()
+        var poisons2 = listOf<Int>()
+        var poisons3 = listOf<Int>()
+        var poisons4 = listOf<Int>()
         val duration: Long
-
-        while (juices.size < 5) {
-            juices.add((0..19).random())
-        }
 
         when (params.level) {
             in (1..2) -> {
-                poisons1 = positions.filterNot { e -> e in juices }.toList()
+                poisons1 = randomList(positions, 5)
+                poisons2 = randomList(positions - poisons1.toSet(), 5)
+                poisons3 = randomList(positions - poisons1.toSet() - poisons2.toSet(), 5)
+                poisons4 = positions - poisons1.toSet() - poisons2.toSet() - poisons3.toSet()
+
                 duration = 1000
             }
 
@@ -80,6 +80,10 @@ class GetPositionsUseCase @Inject constructor() :
             }
         }
 
+        while (juices.size < 5) {
+            juices.add((0..19).random())
+        }
+
         return Positions(
             juices = juices.toList(),
             poisons1 = poisons1,
@@ -88,6 +92,10 @@ class GetPositionsUseCase @Inject constructor() :
             poisons4 = poisons4.ifEmpty { null },
             duration = duration
         )
+    }
+
+    private fun randomList(list: List<Int>, quantity: Int): List<Int> {
+        return list.shuffled().take(quantity)
     }
 
     data class Params(
