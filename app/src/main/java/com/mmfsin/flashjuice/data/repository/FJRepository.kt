@@ -1,17 +1,11 @@
 package com.mmfsin.flashjuice.data.repository
 
-import android.content.Context
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.mmfsin.flashjuice.domain.interfaces.IFJRepository
-import com.mmfsin.flashjuice.domain.interfaces.IRealmDatabase
-import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class FJRepository @Inject constructor(
-    @ApplicationContext val context: Context,
-    private val realmDatabase: IRealmDatabase
-) : IFJRepository {
+class FJRepository @Inject constructor() : IFJRepository {
 
     private val reference = Firebase.database.reference
 

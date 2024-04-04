@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.zzzzzzdelete.view.dashboard
+package com.mmfsin.flashjuice.presentation.dashboard
 
 import android.content.Context
 import android.os.Bundle
@@ -7,17 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.mmfsin.flashjuice.base.BaseFragmentNoVM
+import androidx.fragment.app.viewModels
+import com.mmfsin.flashjuice.base.BaseFragment
 import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
 import com.mmfsin.flashjuice.domain.models.Difficult
 import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
 import com.mmfsin.flashjuice.presentation.MainActivity
 import com.mmfsin.flashjuice.presentation.menu.MenuDialog
 import com.mmfsin.flashjuice.utils.countDown
+import com.mmfsin.flashjuice.utils.showErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DashboardFragment : BaseFragmentNoVM<FragmentDashboardBinding>() {
+class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewModel>() {
     //    private val juiceTAG = "JUICE"
 //    private val poison1TAG = "POISON1"
 //    private val poison2TAG = "POISON2"
@@ -35,7 +37,9 @@ class DashboardFragment : BaseFragmentNoVM<FragmentDashboardBinding>() {
 //    private var numJuices = 0
 
 
+    override val viewModel: DashboardViewModel by viewModels()
     private lateinit var mContext: Context
+
     private var difficult: Difficult = NORMAL
 
     override fun inflateView(
@@ -53,9 +57,30 @@ class DashboardFragment : BaseFragmentNoVM<FragmentDashboardBinding>() {
     private fun showMenuDialog() {
         val menuDialog = MenuDialog { diff ->
             difficult = diff
-            Toast.makeText(mContext, difficult.name, Toast.LENGTH_SHORT).show()
+            countDown(1000) { startGame() }
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
+    }
+
+    override fun setUI() {
+        binding.apply { }
+    }
+
+    private fun startGame() {
+        viewModel.getJuices()
+    }
+
+    override fun setListeners() {
+        binding.apply { }
+    }
+
+    override fun observe() {
+        viewModel.event.observe(this) { event ->
+            when (event) {
+                is DashboardEvent.ImageHeight -> {}
+                is DashboardEvent.SomethingWentWrong -> error()
+            }
+        }
     }
 
     private fun showBanner() {
@@ -66,12 +91,9 @@ class DashboardFragment : BaseFragmentNoVM<FragmentDashboardBinding>() {
         }
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        val animationDrawable = mainBackground.background as AnimationDrawable
-//        animationDrawable.setEnterFadeDuration(2000)
-//        animationDrawable.setExitFadeDuration(4000)
-//        animationDrawable.start()
+    private fun error() =
+        activity?.let { it.showErrorDialog { it.onBackPressedDispatcher.onBackPressed() } }
+
 
 //        goodPhrases = presenter.getResultPhrases(mContext, true)
 //        badPhrases = presenter.getResultPhrases(mContext, false)

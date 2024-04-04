@@ -1,6 +1,7 @@
 package com.mmfsin.flashjuice.presentation
 
 import android.content.Context
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setAds()
+        setAnimateBackground()
     }
 
     private fun setAds() {
@@ -30,6 +32,13 @@ class MainActivity : AppCompatActivity() {
         binding.adView.loadAd(adRequest)
         bannerVisibility(visible = false)
         loadInterstitial(AdRequest.Builder().build())
+    }
+
+    private fun setAnimateBackground() {
+        val animationDrawable = binding.ivBackground.background as AnimationDrawable
+        animationDrawable.setEnterFadeDuration(2000)
+        animationDrawable.setExitFadeDuration(4000)
+        animationDrawable.start()
     }
 
     fun closeKeyboard() {
