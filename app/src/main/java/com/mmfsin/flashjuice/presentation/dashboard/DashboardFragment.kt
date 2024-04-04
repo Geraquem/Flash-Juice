@@ -1,6 +1,7 @@
 package com.mmfsin.flashjuice.presentation.dashboard
 
 import android.content.Context
+import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -152,7 +153,16 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun setImagesListeners() {
         images.forEach { image ->
             image.setOnClickListener {
-                Toast.makeText(mContext, image.tag.toString(), Toast.LENGTH_SHORT).show()
+                val result = when (image.tag) {
+                    JUICE -> R.drawable.ic_juice
+                    POISON1 -> R.drawable.ic_poison_one
+                    POISON2 -> R.drawable.ic_poison_two
+                    POISON3 -> R.drawable.ic_poison_three
+                    POISON4 -> R.drawable.ic_error
+                    else -> R.drawable.ic_error
+                }
+                image.setImageResource(result)
+                image.isEnabled = false
             }
         }
     }
