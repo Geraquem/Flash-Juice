@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.view.ranking
+package com.mmfsin.flashjuice.zzzzzzdelete.view.newrecord
 
 import android.content.Context
 import android.os.Bundle
@@ -8,38 +8,34 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.mmfsin.flashjuice.IListener
 import com.mmfsin.flashjuice.R
-import com.mmfsin.flashjuice.view.ranking.adapter.RViewAdapter
-import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
 
-class RankingFragment(private val listener: IListener) : Fragment(), RankingView {
+class NewRecordFragment(private val listener: IListener, val level: Int) : Fragment(),
+    NewRecordView {
 
     private lateinit var mContext: Context
 
-    private val presenter by lazy { RankingPresenter(this) }
-
-    private lateinit var adapter: RViewAdapter
+    private val presenter by lazy { NewRecordPresenter(this) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_ranking, container, false)
+        return inflater.inflate(R.layout.fragment_new_record, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter.getRanking()
-    }
-
-    override fun fillRecyclerViewData(records: List<RecordDTO>) {
 
     }
 
-    override fun showMessageError() {
-        presenter.getRanking()
-        listener.somethingWentWrong()
+    override fun newRecordWrote() {
+        listener.closeNewRecordFragment(true)
+    }
+
+    override fun somethingWentWrong() {
+
     }
 
     override fun onAttach(context: Context) {
@@ -47,4 +43,3 @@ class RankingFragment(private val listener: IListener) : Fragment(), RankingView
         mContext = context
     }
 }
-

@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.view.dashboard
+package com.mmfsin.flashjuice.zzzzzzdelete.view.dashboard
 
 interface DashboardView {
 

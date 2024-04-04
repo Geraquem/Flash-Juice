@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.view.newrecord
+package com.mmfsin.flashjuice.zzzzzzdelete.view.newrecord
 
 interface NewRecordView{
     fun newRecordWrote()

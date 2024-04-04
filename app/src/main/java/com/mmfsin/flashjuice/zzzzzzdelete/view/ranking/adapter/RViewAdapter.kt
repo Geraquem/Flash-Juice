@@ -1,4 +1,4 @@
-package com.mmfsin.flashjuice.view.ranking.adapter
+package com.mmfsin.flashjuice.zzzzzzdelete.view.ranking.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.databinding.RowRankingBinding
-import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
+import com.mmfsin.flashjuice.zzzzzzdelete.view.ranking.model.RecordDTO
 
 class RViewAdapter(private var records: List<RecordDTO>) :
     RecyclerView.Adapter<RViewAdapter.RecordHolder>() {

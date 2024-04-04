@@ -1,7 +1,7 @@
-package com.mmfsin.flashjuice.view.newrecord
+package com.mmfsin.flashjuice.zzzzzzdelete.view.newrecord
 
-import com.mmfsin.flashjuice.repository.FirebaseRepo
-import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
+import com.mmfsin.flashjuice.zzzzzzdelete.repository.FirebaseRepo
+import com.mmfsin.flashjuice.zzzzzzdelete.view.ranking.model.RecordDTO
 
 class NewRecordPresenter(val view: NewRecordView) : FirebaseRepo.IRanking {
 

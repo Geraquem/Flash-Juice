@@ -1,8 +1,8 @@
-package com.mmfsin.flashjuice.repository
+package com.mmfsin.flashjuice.zzzzzzdelete.repository
 
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
+import com.mmfsin.flashjuice.zzzzzzdelete.view.ranking.model.RecordDTO
 
 class FirebaseRepo(private val listener: IRanking) {
 

@@ -1,52 +1,60 @@
-package com.mmfsin.flashjuice.view.dashboard
+package com.mmfsin.flashjuice.zzzzzzdelete.view.dashboard
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import com.mmfsin.flashjuice.R
+import android.widget.Toast
 import com.mmfsin.flashjuice.base.BaseFragmentNoVM
 import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
+import com.mmfsin.flashjuice.domain.models.Difficult
+import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
+import com.mmfsin.flashjuice.presentation.menu.MenuDialog
+import com.mmfsin.flashjuice.utils.countDown
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DashboardFragment: BaseFragmentNoVM<FragmentDashboardBinding>() {
+class DashboardFragment : BaseFragmentNoVM<FragmentDashboardBinding>() {
+    //    private val juiceTAG = "JUICE"
+//    private val poison1TAG = "POISON1"
+//    private val poison2TAG = "POISON2"
+//    private val poison3TAG = "POISON3"
+//
+//    //    private val presenter by lazy { DashboardPresenter(this) }
+//    private lateinit var images: List<ImageView>
+//    private lateinit var endJuices: List<ImageView>
+//
+//    private lateinit var goodPhrases: List<String>
+//    private lateinit var badPhrases: List<String>
+//
+//    private var level = 1
+//    private var lifes = 5
+//    private var numJuices = 0
+
+
+    private lateinit var mContext: Context
+    private var difficult: Difficult = NORMAL
 
     override fun inflateView(
         inflater: LayoutInflater, container: ViewGroup?
     ) = FragmentDashboardBinding.inflate(inflater, container, false)
 
-    private val juiceTAG = "JUICE"
-    private val poison1TAG = "POISON1"
-    private val poison2TAG = "POISON2"
-    private val poison3TAG = "POISON3"
-
-//    private val presenter by lazy { DashboardPresenter(this) }
-    private lateinit var mContext: Context
-
-    private lateinit var images: List<ImageView>
-    private lateinit var endJuices: List<ImageView>
-
-    private lateinit var goodPhrases: List<String>
-    private lateinit var badPhrases: List<String>
-
-    private var level = 1
-    private var lifes = 5
-    private var numJuices = 0
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        countDown(750) { showMenuDialog() }
+    }
 
+    private fun showMenuDialog() {
+        val menuDialog = MenuDialog { diff ->
+            difficult = diff
+            Toast.makeText(mContext, difficult.name, Toast.LENGTH_SHORT).show()
+        }
+        activity?.let { menuDialog.show(it.supportFragmentManager, "") }
+    }
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
 //        val animationDrawable = mainBackground.background as AnimationDrawable
 //        animationDrawable.setEnterFadeDuration(2000)
 //        animationDrawable.setExitFadeDuration(4000)
@@ -73,7 +81,7 @@ class DashboardFragment: BaseFragmentNoVM<FragmentDashboardBinding>() {
 //            lifes = 5
 //            presenter.startGame(images, level)
 //        }
-    }
+//}
 //
 //    override fun updateLevel() {
 ////        levelText.text = getString(R.string.level, level.toString())

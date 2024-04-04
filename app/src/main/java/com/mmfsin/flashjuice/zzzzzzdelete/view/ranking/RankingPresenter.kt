@@ -1,7 +1,7 @@
-package com.mmfsin.flashjuice.view.ranking
+package com.mmfsin.flashjuice.zzzzzzdelete.view.ranking
 
-import com.mmfsin.flashjuice.repository.FirebaseRepo
-import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
+import com.mmfsin.flashjuice.zzzzzzdelete.repository.FirebaseRepo
+import com.mmfsin.flashjuice.zzzzzzdelete.view.ranking.model.RecordDTO
 import java.util.logging.Level
 
 class RankingPresenter(val view: RankingView) : FirebaseRepo.IRanking {

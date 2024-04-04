@@ -2,10 +2,10 @@ package com.mmfsin.flashjuice.base.dialog
 
 import android.app.Dialog
 import android.view.LayoutInflater
-import com.mmfsin.flashjuice.databinding.DialogErrorBinding
 import com.mmfsin.flashjuice.base.BaseDialog
+import com.mmfsin.flashjuice.databinding.DialogErrorBinding
 
-class ErrorDialog : BaseDialog<DialogErrorBinding>() {
+class ErrorDialog(val action: () -> Unit?) : BaseDialog<DialogErrorBinding>() {
 
     override fun inflateView(inflater: LayoutInflater) = DialogErrorBinding.inflate(inflater)
 
@@ -13,7 +13,7 @@ class ErrorDialog : BaseDialog<DialogErrorBinding>() {
 
     override fun setListeners() {
         binding.btnAccept.setOnClickListener {
-            activity?.onBackPressedDispatcher?.onBackPressed()
+            action()
             dismiss()
         }
     }
