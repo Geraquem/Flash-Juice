@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.mmfsin.flashjuice.IListener
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.view.ranking.adapter.RViewAdapter
 import com.mmfsin.flashjuice.view.ranking.model.RecordDTO
-import kotlinx.android.synthetic.main.fragment_ranking.*
+
 class RankingFragment(private val listener: IListener) : Fragment(), RankingView {
 
     private lateinit var mContext: Context
@@ -31,15 +30,11 @@ class RankingFragment(private val listener: IListener) : Fragment(), RankingView
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loading.visibility = View.VISIBLE
         presenter.getRanking()
     }
 
     override fun fillRecyclerViewData(records: List<RecordDTO>) {
-        recyclerView.layoutManager = LinearLayoutManager(mContext)
-        adapter = RViewAdapter(records)
-        recyclerView.adapter = adapter
-        loading.visibility = View.GONE
+
     }
 
     override fun showMessageError() {

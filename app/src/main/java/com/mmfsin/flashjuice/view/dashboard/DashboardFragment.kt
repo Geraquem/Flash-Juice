@@ -1,7 +1,6 @@
 package com.mmfsin.flashjuice.view.dashboard
 
 import android.content.Context
-import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.mmfsin.flashjuice.IListener
 import com.mmfsin.flashjuice.R
-import kotlinx.android.synthetic.main.fragment_dashboard.*
-import kotlinx.android.synthetic.main.include_result_bad.*
-import kotlinx.android.synthetic.main.include_result_bad.view.*
-import kotlinx.android.synthetic.main.include_result_good.*
-import kotlinx.android.synthetic.main.include_result_good.view.*
 
 class DashboardFragment(private val listener: IListener, private val savedHighScore: Int) : Fragment(),
     DashboardView {
@@ -49,10 +43,10 @@ class DashboardFragment(private val listener: IListener, private val savedHighSc
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val animationDrawable = mainBackground.background as AnimationDrawable
-        animationDrawable.setEnterFadeDuration(2000)
-        animationDrawable.setExitFadeDuration(4000)
-        animationDrawable.start()
+//        val animationDrawable = mainBackground.background as AnimationDrawable
+//        animationDrawable.setEnterFadeDuration(2000)
+//        animationDrawable.setExitFadeDuration(4000)
+//        animationDrawable.start()
 
         goodPhrases = presenter.getResultPhrases(mContext, true)
         badPhrases = presenter.getResultPhrases(mContext, false)
@@ -61,28 +55,28 @@ class DashboardFragment(private val listener: IListener, private val savedHighSc
         images = presenter.getImageViewList(mContext, activity)
         presenter.startGame(images, level)
 
-        goodResult.nextLevel.setOnClickListener {
-            showGoodResult(View.GONE)
-            numJuices = 0
-            level++
-            presenter.startGame(images, level)
-        }
-
-        badResult.retryButton.setOnClickListener {
-            showBadResult(View.GONE)
-            numJuices = 0
-            level = 1
-            lifes = 5
-            presenter.startGame(images, level)
-        }
+//        goodResult.nextLevel.setOnClickListener {
+//            showGoodResult(View.GONE)
+//            numJuices = 0
+//            level++
+//            presenter.startGame(images, level)
+//        }
+//
+//        badResult.retryButton.setOnClickListener {
+//            showBadResult(View.GONE)
+//            numJuices = 0
+//            level = 1
+//            lifes = 5
+//            presenter.startGame(images, level)
+//        }
     }
 
     override fun updateLevel() {
-        levelText.text = getString(R.string.level, level.toString())
+//        levelText.text = getString(R.string.level, level.toString())
     }
 
     override fun updateLifes() {
-        lifesText.text = lifes.toString()
+//        lifesText.text = lifes.toString()
     }
 
     override fun putBlackCircles() {
@@ -146,18 +140,18 @@ class DashboardFragment(private val listener: IListener, private val savedHighSc
     }
 
     override fun showGoodResult(view: Int) {
-        goodResultText.text = presenter.setPhrase(goodPhrases)
-        goodResultLevelText.text = getString(R.string.levelCompleted, level.toString())
-        goodResult.visibility = view
-        lottieGoodResult.playAnimation()
+//        goodResultText.text = presenter.setPhrase(goodPhrases)
+//        goodResultLevelText.text = getString(R.string.levelCompleted, level.toString())
+//        goodResult.visibility = view
+//        lottieGoodResult.playAnimation()
     }
 
     override fun showBadResult(view: Int) {
-        badResultText.text = presenter.setPhrase(badPhrases)
-        badResultLevelText.text = getString(R.string.levelFailed, level.toString())
-        presenter.setJuiceErrors(endJuices, numJuices)
-        badResult.visibility = view
-        lottieBadResult.playAnimation()
+//        badResultText.text = presenter.setPhrase(badPhrases)
+//        badResultLevelText.text = getString(R.string.levelFailed, level.toString())
+//        presenter.setJuiceErrors(endJuices, numJuices)
+//        badResult.visibility = view
+//        lottieBadResult.playAnimation()
     }
 
     override fun checkHighScore(isEndGame: Boolean) {
