@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">Flash Juice</string>
+    <string name="content_description">contentDescription</string>
 
     <string name="app_name_slash">Flash\nJuice</string>
 
-    <string name="contentDescription">contentDescription</string>
+    <!-- ERROR -->
+    <string name="error_title">Ha ocurrido un problema</string>
+    <string name="error_description">Inténtalo de nuevo más tarde</string>
+    <string name="error_btn">Aceptar</string>
+
+
+
+
+
+
+
+
+
     <string name="somethingWentWrong">Algo ha salido mal :(</string>
 
     <string name="saved_high_score_level">maximo nivel alcanzado</string>

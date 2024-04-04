@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="24dp"
             android:clipChildren="false"
-            android:contentDescription="@string/contentDescription"
+            android:contentDescription="@string/content_description"
             android:src="@drawable/ic_play_button" />
 
         <LinearLayout
@@ -134,7 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
-                android:contentDescription="@string/contentDescription"
+                android:contentDescription="@string/content_description"
                 android:drawablePadding="2dp"
                 android:fontFamily="@font/result"
                 android:gravity="center"
@@ -147,7 +147,7 @@
                 android:id="@+id/ranking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/contentDescription"
+                android:contentDescription="@string/content_description"
                 android:drawablePadding="2dp"
                 android:fontFamily="@font/result"
                 android:gravity="center"
