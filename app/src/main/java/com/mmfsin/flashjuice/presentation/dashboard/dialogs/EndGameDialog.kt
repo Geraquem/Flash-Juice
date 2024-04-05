@@ -33,7 +33,7 @@ class EndGameDialog(
     override fun setUI() {
         isCancelable = false
         binding.apply {
-            tvLevelFailed.text = getString(R.string.end_game_last_level, level.toString())
+            tvLevelFailed.text = level.toString()
             val result = if (juicesSuccess == 0) R.string.end_game_none_juices
             else R.string.end_game_not_all_juices
             tvResult.text = getString(result)
@@ -59,8 +59,7 @@ class EndGameDialog(
                 }
 
                 is ResultDialogEvent.GetMyRecord -> {
-                    binding.tvLevelRecord.text =
-                        getString(R.string.end_game_record, event.record.toString())
+                    binding.tvLevelRecord.text = event.record.toString()
                 }
 
                 is ResultDialogEvent.SWW -> {}

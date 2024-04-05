@@ -29,7 +29,7 @@
         android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingTop="16dp"
-        android:paddingBottom="42dp"
+        android:paddingBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/gl_left"
         app:layout_constraintRight_toRightOf="@id/gl_right"
@@ -49,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="24dp"
             android:fontFamily="@font/result"
             android:gravity="center"
@@ -58,27 +59,60 @@
             tools:text="Esperaba más de ti" />
 
         <TextView
-            android:id="@+id/tv_level_failed"
             style="@style/MediumTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="4dp"
+            android:alpha="0.5"
             android:gravity="center"
+            android:text="@string/end_game_last_level"
             android:textAllCaps="true"
-            tools:text="Último nivel superado: 8" />
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tv_level_record"
+            android:id="@+id/tv_level_failed"
             style="@style/MediumTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="24dp"
             android:gravity="center"
             android:textAllCaps="true"
-            android:textSize="14sp"
-            tools:text="Record: 8" />
+            android:textSize="24sp"
+            tools:text="24" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:alpha="0.5"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/MediumTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:text="@string/end_game_record"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/tv_level_record"
+                style="@style/MediumTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAllCaps="true"
+                tools:text="8" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_result"
@@ -98,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="42dp" />
 
         <TextView
             android:id="@+id/btn_start_again"
@@ -107,13 +141,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/bg_white_box"
-            android:backgroundTint="@color/normal"
+            android:backgroundTint="@color/orange"
             android:elevation="6dp"
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
-            android:padding="12dp"
+            android:padding="16dp"
             android:text="@string/end_game_bad_btn"
-            android:textAllCaps="true" />
+            android:textAllCaps="true"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

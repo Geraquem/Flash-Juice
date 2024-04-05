@@ -6,12 +6,12 @@ import com.mmfsin.flashjuice.base.BaseUseCaseNoParams
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class GetBadPhraseUseCase @Inject constructor(
+class GetGoodPhraseUseCase @Inject constructor(
     @ApplicationContext val context: Context
 ) : BaseUseCaseNoParams<String>() {
 
     override suspend fun execute(): String {
-        val badPhrases = context.resources.getStringArray(R.array.badPhrases).toList()
-        return badPhrases.shuffled().random()
+        val goodPhrases = context.resources.getStringArray(R.array.goodPhrases).toList()
+        return goodPhrases.shuffled().random()
     }
 }

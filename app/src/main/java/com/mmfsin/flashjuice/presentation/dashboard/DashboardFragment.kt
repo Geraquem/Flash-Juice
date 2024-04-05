@@ -70,7 +70,9 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                 poisonThree = R.drawable.ic_black_circle_trans
                 poisonFour = R.drawable.ic_black_circle_trans
             }
-            countDown(10) { viewModel.getImages(binding.table) }
+            countDown(10) {
+                showEndDialog()
+                viewModel.getImages(binding.table) }
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
     }

@@ -2,15 +2,25 @@ package com.mmfsin.flashjuice.presentation.dashboard.dialogs
 
 import com.mmfsin.flashjuice.base.BaseViewModel
 import com.mmfsin.flashjuice.domain.usecases.GetBadPhraseUseCase
+import com.mmfsin.flashjuice.domain.usecases.GetGoodPhraseUseCase
 import com.mmfsin.flashjuice.domain.usecases.GetMyRecordUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class ResultDialogViewModel @Inject constructor(
+    private val getGoodPhraseUseCase: GetGoodPhraseUseCase,
     private val getBadPhraseUseCase: GetBadPhraseUseCase,
     private val getMyRecordUseCase: GetMyRecordUseCase
 ) : BaseViewModel<ResultDialogEvent>() {
+
+    fun getGoodPhrase() {
+        executeUseCase(
+            { getGoodPhraseUseCase.execute() },
+            { result -> _event.value = ResultDialogEvent.GetPhrase(result) },
+            { _event.value = ResultDialogEvent.SWW },
+        )
+    }
 
     fun getBadPhrase() {
         executeUseCase(

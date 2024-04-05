@@ -25,60 +25,32 @@
     <!-- END GAME -->
     <string name="end_game_good_btn">Siguiente nivel</string>
     <string name="end_game_bad_btn">Empezar de nuevo</string>
-    <string name="end_game_last_level">Último nivel superado: %s</string>
-    <string name="end_game_record">Record: %s</string>
+    <string name="end_game_last_level">Último nivel superado</string>
+    <string name="end_game_record">Record</string>
     <string name="end_game_not_all_juices">No encontraste todos los zumitos</string>
     <string name="end_game_none_juices">No encontraste ningún zumito</string>
 
-
-    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-    <string name="somethingWentWrong">Algo ha salido mal :(</string>
-
-    <string name="saved_high_score_level">maximo nivel alcanzado</string>
-    <string name="newRecord">¡NUEVO RECORD PERSONAL!</string>
-
-    <string name="findJuices">ENCUENTRA LOS</string>
-    <string name="findJuices2"><b>5 ZUMOS DE NARANJA</b></string>
-    <string name="see_records">VER RANKING</string>
-    <string name="record">RECORD %1$s</string>
-
-
-    <string name="nextLevel">SIGUIENTE NIVEL</string>
-
-    <string name="levelCompleted">NIVEL %1$s COMPLETADO</string>
-    <string name="levelFailed">NIVEL %1$s FALLIDO</string>
-
     <!--  GOOD PHRASES  -->
     <string-array name="goodPhrases">
-        <item>VENGA, A POR EL SIGUIENTE</item>
-        <item>PERFECTÍSIMO</item>
-        <item>¡MUY BIEEEEN!</item>
-        <item>TREMENDÍSIMO</item>
-        <item>GENIAL GENIAL</item>
-        <item>MENUDA VISTA DE LINCE</item>
-        <item>LO TIENES</item>
+        <item>A por el siguiente</item>
+        <item>Perfectísimo</item>
+        <item>¡Muy bien!</item>
+        <item>Molto bene</item>
+        <item>Genial</item>
+        <item>Lo tienes</item>
+        <item>Dale chicha</item>
     </string-array>
 
     <!--  BAD PHRASES  -->
     <string-array name="badPhrases">
-        <item>A VER SI ESTAMOS MÁS AVISPAOS LA PRÓXIMA VEZ</item>
-        <item>NO VES TRES EN UN BURRO ¿EH?</item>
-        <item>QUE DESASTRE…</item>
-        <item>IGUAL DEBERÍAS LLAMAR AL OCULISTA</item>
-        <item>TIENES UNA DESTREZA VISUAL CASI NULA</item>
-        <item>FATAL FATAL FATAL</item>
-        <item>SIEMPRE PUEDES VOLVER A INTENTARLO</item>
-        <item>TODOS SABEMOS QUE HAS HECHO LO QUE HAS PODIDO</item>
-        <item>FRACASO ABSOLUTO</item>
-        <item>LO DE PONERTE GAFAS,\n¿CÓMO LO VES?</item>
+        <item>No ves tres en un burro</item>
+        <item>Que desastre</item>
+        <item>Hora de llamar al oculista</item>
+        <item>Horrible</item>
+        <item>Volver a intentarlo</item>
+        <item>Has hecho lo que has podido</item>
+        <item>Lo has intentado</item>
+        <item>Fracaso absoluto</item>
     </string-array>
-
-    <string name="bestScore">RANKING MUNDIAL</string>
-    <string name="nameRanking">NOMBRE</string>
-    <string name="levelRanking">NIVEL</string>
-
-    <string name="newWorldRecord">¡NUEVO RECORD MUNDIAL!</string>
-    <string name="levelNewRecord">NIVEL ALCANZADO: %1$s</string>
-    <string name="hintNameNewRecord">INTRODUCE TU NOMBRE</string>
 
 </resources>
