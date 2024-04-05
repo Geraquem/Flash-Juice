@@ -101,7 +101,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     override fun setListeners() {
         binding.apply {
-            toolbar.ivHome.setOnClickListener { showMenuDialog() }
+            toolbar.ivHome.setOnClickListener { activity?.recreate() }
         }
     }
 
@@ -130,7 +130,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                 setLevelText()
                 areImagesClickable(enabled = false)
                 setBlackImages()
-                countDown(1200) {
+                countDown(800) {
                     setPoisons(positions.poisons1, poisonOne, POISON1)
                     positions.poisons2?.let { setPoisons(it, poisonTwo, POISON2) }
                     positions.poisons3?.let { setPoisons(it, poisonThree, POISON3) }

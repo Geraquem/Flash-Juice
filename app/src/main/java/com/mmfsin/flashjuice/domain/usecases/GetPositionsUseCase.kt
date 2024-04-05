@@ -19,64 +19,66 @@ class GetPositionsUseCase @Inject constructor() :
 
         when (params.level) {
             in (1..2) -> {
-                poisons1 = randomList(positions, 5)
-                poisons2 = randomList(positions - poisons1.toSet(), 5)
-                poisons3 = randomList(positions - poisons1.toSet() - poisons2.toSet(), 5)
-                poisons4 = positions - poisons1.toSet() - poisons2.toSet() - poisons3.toSet()
-
+                poisons1 = randomList(positions, 20)
                 duration = 1000
             }
 
             in (3..4) -> {
-                duration = 850
+                duration = 800
+                poisons1 = randomList(positions, 15)
+                poisons2 = randomList(positions - poisons1.toSet(), 5)
             }
 
             in (5..6) -> {
-                duration = 800
+                duration = 700
+                poisons1 = randomList(positions, 10)
+                poisons2 = randomList(positions - poisons1.toSet(), 10)
             }
 
             in (7..8) -> {
-                duration = 750
+                poisons1 = randomList(positions, 10)
+                poisons2 = randomList(positions - poisons1.toSet(), 7)
+                poisons3 = randomList(positions - poisons1.toSet() - poisons2.toSet(), 3)
+                duration = 500
             }
 
-            in (9..11) -> {
-                duration = 700
+            in (9..10) -> {
+                poisons1 = randomList(positions, 10)
+                poisons2 = randomList(positions - poisons1.toSet(), 10)
+                poisons3 = randomList(positions - poisons1.toSet() - poisons2.toSet(), 10)
+                duration = 400
             }
 
-            in (12..16) -> {
-                duration = 630
-            }
-
-            in (17..18) -> {
-                duration = 560
-            }
-
-            in (19..20) -> {
-                duration = 450
-            }
-
-            in (20..21) -> {
-                duration = 330
-            }
-
-            in (22..23) -> {
+            in (11..12) -> {
+                poisons1 = randomList(positions, 9)
+                poisons2 = randomList(positions - poisons1.toSet(), 6)
+                poisons3 = randomList(positions - poisons1.toSet() - poisons2.toSet(), 3)
+                poisons4 = positions - poisons1.toSet() - poisons2.toSet() - poisons3.toSet() //2
                 duration = 250
             }
 
-            in (23..24) -> {
+            in (13..14) -> {
+                poisons1 = randomList(positions, 5)
+                poisons2 = randomList(positions - poisons1.toSet(), 5)
+                poisons3 = randomList(positions - poisons1.toSet() - poisons2.toSet(), 5)
+                poisons4 = positions - poisons1.toSet() - poisons2.toSet() - poisons3.toSet()
                 duration = 200
             }
 
-            in (25..26) -> {
-                duration = 160
-            }
-
-            in (27..29) -> {
-                duration = 155
+            in (15..16) -> {
+                poisons1 = randomList(positions, 5)
+                poisons2 = randomList(positions - poisons1.toSet(), 5)
+                poisons3 = randomList(positions - poisons1.toSet() - poisons2.toSet(), 5)
+                poisons4 = positions - poisons1.toSet() - poisons2.toSet() - poisons3.toSet()
+                duration = 150
             }
 
             else -> {
-                duration = 145
+                poisons1 = randomList(positions, 5)
+                poisons2 = randomList(positions - poisons1.toSet(), 5)
+                poisons3 = randomList(positions - poisons1.toSet() - poisons2.toSet(), 5)
+                poisons4 = positions - poisons1.toSet() - poisons2.toSet() - poisons3.toSet()
+                duration = 140
             }
         }
 
