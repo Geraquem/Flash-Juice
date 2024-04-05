@@ -14,6 +14,9 @@ import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
 import com.mmfsin.flashjuice.domain.models.Difficult
 import com.mmfsin.flashjuice.domain.models.Difficult.HARD
 import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
+import com.mmfsin.flashjuice.domain.models.GameEnd
+import com.mmfsin.flashjuice.domain.models.GameEnd.LOOSER
+import com.mmfsin.flashjuice.domain.models.GameEnd.WINNER
 import com.mmfsin.flashjuice.domain.models.Positions
 import com.mmfsin.flashjuice.domain.models.Tags
 import com.mmfsin.flashjuice.domain.models.Tags.JUICE
@@ -22,13 +25,16 @@ import com.mmfsin.flashjuice.domain.models.Tags.POISON2
 import com.mmfsin.flashjuice.domain.models.Tags.POISON3
 import com.mmfsin.flashjuice.domain.models.Tags.POISON4
 import com.mmfsin.flashjuice.presentation.MainActivity
+import com.mmfsin.flashjuice.presentation.dashboard.dialogs.GameEndDialog
+import com.mmfsin.flashjuice.presentation.dashboard.listeners.IGameEndListener
 import com.mmfsin.flashjuice.presentation.menu.MenuDialog
 import com.mmfsin.flashjuice.utils.countDown
 import com.mmfsin.flashjuice.utils.showErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewModel>() {
+class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewModel>(),
+    IGameEndListener {
     //    private val juiceTAG = "JUICE"
 //    private val poison1TAG = "POISON1"
 //    private val poison2TAG = "POISON2"
@@ -52,7 +58,9 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     private lateinit var images: List<ImageView>
     private var level = 1
+    private var lifes = 5
     private var duration: Long = 1000
+    private var juicesSuccess = 0
 
     private var poisonOne: Int = R.drawable.ic_poison_one
     private var poisonTwo: Int = R.drawable.ic_poison_two
@@ -167,18 +175,57 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun setImagesListeners() {
         images.forEach { image ->
             image.setOnClickListener {
-                val result = when (image.tag) {
-                    JUICE -> R.drawable.ic_juice
-                    POISON1 -> poisonOne
-                    POISON2 -> poisonTwo
-                    POISON3 -> poisonThree
-                    POISON4 -> poisonFour
+                when (image.tag) {
+                    JUICE -> {
+                        image.setImageResource(R.drawable.ic_juice)
+                        juicesSuccess++
+                    }
+
+                    POISON1 -> image.clickOnPoison(poisonOne)
+                    POISON2 -> image.clickOnPoison(poisonTwo)
+                    POISON3 -> image.clickOnPoison(poisonThree)
+                    POISON4 -> image.clickOnPoison(poisonFour)
                     else -> R.drawable.ic_error
                 }
-                image.setImageResource(result)
                 image.isEnabled = false
+                checkIfEndGame()
             }
         }
+    }
+
+    private fun ImageView.clickOnPoison(poisonImage: Int) {
+        this.setImageResource(poisonImage)
+        lifes--
+    }
+
+    private fun checkIfEndGame() {
+        if (juicesSuccess > 4) {
+            areImagesClickable(enabled = false)
+            showEndDialog(WINNER)
+        }
+        if (lifes < 1) {
+            areImagesClickable(enabled = false)
+            showEndDialog(LOOSER)
+        }
+    }
+
+    private fun showEndDialog(result: GameEnd) {
+        val menuDialog = GameEndDialog(result, this@DashboardFragment)
+        activity?.let {
+            countDown(200) { menuDialog.show(it.supportFragmentManager, "") }
+        }
+    }
+
+    override fun nextLevel() {
+        juicesSuccess = 0
+        viewModel.getPositions(level++)
+    }
+
+    override fun restart() {
+        level = 1
+        lifes = 5
+        juicesSuccess = 0
+        viewModel.getPositions(level)
     }
 
     private fun showBanner() {
