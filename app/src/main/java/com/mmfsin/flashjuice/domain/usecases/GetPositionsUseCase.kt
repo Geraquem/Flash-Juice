@@ -11,7 +11,7 @@ class GetPositionsUseCase @Inject constructor() :
         val positions = (0..19).toList()
 
         val juices = linkedSetOf<Int>()
-        var poisons1 = listOf<Int>()
+        var poisons1: List<Int>
         var poisons2 = listOf<Int>()
         var poisons3 = listOf<Int>()
         var poisons4 = listOf<Int>()
@@ -20,17 +20,17 @@ class GetPositionsUseCase @Inject constructor() :
         when (params.level) {
             in (1..2) -> {
                 poisons1 = randomList(positions, 20)
-                duration = 1000
+                duration = 700
             }
 
             in (3..4) -> {
-                duration = 800
+                duration = 650
                 poisons1 = randomList(positions, 15)
                 poisons2 = randomList(positions - poisons1.toSet(), 5)
             }
 
             in (5..6) -> {
-                duration = 700
+                duration = 550
                 poisons1 = randomList(positions, 10)
                 poisons2 = randomList(positions - poisons1.toSet(), 10)
             }
