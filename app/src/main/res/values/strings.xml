@@ -18,6 +18,8 @@
     <string name="menu_difficult">Elige la dificultad de juego</string>
     <string name="menu_normal">Normal</string>
     <string name="menu_hard">Difícil</string>
+    <string name="menu_ranking_title">Mejores puntuaciones</string>
+    <string name="menu_ranking">Ver ranking</string>
 
     <!-- DASHBOARD -->
     <string name="dashboard_level">Nivel %s</string>
