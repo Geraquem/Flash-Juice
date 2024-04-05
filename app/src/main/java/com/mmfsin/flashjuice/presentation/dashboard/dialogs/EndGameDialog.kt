@@ -14,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class EndGameDialog(
     private val level: Int,
-    val juicesSuccess: Int,
+    private val juicesSuccess: Int,
     private val listener: IGameEndListener
 ) : BaseDialog<DialogEndGameBinding>() {
 

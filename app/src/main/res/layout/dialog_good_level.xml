@@ -28,20 +28,12 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:paddingTop="8dp"
+        android:paddingTop="24dp"
         android:paddingBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/gl_left"
         app:layout_constraintRight_toRightOf="@id/gl_right"
         app:layout_constraintTop_toTopOf="parent">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieBadResult"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/heart_broken" />
 
         <TextView
             android:id="@+id/tv_phrase"
@@ -50,70 +42,36 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/result"
             android:gravity="center"
             android:textAllCaps="true"
-            android:textColor="@color/result_failed"
+            android:textColor="@color/result_success"
             android:textSize="46sp"
-            android:textStyle="bold"
-            tools:text="Esperaba más de ti" />
+            tools:text="A tope" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieBadResult"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/good_result" />
 
         <TextView
+            android:id="@+id/tv_level_success"
             style="@style/MediumTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
-            android:alpha="0.5"
-            android:gravity="center"
-            android:text="@string/end_game_last_level"
-            android:textAllCaps="true"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tv_level_failed"
-            style="@style/MediumTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="24dp"
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:textSize="30sp"
-            tools:text="24" />
-
-        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
-            android:alpha="0.5"
+            android:alpha="0.7"
+            android:fontFamily="@font/result"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/MediumTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:text="@string/end_game_record"
-                android:textAllCaps="true" />
-
-            <TextView
-                android:id="@+id/tv_level_record"
-                style="@style/MediumTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textAllCaps="true"
-                tools:text="8" />
-
-        </LinearLayout>
+            android:textAllCaps="true"
+            android:textSize="42sp"
+            tools:text="@string/good_level_last_level" />
 
         <TextView
             android:id="@+id/tv_result"
@@ -124,12 +82,12 @@
             android:layout_marginBottom="4dp"
             android:alpha="0.5"
             android:gravity="center"
-            android:textAllCaps="true"
-            tools:text="@string/end_game_not_all_juices" />
+            android:text="@string/good_level_all_juices"
+            android:textAllCaps="true" />
 
         <include
             android:id="@+id/juices_result"
-            layout="@layout/include_juices_endgame"
+            layout="@layout/include_five_juices"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -142,12 +100,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/bg_white_box"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/green"
             android:elevation="6dp"
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:padding="16dp"
-            android:text="@string/end_game_bad_btn"
+            android:text="@string/good_level_next_level"
             android:textAllCaps="true"
             android:textColor="@color/black" />
 

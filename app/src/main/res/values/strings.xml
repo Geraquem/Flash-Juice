@@ -25,19 +25,22 @@
     <string name="dashboard_level">Nivel %s</string>
 
     <!-- END GAME -->
-    <string name="end_game_good_btn">Siguiente nivel</string>
     <string name="end_game_bad_btn">Empezar de nuevo</string>
     <string name="end_game_last_level">Último nivel superado</string>
     <string name="end_game_record">Record</string>
     <string name="end_game_not_all_juices">No encontraste todos los zumitos</string>
     <string name="end_game_none_juices">No encontraste ningún zumito</string>
 
+    <!-- GOOD LEVEL -->
+    <string name="good_level_next_level">Siguiente nivel</string>
+    <string name="good_level_all_juices">Todas las vitaminas salvadas</string>
+    <string name="good_level_last_level">Nivel %s superado</string>
+
     <!--  GOOD PHRASES  -->
     <string-array name="goodPhrases">
-        <item>A por el siguiente</item>
         <item>Perfectísimo</item>
-        <item>¡Muy bien!</item>
-        <item>Molto bene</item>
+        <item>Perfecto</item>
+        <item>Muy bien</item>
         <item>Genial</item>
         <item>Lo tienes</item>
         <item>Dale chicha</item>
@@ -49,8 +52,7 @@
         <item>Que desastre</item>
         <item>Hora de llamar al oculista</item>
         <item>Horrible</item>
-        <item>Volver a intentarlo</item>
-        <item>Has hecho lo que has podido</item>
+        <item>Suspenso</item>
         <item>Lo has intentado</item>
         <item>Fracaso absoluto</item>
     </string-array>

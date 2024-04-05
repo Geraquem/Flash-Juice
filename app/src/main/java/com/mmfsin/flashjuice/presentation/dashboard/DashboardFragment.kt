@@ -23,6 +23,7 @@ import com.mmfsin.flashjuice.domain.models.Tags.POISON3
 import com.mmfsin.flashjuice.domain.models.Tags.POISON4
 import com.mmfsin.flashjuice.presentation.MainActivity
 import com.mmfsin.flashjuice.presentation.dashboard.dialogs.EndGameDialog
+import com.mmfsin.flashjuice.presentation.dashboard.dialogs.GoodLevelDialog
 import com.mmfsin.flashjuice.presentation.dashboard.listeners.IGameEndListener
 import com.mmfsin.flashjuice.presentation.menu.MenuDialog
 import com.mmfsin.flashjuice.utils.countDown
@@ -55,7 +56,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        countDown(750) {
+        countDown(350) {
             showMenuDialog()
 //            showBanner()
         }
@@ -70,9 +71,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                 poisonThree = R.drawable.ic_black_circle_trans
                 poisonFour = R.drawable.ic_black_circle_trans
             }
-            countDown(10) {
-                showEndDialog()
-                viewModel.getImages(binding.table) }
+            countDown(100) { viewModel.getImages(binding.table) }
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
     }
@@ -199,15 +198,22 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun checkIfEndGame() {
         if (juicesSuccess > 4) {
             areImagesClickable(enabled = false)
-            showEndDialog()
+            showGoodLevelDialog()
         }
         if (lifes < 1) {
             areImagesClickable(enabled = false)
-            showEndDialog()
+            showEndGameDialog()
         }
     }
 
-    private fun showEndDialog() {
+    private fun showGoodLevelDialog() {
+        val menuDialog = GoodLevelDialog(level, this@DashboardFragment)
+        activity?.let {
+            countDown(200) { menuDialog.show(it.supportFragmentManager, "") }
+        }
+    }
+
+    private fun showEndGameDialog() {
         val menuDialog = EndGameDialog(level, juicesSuccess, this@DashboardFragment)
         activity?.let {
             countDown(200) { menuDialog.show(it.supportFragmentManager, "") }
@@ -238,7 +244,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     private fun error() =
         activity?.let { it.showErrorDialog { it.onBackPressedDispatcher.onBackPressed() } }
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
