@@ -94,11 +94,26 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     }
 
     override fun setUI() {
-        binding.apply { }
+        binding.apply {
+            setLevelText()
+            setLifesText()
+        }
+    }
+
+    private fun setLevelText() {
+        binding.apply {
+            tvLevel.text = getString(R.string.dashboard_level, level.toString())
+        }
+    }
+
+    private fun setLifesText() {
+        binding.tvLifes.text = lifes.toString()
     }
 
     override fun setListeners() {
-        binding.apply { lifesText.setOnClickListener { viewModel.getPositions(level) } }
+        binding.apply {
+            toolbar.ivHome.setOnClickListener { showMenuDialog() }
+        }
     }
 
     override fun observe() {
@@ -124,6 +139,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun startGame(positions: Positions) {
         binding.apply {
             try {
+                setLevelText()
                 areImagesClickable(enabled = false)
                 setBlackImages()
                 countDown(1000) {
@@ -196,6 +212,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun ImageView.clickOnPoison(poisonImage: Int) {
         this.setImageResource(poisonImage)
         lifes--
+        setLifesText()
     }
 
     private fun checkIfEndGame() {
@@ -218,6 +235,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     override fun nextLevel() {
         juicesSuccess = 0
+        setLifesText()
         viewModel.getPositions(level++)
     }
 
@@ -225,6 +243,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         level = 1
         lifes = 5
         juicesSuccess = 0
+        setLifesText()
         viewModel.getPositions(level)
     }
 

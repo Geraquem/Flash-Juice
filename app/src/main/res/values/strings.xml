@@ -19,7 +19,10 @@
     <string name="menu_normal">Normal</string>
     <string name="menu_hard">Difícil</string>
 
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- DASHBOARD -->
+    <string name="dashboard_level">Nivel %s</string>
+
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <string name="somethingWentWrong">Algo ha salido mal :(</string>
 
     <string name="saved_high_score_level">maximo nivel alcanzado</string>
@@ -30,7 +33,6 @@
     <string name="see_records">VER RANKING</string>
     <string name="record">RECORD %1$s</string>
 
-    <string name="level">NIVEL %1$s</string>
 
     <string name="nextLevel">SIGUIENTE NIVEL</string>
 
