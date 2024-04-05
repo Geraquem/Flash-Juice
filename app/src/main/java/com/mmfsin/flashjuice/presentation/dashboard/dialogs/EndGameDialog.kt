@@ -26,7 +26,7 @@ class EndGameDialog(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         observe()
-        viewModel.getMyRecord()
+        viewModel.getBadPhrase()
     }
 
     override fun setUI() {
@@ -48,6 +48,11 @@ class EndGameDialog(
     private fun observe() {
         viewModel.event.observe(this) { event ->
             when (event) {
+                is ResultDialogEvent.GetPhrase -> {
+                    binding.tvPhrase.text = event.phrase
+                    viewModel.getMyRecord()
+                }
+
                 is ResultDialogEvent.GetMyRecord -> {
                     binding.tvLevelRecord.text =
                         getString(R.string.end_game_record, event.record.toString())
