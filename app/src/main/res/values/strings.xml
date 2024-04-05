@@ -28,6 +28,7 @@
     <string name="end_game_last_level">Último nivel superado: %s</string>
     <string name="end_game_record">Record: %s</string>
     <string name="end_game_not_all_juices">No encontraste todos los zumitos</string>
+    <string name="end_game_none_juices">No encontraste ningún zumito</string>
 
 
     <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->

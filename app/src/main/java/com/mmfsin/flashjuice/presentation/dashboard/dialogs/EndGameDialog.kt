@@ -3,6 +3,7 @@ package com.mmfsin.flashjuice.presentation.dashboard.dialogs
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.ImageView
 import androidx.fragment.app.viewModels
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BaseDialog
@@ -33,6 +34,10 @@ class EndGameDialog(
         isCancelable = false
         binding.apply {
             tvLevelFailed.text = getString(R.string.end_game_last_level, level.toString())
+            val result = if (juicesSuccess == 0) R.string.end_game_none_juices
+            else R.string.end_game_not_all_juices
+            tvResult.text = getString(result)
+            setJuicesImages()
         }
     }
 
@@ -62,4 +67,34 @@ class EndGameDialog(
             }
         }
     }
+
+    private fun setJuicesImages() {
+        binding.juicesResult.apply {
+            when (juicesSuccess) {
+                0 -> {}
+
+                1 -> juice1.setJuice()
+
+                2 -> {
+                    juice1.setJuice()
+                    juice2.setJuice()
+                }
+
+                3 -> {
+                    juice1.setJuice()
+                    juice2.setJuice()
+                    juice3.setJuice()
+                }
+
+                else -> {
+                    juice1.setJuice()
+                    juice2.setJuice()
+                    juice3.setJuice()
+                    juice4.setJuice()
+                }
+            }
+        }
+    }
+
+    private fun ImageView.setJuice() = this.setImageResource(R.drawable.ic_juice)
 }
