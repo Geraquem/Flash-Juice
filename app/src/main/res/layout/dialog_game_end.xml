@@ -37,7 +37,7 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/result"
             android:gravity="center"
-            android:text="FIIIIINNNNNNNNNNN"
+            android:text="FIIIIINNNNNNN"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="58sp" />
@@ -61,6 +61,7 @@
             android:background="@drawable/bg_white_box"
             android:backgroundTint="@color/normal"
             android:elevation="6dp"
+            android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:padding="12dp"
             android:text="@string/menu_normal"

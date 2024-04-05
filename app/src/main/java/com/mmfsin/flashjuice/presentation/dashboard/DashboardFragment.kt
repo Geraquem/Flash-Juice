@@ -99,12 +99,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         }
     }
 
-    override fun setListeners() {
-        binding.apply {
-            toolbar.ivHome.setOnClickListener { activity?.recreate() }
-        }
-    }
-
     override fun observe() {
         viewModel.event.observe(this) { event ->
             when (event) {
