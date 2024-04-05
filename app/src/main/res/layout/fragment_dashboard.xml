@@ -65,7 +65,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="RelativeOverlap">
 
                 <TextView
                     android:id="@+id/tv_lifes"
@@ -80,8 +81,9 @@
 
                 <ImageView
                     android:id="@+id/iv_heart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_marginBottom="4dp"
                     android:contentDescription="@string/content_description"
                     android:src="@drawable/ic_heart" />
 
