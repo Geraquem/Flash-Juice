@@ -14,9 +14,6 @@ import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
 import com.mmfsin.flashjuice.domain.models.Difficult
 import com.mmfsin.flashjuice.domain.models.Difficult.HARD
 import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
-import com.mmfsin.flashjuice.domain.models.GameEnd
-import com.mmfsin.flashjuice.domain.models.GameEnd.LOOSER
-import com.mmfsin.flashjuice.domain.models.GameEnd.WINNER
 import com.mmfsin.flashjuice.domain.models.Positions
 import com.mmfsin.flashjuice.domain.models.Tags
 import com.mmfsin.flashjuice.domain.models.Tags.JUICE
@@ -25,7 +22,7 @@ import com.mmfsin.flashjuice.domain.models.Tags.POISON2
 import com.mmfsin.flashjuice.domain.models.Tags.POISON3
 import com.mmfsin.flashjuice.domain.models.Tags.POISON4
 import com.mmfsin.flashjuice.presentation.MainActivity
-import com.mmfsin.flashjuice.presentation.dashboard.dialogs.GameEndDialog
+import com.mmfsin.flashjuice.presentation.dashboard.dialogs.EndGameDialog
 import com.mmfsin.flashjuice.presentation.dashboard.listeners.IGameEndListener
 import com.mmfsin.flashjuice.presentation.menu.MenuDialog
 import com.mmfsin.flashjuice.utils.countDown
@@ -200,16 +197,16 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun checkIfEndGame() {
         if (juicesSuccess > 4) {
             areImagesClickable(enabled = false)
-            showEndDialog(WINNER)
+            showEndDialog()
         }
         if (lifes < 1) {
             areImagesClickable(enabled = false)
-            showEndDialog(LOOSER)
+            showEndDialog()
         }
     }
 
-    private fun showEndDialog(result: GameEnd) {
-        val menuDialog = GameEndDialog(result, this@DashboardFragment)
+    private fun showEndDialog() {
+        val menuDialog = EndGameDialog(level, juicesSuccess, this@DashboardFragment)
         activity?.let {
             countDown(200) { menuDialog.show(it.supportFragmentManager, "") }
         }

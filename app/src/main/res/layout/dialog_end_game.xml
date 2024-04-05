@@ -26,6 +26,7 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
             android:contentDescription="@string/content_description"
             android:src="@drawable/ic_logo" />
 
@@ -34,26 +35,60 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/result"
             android:gravity="center"
-            android:text="FIIIIINNNNNNN"
             android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="58sp" />
+            android:textColor="@color/result_failed"
+            android:textSize="34sp"
+            tools:text="Esperaba más de ti" />
+
 
         <TextView
-            android:id="@+id/tv_result"
+            android:id="@+id/tv_level_failed"
             style="@style/MediumTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:alpha="0.7"
-            android:text="@string/menu_description"
-            android:textAllCaps="true" />
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            tools:text="Último nivel superado: 8" />
 
         <TextView
-            android:id="@+id/btn_action"
+            android:id="@+id/tv_level_record"
+            style="@style/MediumTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            tools:text="Record: 8" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            style="@style/SmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:alpha="0.5"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:text="@string/end_game_not_all_juices" />
+
+        <include
+            android:id="@+id/juices_result"
+            layout="@layout/include_five_juices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:id="@+id/btn_start_again"
             style="@style/MediumTextView_Bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,7 +99,7 @@
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:padding="12dp"
-            android:text="@string/menu_normal"
+            android:text="@string/end_game_bad_btn"
             android:textAllCaps="true" />
 
     </LinearLayout>

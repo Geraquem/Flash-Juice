@@ -22,6 +22,14 @@
     <!-- DASHBOARD -->
     <string name="dashboard_level">Nivel %s</string>
 
+    <!-- END GAME -->
+    <string name="end_game_good_btn">Siguiente nivel</string>
+    <string name="end_game_bad_btn">Empezar de nuevo</string>
+    <string name="end_game_last_level">Último nivel superado: %s</string>
+    <string name="end_game_record">Record: %s</string>
+    <string name="end_game_not_all_juices">No encontraste todos los zumitos</string>
+
+
     <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <string name="somethingWentWrong">Algo ha salido mal :(</string>
 
