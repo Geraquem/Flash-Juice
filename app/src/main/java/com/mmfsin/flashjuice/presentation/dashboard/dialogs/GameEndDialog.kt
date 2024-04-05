@@ -9,7 +9,7 @@ import com.mmfsin.flashjuice.domain.models.GameEnd.LOOSER
 import com.mmfsin.flashjuice.domain.models.GameEnd.WINNER
 import com.mmfsin.flashjuice.presentation.dashboard.listeners.IGameEndListener
 
-class GameEndDialog(val result: GameEnd, val listener: IGameEndListener) :
+class GameEndDialog(val result: GameEnd, private val listener: IGameEndListener) :
     BaseDialog<DialogGameEndBinding>() {
 
     override fun inflateView(inflater: LayoutInflater) = DialogGameEndBinding.inflate(inflater)
