@@ -26,8 +26,8 @@
 
     <!-- END GAME -->
     <string name="end_game_bad_btn">Empezar de nuevo</string>
-    <string name="end_game_last_level">Último nivel superado</string>
-    <string name="end_game_record">Record</string>
+    <string name="end_game_record">Record: %s</string>
+    <string name="end_game_last_level">Último nivel superado:</string>
     <string name="end_game_not_all_juices">No encontraste todos los zumitos</string>
     <string name="end_game_none_juices">No encontraste ningún zumito</string>
 

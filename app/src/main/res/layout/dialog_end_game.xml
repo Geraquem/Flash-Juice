@@ -13,14 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0.07" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.93" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -59,59 +59,52 @@
             android:textStyle="bold"
             tools:text="Esperaba más de ti" />
 
-        <TextView
-            style="@style/MediumTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
-            android:alpha="0.5"
-            android:gravity="center"
-            android:text="@string/end_game_last_level"
-            android:textAllCaps="true"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tv_level_failed"
-            style="@style/MediumTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="24dp"
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:textSize="30sp"
-            tools:text="24" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:alpha="0.5"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/MediumTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:text="@string/end_game_record"
-                android:textAllCaps="true" />
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_white_box"
+            android:backgroundTint="@color/soft_orange"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
 
             <TextView
                 android:id="@+id/tv_level_record"
                 style="@style/MediumTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:gravity="center"
                 android:textAllCaps="true"
-                tools:text="8" />
+                tools:text="Record: 56" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/MediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/end_game_last_level" />
+
+                <TextView
+                    android:id="@+id/tv_level_failed"
+                    style="@style/MediumTextView_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    tools:text="8" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

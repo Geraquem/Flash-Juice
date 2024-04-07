@@ -59,7 +59,10 @@ class EndGameDialog(
                 }
 
                 is ResultDialogEvent.GetMyRecord -> {
-                    binding.tvLevelRecord.text = event.record.toString()
+                    binding.tvLevelRecord.text = getString(
+                        R.string.end_game_record,
+                        event.record.toString()
+                    )
                 }
 
                 is ResultDialogEvent.SWW -> {}
