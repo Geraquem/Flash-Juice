@@ -76,6 +76,8 @@ class EndGameDialog(
         binding.apply {
             tvPhrase.isVisible = !isNewRecord
             tvNewRecord.isVisible = isNewRecord
+            lottieBadResult.isVisible = !isNewRecord
+            lottieTrophy.isVisible = isNewRecord
             if (isNewRecord) {
                 tvRecord.text = getString(R.string.end_game_old_record)
                 tvLevelFailed.text = getString(R.string.end_game_new_record)
