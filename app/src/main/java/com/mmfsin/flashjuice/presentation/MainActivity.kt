@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     private var mInterstitialAd: InterstitialAd? = null
 
+    var firstTime = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

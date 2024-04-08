@@ -73,16 +73,19 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                 else -> View.GONE
             }
             binding.tvCountdown.visibility = timerVisibility
-            setUI()
-            viewModel.getImages(binding.table)
+
+            (activity as MainActivity).apply {
+                if (this.firstTime) {
+                    this.firstTime = false
+                    viewModel.getImages(binding.table)
+                } else restart()
+            }
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
     }
 
     override fun setUI() {
         binding.apply {
-            this@DashboardFragment.level = 1
-            this@DashboardFragment.lifes = 5
             setLevelText()
             restartCountdown()
             restartLifes()
