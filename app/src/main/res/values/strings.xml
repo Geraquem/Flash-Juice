@@ -28,6 +28,7 @@
 
     <!-- END GAME -->
     <string name="end_game_bad_timer_zero">Se acabó el tiempo</string>
+    <string name="end_game_bad_no_lifes">Te has quedado sin vidas</string>
     <string name="end_game_bad_btn">Empezar de nuevo</string>
     <string name="end_game_record">Récord:</string>
     <string name="end_game_old_record">Antiguo récord:</string>

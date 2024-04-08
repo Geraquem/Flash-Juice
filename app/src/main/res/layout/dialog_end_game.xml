@@ -74,11 +74,11 @@
             android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
-            android:text="@string/end_game_bad_timer_zero"
             android:textAllCaps="true"
             android:textColor="@color/new_record"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/end_game_bad_timer_zero" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_bad_result"

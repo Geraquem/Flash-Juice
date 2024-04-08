@@ -38,10 +38,15 @@ class EndGameDialog(
         binding.apply {
             tvNewRecord.visibility = View.GONE
             tvLevel.text = level.toString()
-            tvTimesUp.isVisible = timerZero
-            val animation = if (timerZero) R.raw.times_up
-            else R.raw.heart_broken
-            lottieBadResult.setAnimation(animation)
+
+            if (timerZero) {
+                tvTimesUp.text = getString(R.string.end_game_bad_timer_zero)
+                lottieBadResult.setAnimation(R.raw.times_up)
+            } else {
+                tvTimesUp.text = getString(R.string.end_game_bad_no_lifes)
+                lottieBadResult.setAnimation(R.raw.heart_broken)
+            }
+
             val result = if (juicesSuccess == 0) R.string.end_game_none_juices
             else R.string.end_game_not_all_juices
             tvResult.text = getString(result)

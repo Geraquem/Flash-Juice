@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BaseFragment
@@ -72,6 +73,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                 else -> View.GONE
             }
             binding.tvCountdown.visibility = timerVisibility
+            setUI()
             viewModel.getImages(binding.table)
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
@@ -79,9 +81,18 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     override fun setUI() {
         binding.apply {
+            this@DashboardFragment.level = 1
+            this@DashboardFragment.lifes = 5
             setLevelText()
             restartCountdown()
             restartLifes()
+        }
+    }
+
+    override fun setListeners() {
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner) {
+            timer?.cancel()
+            showMenuDialog()
         }
     }
 
@@ -125,7 +136,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
                     /** hide again */
                     countDown(duration) {
-                        setQuestions()
+                        setBlackImages()
                         countDown(100) {
                             areImagesClickable(enabled = true)
                             if (difficult == HARD) startHardMode()
@@ -140,11 +151,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     }
 
     private fun setBlackImages() {
-        images.forEach { it.setImageResource(R.drawable.ic_black_circle) }
-    }
-
-    private fun setQuestions() {
-        images.forEach { it.setImageResource(R.drawable.ic_question) }
+        images.forEach { it.setImageResource(R.drawable.ic_small_dot) }
     }
 
     private fun setJuices(juicesPositions: List<Int>) {
