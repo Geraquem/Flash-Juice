@@ -3,7 +3,6 @@ package com.mmfsin.flashjuice.presentation.dashboard
 import android.content.Context
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -61,7 +60,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         super.onViewCreated(view, savedInstanceState)
         countDown(350) {
             showMenuDialog()
-//            showBanner()
         }
     }
 
@@ -289,14 +287,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     private fun restartCountdown() {
         binding.tvCountdown.text = getString(R.string.dashboard_timer_restart)
-    }
-
-    private fun showBanner() {
-        try {
-            (activity as MainActivity).bannerVisibility(true)
-        } catch (e: Exception) {
-            Log.e("BANNER", "Error showing banner")
-        }
     }
 
     private fun error() =
