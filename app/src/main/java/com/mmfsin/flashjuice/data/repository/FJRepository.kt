@@ -1,7 +1,9 @@
 package com.mmfsin.flashjuice.data.repository
 
+import android.util.Log
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.mmfsin.flashjuice.base.BaseDialog
 import com.mmfsin.flashjuice.domain.interfaces.IFJRepository
 import com.mmfsin.flashjuice.domain.models.Record
 import com.mmfsin.flashjuice.utils.RECORDS_ROOT
@@ -21,9 +23,13 @@ class FJRepository @Inject constructor() : IFJRepository {
         root.get().addOnCompleteListener { dataSnapshot ->
             for (child in dataSnapshot.result.children) {
                 if (child.exists()) {
-                    val a = 2
-
-//                    records.add()
+                    try {
+                        child.getValue(Record::class.java)?.let { record ->
+                            records.add(record)
+                        }
+                    } catch (e: Exception) {
+                        Log.e(FJRepository::class.java.name, e.stackTraceToString())
+                    }
                 }
             }
             latch.countDown()
@@ -32,6 +38,6 @@ class FJRepository @Inject constructor() : IFJRepository {
         withContext(Dispatchers.IO) {
             latch.await()
         }
-        return records
+        return records.sortedBy { it.record }
     }
 }

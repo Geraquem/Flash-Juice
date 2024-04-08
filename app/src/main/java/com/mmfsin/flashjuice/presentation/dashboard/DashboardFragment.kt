@@ -49,6 +49,9 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private var juicesSuccess = 0
     private var timer: CountDownTimer? = null
 
+    private var dialogGood: GoodLevelDialog? = null
+    private var dialogEndGame: EndGameDialog? = null
+
     private var poisonOne: Int = R.drawable.ic_poison_one
     private var poisonTwo: Int = R.drawable.ic_poison_two
     private var poisonThree: Int = R.drawable.ic_poison_three
@@ -60,12 +63,19 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        countDown(350) {
+        countDown(200) {
             showMenuDialog()
         }
     }
 
+    private fun cancelProcess() {
+        timer?.cancel()
+        dialogGood?.dismiss()
+        dialogEndGame?.dismiss()
+    }
+
     private fun showMenuDialog() {
+        cancelProcess()
         val menuDialog = MenuDialog({ diff ->
             difficult = diff
             val timerVisibility = when (diff) {
@@ -83,6 +93,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         },
             {
                 findNavController().navigate(actionMenuToRanking())
+                cancelProcess()
             }
         )
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
@@ -223,17 +234,17 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     private fun showGoodLevelDialog() {
         timer?.cancel()
-        val menuDialog = GoodLevelDialog(level, this@DashboardFragment)
+        dialogGood = GoodLevelDialog(level, this@DashboardFragment)
         activity?.let {
-            countDown(200) { menuDialog.show(it.supportFragmentManager, "") }
+            countDown(200) { dialogGood?.show(it.supportFragmentManager, "") }
         }
     }
 
     private fun showEndGameDialog(timerZero: Boolean = false) {
         timer?.cancel()
-        val menuDialog = EndGameDialog(level, juicesSuccess, this@DashboardFragment, timerZero)
+        dialogEndGame = EndGameDialog(level, juicesSuccess, this@DashboardFragment, timerZero)
         activity?.let {
-            countDown(200) { menuDialog.show(it.supportFragmentManager, "") }
+            countDown(200) { dialogEndGame?.show(it.supportFragmentManager, "") }
         }
     }
 

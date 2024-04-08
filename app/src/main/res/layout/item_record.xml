@@ -14,7 +14,7 @@
         tools:text="1." />
 
     <TextView
-        android:id="@+id/recordName"
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
@@ -23,7 +23,7 @@
         tools:text="Conchi" />
 
     <TextView
-        android:id="@+id/recordLevel"
+        android:id="@+id/tv_record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
