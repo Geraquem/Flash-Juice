@@ -111,6 +111,7 @@
             android:textAllCaps="true" />
 
         <TextView
+            android:id="@+id/tv_ranking"
             style="@style/MediumTextView_Bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -121,7 +122,7 @@
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:padding="12dp"
-            android:text="@string/menu_ranking_title"
+            android:text="@string/menu_ranking"
             android:textAllCaps="true" />
 
     </LinearLayout>

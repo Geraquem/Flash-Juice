@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BaseFragment
 import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
@@ -23,6 +24,7 @@ import com.mmfsin.flashjuice.domain.models.Tags.POISON2
 import com.mmfsin.flashjuice.domain.models.Tags.POISON3
 import com.mmfsin.flashjuice.domain.models.Tags.POISON4
 import com.mmfsin.flashjuice.presentation.MainActivity
+import com.mmfsin.flashjuice.presentation.dashboard.DashboardFragmentDirections.Companion.actionMenuToRanking
 import com.mmfsin.flashjuice.presentation.dashboard.dialogs.EndGameDialog
 import com.mmfsin.flashjuice.presentation.dashboard.dialogs.GoodLevelDialog
 import com.mmfsin.flashjuice.presentation.dashboard.listeners.IGameEndListener
@@ -64,7 +66,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     }
 
     private fun showMenuDialog() {
-        val menuDialog = MenuDialog { diff ->
+        val menuDialog = MenuDialog({ diff ->
             difficult = diff
             val timerVisibility = when (diff) {
                 HARD -> View.VISIBLE
@@ -78,7 +80,11 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                     viewModel.getImages(binding.table)
                 } else restart()
             }
-        }
+        },
+            {
+                findNavController().navigate(actionMenuToRanking())
+            }
+        )
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
     }
 

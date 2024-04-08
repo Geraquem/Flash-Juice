@@ -9,6 +9,16 @@
         android:id="@+id/dashboardFragment"
         android:name="com.mmfsin.flashjuice.presentation.dashboard.DashboardFragment"
         android:label="dashboardFragment"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_menu_to_ranking"
+            app:destination="@id/rankingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rankingFragment"
+        android:name="com.mmfsin.flashjuice.presentation.ranking.RankingFragment"
+        android:label="rankingFragment"
+        tools:layout="@layout/fragment_ranking" />
 
 </navigation>

@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/recordPosition"
+        android:id="@+id/tv_record_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:text="1." />
 
     <TextView
         android:id="@+id/recordName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_marginHorizontal="8dp"
-        android:layout_toStartOf="@+id/recordLevel"
-        android:layout_toEndOf="@+id/recordPosition"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:text="Conchi" />
 
     <TextView
         android:id="@+id/recordLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
         android:fontFamily="sans-serif-condensed-medium"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        tools:text="345" />
 
-</RelativeLayout>
+</LinearLayout>

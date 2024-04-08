@@ -9,7 +9,7 @@ import com.mmfsin.flashjuice.domain.models.Difficult
 import com.mmfsin.flashjuice.domain.models.Difficult.HARD
 import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
 
-class MenuDialog(val difficult: (difficult: Difficult) -> Unit) :
+class MenuDialog(val difficult: (difficult: Difficult) -> Unit, val seeRanking: () -> Unit) :
     BaseDialog<DialogMenuBinding>() {
 
     override fun inflateView(inflater: LayoutInflater) = DialogMenuBinding.inflate(inflater)
@@ -27,6 +27,10 @@ class MenuDialog(val difficult: (difficult: Difficult) -> Unit) :
         binding.apply {
             btnNormal.setOnClickListener { setDifficult(NORMAL) }
             btnHard.setOnClickListener { setDifficult(HARD) }
+            tvRanking.setOnClickListener {
+                seeRanking()
+                dismiss()
+            }
         }
     }
 
