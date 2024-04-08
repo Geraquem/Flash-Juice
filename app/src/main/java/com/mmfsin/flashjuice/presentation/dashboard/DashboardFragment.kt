@@ -123,7 +123,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
                     /** hide again */
                     countDown(duration) {
-                        setBlackImages()
+                        setQuestions()
                         countDown(100) { areImagesClickable(enabled = true) }
                     }
                 }
@@ -136,6 +136,10 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     private fun setBlackImages() {
         images.forEach { it.setImageResource(R.drawable.ic_black_circle) }
+    }
+
+    private fun setQuestions() {
+        images.forEach { it.setImageResource(R.drawable.ic_question) }
     }
 
     private fun setJuices(juicesPositions: List<Int>) {
