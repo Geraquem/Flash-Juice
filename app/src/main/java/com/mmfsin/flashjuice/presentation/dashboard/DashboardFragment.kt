@@ -67,12 +67,11 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun showMenuDialog() {
         val menuDialog = MenuDialog { diff ->
             difficult = diff
-            if (diff == HARD) {
-                poisonOne = R.drawable.ic_black_circle_trans
-                poisonTwo = R.drawable.ic_black_circle_trans
-                poisonThree = R.drawable.ic_black_circle_trans
-                poisonFour = R.drawable.ic_black_circle_trans
+            val timerVisibility = when (diff) {
+                HARD -> View.VISIBLE
+                else -> View.GONE
             }
+            binding.tvCountdown.visibility = timerVisibility
             viewModel.getImages(binding.table)
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
@@ -129,8 +128,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                         setQuestions()
                         countDown(100) {
                             areImagesClickable(enabled = true)
-                            //if hard mode
-                            startHardMode()
+                            if (difficult == HARD) startHardMode()
                         }
                     }
                 }
