@@ -271,7 +271,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     private fun startHardMode() {
         binding.apply {
-            timer = object : CountDownTimer(5000, 1000) {
+            timer = object : CountDownTimer(3000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     val secondsLeft = (millisUntilFinished / 1000) + 1
                     tvCountdown.text = secondsLeft.toString()

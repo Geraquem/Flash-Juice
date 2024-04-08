@@ -23,7 +23,7 @@
 
     <!-- DASHBOARD -->
     <string name="dashboard_level">Nivel %s</string>
-    <string name="dashboard_timer_restart">5</string>
+    <string name="dashboard_timer_restart">3</string>
     <string name="dashboard_timer_zero">0</string>
 
     <!-- END GAME -->
