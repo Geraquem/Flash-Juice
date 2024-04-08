@@ -65,21 +65,30 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_bad_result"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <TextView
+            android:id="@+id/tv_times_up"
+            style="@style/BigTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/heart_broken" />
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="@string/end_game_bad_timer_zero"
+            android:textAllCaps="true"
+            android:textColor="@color/new_record"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_trophy"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:id="@+id/lottie_bad_result"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/trophy" />
+            android:layout_marginBottom="8dp"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/heart_broken" />
 
         <LinearLayout
             android:layout_width="match_parent"

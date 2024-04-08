@@ -17,7 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class EndGameDialog(
     private val level: Int,
     private val juicesSuccess: Int,
-    private val listener: IGameEndListener
+    private val listener: IGameEndListener,
+    private val timerZero: Boolean
 ) : BaseDialog<DialogEndGameBinding>() {
 
     private val viewModel: ResultDialogViewModel by viewModels()
@@ -37,6 +38,10 @@ class EndGameDialog(
         binding.apply {
             tvNewRecord.visibility = View.GONE
             tvLevel.text = level.toString()
+            tvTimesUp.isVisible = timerZero
+            val animation = if (timerZero) R.raw.times_up
+            else R.raw.heart_broken
+            lottieBadResult.setAnimation(animation)
             val result = if (juicesSuccess == 0) R.string.end_game_none_juices
             else R.string.end_game_not_all_juices
             tvResult.text = getString(result)
@@ -76,15 +81,15 @@ class EndGameDialog(
         binding.apply {
             tvPhrase.isVisible = !isNewRecord
             tvNewRecord.isVisible = isNewRecord
-            lottieBadResult.isVisible = !isNewRecord
-            lottieTrophy.isVisible = isNewRecord
             if (isNewRecord) {
                 tvRecord.text = getString(R.string.end_game_old_record)
                 tvLevelFailed.text = getString(R.string.end_game_new_record)
+                lottieBadResult.setAnimation(R.raw.trophy)
             } else {
                 tvRecord.text = getString(R.string.end_game_record)
                 tvLevelFailed.text = getString(R.string.end_game_last_level)
             }
+            lottieBadResult.playAnimation()
         }
     }
 

@@ -2,6 +2,7 @@ package com.mmfsin.flashjuice.presentation.dashboard
 
 import android.content.Context
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +45,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private var lifes = 5
     private var duration: Long = 1000
     private var juicesSuccess = 0
+    private var timer: CountDownTimer? = null
 
     private var poisonOne: Int = R.drawable.ic_poison_one
     private var poisonTwo: Int = R.drawable.ic_poison_two
@@ -79,6 +81,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     override fun setUI() {
         binding.apply {
             setLevelText()
+            restartCountdown()
             restartLifes()
         }
     }
@@ -124,7 +127,11 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                     /** hide again */
                     countDown(duration) {
                         setQuestions()
-                        countDown(100) { areImagesClickable(enabled = true) }
+                        countDown(100) {
+                            areImagesClickable(enabled = true)
+                            //if hard mode
+                            startHardMode()
+                        }
                     }
                 }
 
@@ -203,14 +210,16 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     }
 
     private fun showGoodLevelDialog() {
+        timer?.cancel()
         val menuDialog = GoodLevelDialog(level, this@DashboardFragment)
         activity?.let {
             countDown(200) { menuDialog.show(it.supportFragmentManager, "") }
         }
     }
 
-    private fun showEndGameDialog() {
-        val menuDialog = EndGameDialog(level, juicesSuccess, this@DashboardFragment)
+    private fun showEndGameDialog(timerZero: Boolean = false) {
+        timer?.cancel()
+        val menuDialog = EndGameDialog(level, juicesSuccess, this@DashboardFragment, timerZero)
         activity?.let {
             countDown(200) { menuDialog.show(it.supportFragmentManager, "") }
         }
@@ -218,6 +227,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     override fun nextLevel() {
         juicesSuccess = 0
+        restartCountdown()
         viewModel.getPositions(level++)
     }
 
@@ -226,6 +236,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         lifes = 5
         juicesSuccess = 0
         restartLifes()
+        restartCountdown()
         viewModel.getPositions(level)
     }
 
@@ -250,6 +261,26 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
             life4.setImageResource(R.drawable.ic_heart)
             life5.setImageResource(R.drawable.ic_heart)
         }
+    }
+
+    private fun startHardMode() {
+        binding.apply {
+            timer = object : CountDownTimer(5000, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    val secondsLeft = (millisUntilFinished / 1000) + 1
+                    tvCountdown.text = secondsLeft.toString()
+                }
+
+                override fun onFinish() {
+                    tvCountdown.text = getString(R.string.dashboard_timer_zero)
+                    showEndGameDialog(timerZero = true)
+                }
+            }.start()
+        }
+    }
+
+    private fun restartCountdown() {
+        binding.tvCountdown.text = getString(R.string.dashboard_timer_restart)
     }
 
     private fun showBanner() {

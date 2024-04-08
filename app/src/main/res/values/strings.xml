@@ -23,8 +23,11 @@
 
     <!-- DASHBOARD -->
     <string name="dashboard_level">Nivel %s</string>
+    <string name="dashboard_timer_restart">5</string>
+    <string name="dashboard_timer_zero">0</string>
 
     <!-- END GAME -->
+    <string name="end_game_bad_timer_zero">Se acabó el tiempo</string>
     <string name="end_game_bad_btn">Empezar de nuevo</string>
     <string name="end_game_record">Récord:</string>
     <string name="end_game_old_record">Antiguo récord:</string>
