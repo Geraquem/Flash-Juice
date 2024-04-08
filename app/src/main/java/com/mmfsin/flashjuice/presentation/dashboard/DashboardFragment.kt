@@ -71,7 +71,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                 poisonThree = R.drawable.ic_black_circle_trans
                 poisonFour = R.drawable.ic_black_circle_trans
             }
-            countDown(100) { viewModel.getImages(binding.table) }
+            viewModel.getImages(binding.table)
         }
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
     }
@@ -79,21 +79,13 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     override fun setUI() {
         binding.apply {
             setLevelText()
-            setLifesText()
+            restartLifes()
         }
     }
 
     private fun setLevelText() {
         binding.apply {
             tvLevel.text = getString(R.string.dashboard_level, level.toString())
-        }
-    }
-
-    private fun setLifesText() {
-        binding.apply {
-            tvLifes.text = lifes.toString()
-            val heart = if (lifes < 1) R.drawable.ic_heart_broken else R.drawable.ic_heart
-            ivHeart.setImageResource(heart)
         }
     }
 
@@ -192,7 +184,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private fun ImageView.clickOnPoison(poisonImage: Int) {
         this.setImageResource(poisonImage)
         lifes--
-        setLifesText()
+        lifeLost()
     }
 
     private fun checkIfEndGame() {
@@ -222,7 +214,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     override fun nextLevel() {
         juicesSuccess = 0
-        setLifesText()
         viewModel.getPositions(level++)
     }
 
@@ -230,8 +221,31 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         level = 1
         lifes = 5
         juicesSuccess = 0
-        setLifesText()
+        restartLifes()
         viewModel.getPositions(level)
+    }
+
+    private fun lifeLost() {
+        binding.lifes.apply {
+            when (lifes) {
+                4 -> life5.setImageResource(R.drawable.ic_cross)
+                3 -> life4.setImageResource(R.drawable.ic_cross)
+                2 -> life3.setImageResource(R.drawable.ic_cross)
+                1 -> life2.setImageResource(R.drawable.ic_cross)
+                0 -> life1.setImageResource(R.drawable.ic_cross)
+                else -> {}
+            }
+        }
+    }
+
+    private fun restartLifes() {
+        binding.lifes.apply {
+            life1.setImageResource(R.drawable.ic_heart)
+            life2.setImageResource(R.drawable.ic_heart)
+            life3.setImageResource(R.drawable.ic_heart)
+            life4.setImageResource(R.drawable.ic_heart)
+            life5.setImageResource(R.drawable.ic_heart)
+        }
     }
 
     private fun showBanner() {

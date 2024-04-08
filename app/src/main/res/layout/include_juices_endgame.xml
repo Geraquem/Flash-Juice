@@ -9,34 +9,34 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_cross" />
+        android:src="@drawable/ic_small_dot" />
 
     <ImageView
         android:id="@+id/juice2"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_cross" />
+        android:src="@drawable/ic_small_dot" />
 
     <ImageView
         android:id="@+id/juice3"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_cross" />
+        android:src="@drawable/ic_small_dot" />
 
     <ImageView
         android:id="@+id/juice4"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_cross" />
+        android:src="@drawable/ic_small_dot" />
 
     <ImageView
         android:id="@+id/juice5"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_cross" />
+        android:src="@drawable/ic_small_dot" />
 
 </LinearLayout>

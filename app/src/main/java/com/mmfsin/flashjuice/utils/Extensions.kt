@@ -1,7 +1,9 @@
 package com.mmfsin.flashjuice.utils
 
 import android.os.CountDownTimer
+import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
+import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.dialog.ErrorDialog
 import java.text.SimpleDateFormat
 import java.util.Date
