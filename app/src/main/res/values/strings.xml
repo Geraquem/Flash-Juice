@@ -26,13 +26,15 @@
 
     <!-- END GAME -->
     <string name="end_game_bad_btn">Empezar de nuevo</string>
-    <string name="end_game_record">Record: %s</string>
+    <string name="end_game_record">Récord:</string>
+    <string name="end_game_old_record">Antiguo récord:</string>
     <string name="end_game_last_level">Último nivel superado:</string>
+    <string name="end_game_new_record">Nuevo récord:</string>
     <string name="end_game_not_all_juices">No encontraste todos los zumitos</string>
     <string name="end_game_none_juices">No encontraste ningún zumito</string>
     <string name="end_game_new_own_record">¡Has superado tu propio récord!</string>
-    <string name="end_game_new_record_title">¿Quieres dejar tu record en el marcador?</string>
-    <string name="end_game_new_record_btn">Registrar nuevo record mundial</string>
+    <string name="end_game_new_record_title">¿Quieres dejar tu récord en el marcador?</string>
+    <string name="end_game_new_record_btn">Registrar nuevo récord mundial</string>
 
     <!-- GOOD LEVEL -->
     <string name="good_level_next_level">Siguiente nivel</string>

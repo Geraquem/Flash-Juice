@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BaseDialog
@@ -35,7 +36,7 @@ class EndGameDialog(
         isCancelable = false
         binding.apply {
             tvNewRecord.visibility = View.GONE
-            tvLevelFailed.text = level.toString()
+            tvLevel.text = level.toString()
             val result = if (juicesSuccess == 0) R.string.end_game_none_juices
             else R.string.end_game_not_all_juices
             tvResult.text = getString(result)
@@ -61,17 +62,11 @@ class EndGameDialog(
                 }
 
                 is ResultDialogEvent.GetMyRecord -> {
-                    binding.tvLevelRecord.text = getString(
-                        R.string.end_game_record,
-                        event.record.toString()
-                    )
+                    binding.tvActualRecord.text = event.record.toString()
                     viewModel.checkIfNewRecord(level)
                 }
 
-                is ResultDialogEvent.CheckIfNewRecord -> {
-                    setNewRecordData(event.isNewRecord)
-                }
-
+                is ResultDialogEvent.CheckIfNewRecord -> setNewRecordData(event.isNewRecord)
                 is ResultDialogEvent.SWW -> {}
             }
         }
@@ -79,9 +74,14 @@ class EndGameDialog(
 
     private fun setNewRecordData(isNewRecord: Boolean) {
         binding.apply {
+            tvPhrase.isVisible = !isNewRecord
+            tvNewRecord.isVisible = isNewRecord
             if (isNewRecord) {
-                tvPhrase.visibility = View.GONE
-                tvNewRecord.visibility = View.VISIBLE
+                tvRecord.text = getString(R.string.end_game_old_record)
+                tvLevelFailed.text = getString(R.string.end_game_new_record)
+            } else {
+                tvRecord.text = getString(R.string.end_game_record)
+                tvLevelFailed.text = getString(R.string.end_game_last_level)
             }
         }
     }
