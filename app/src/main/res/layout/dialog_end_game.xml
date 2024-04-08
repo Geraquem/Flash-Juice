@@ -28,20 +28,12 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:paddingTop="8dp"
+        android:paddingTop="24dp"
         android:paddingBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/gl_left"
         app:layout_constraintRight_toRightOf="@id/gl_right"
         app:layout_constraintTop_toTopOf="parent">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieBadResult"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/heart_broken" />
 
         <TextView
             android:id="@+id/tv_phrase"
@@ -50,14 +42,36 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="24dp"
             android:fontFamily="@font/result"
             android:gravity="center"
             android:textAllCaps="true"
             android:textColor="@color/result_failed"
-            android:textSize="46sp"
+            android:textSize="40sp"
             android:textStyle="bold"
             tools:text="Esperaba más de ti" />
+
+        <TextView
+            android:id="@+id/tv_new_record"
+            style="@style/BigTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="@string/end_game_new_own_record"
+            android:textAllCaps="true"
+            android:textColor="@color/new_record"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieBadResult"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/heart_broken" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,11 +102,11 @@
                     style="@style/MediumTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textAllCaps="true"
-                    android:textSize="18sp"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/end_game_last_level" />
+                    android:gravity="center"
+                    android:text="@string/end_game_last_level"
+                    android:textAllCaps="true"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_level_failed"

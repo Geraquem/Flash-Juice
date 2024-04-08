@@ -47,6 +47,7 @@ class GoodLevelDialog(private val level: Int, private val listener: IGameEndList
                     binding.tvPhrase.text = event.phrase
                 }
 
+                is ResultDialogEvent.CheckIfNewRecord -> {}
                 is ResultDialogEvent.GetMyRecord -> {}
                 is ResultDialogEvent.SWW -> {}
             }

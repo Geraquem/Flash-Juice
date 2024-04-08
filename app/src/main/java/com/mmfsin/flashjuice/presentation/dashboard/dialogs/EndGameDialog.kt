@@ -3,6 +3,7 @@ package com.mmfsin.flashjuice.presentation.dashboard.dialogs
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.viewModels
 import com.mmfsin.flashjuice.R
@@ -33,6 +34,7 @@ class EndGameDialog(
     override fun setUI() {
         isCancelable = false
         binding.apply {
+            tvNewRecord.visibility = View.GONE
             tvLevelFailed.text = level.toString()
             val result = if (juicesSuccess == 0) R.string.end_game_none_juices
             else R.string.end_game_not_all_juices
@@ -63,9 +65,23 @@ class EndGameDialog(
                         R.string.end_game_record,
                         event.record.toString()
                     )
+                    viewModel.checkIfNewRecord(level)
+                }
+
+                is ResultDialogEvent.CheckIfNewRecord -> {
+                    setNewRecordData(event.isNewRecord)
                 }
 
                 is ResultDialogEvent.SWW -> {}
+            }
+        }
+    }
+
+    private fun setNewRecordData(isNewRecord: Boolean) {
+        binding.apply {
+            if (isNewRecord) {
+                tvPhrase.visibility = View.GONE
+                tvNewRecord.visibility = View.VISIBLE
             }
         }
     }

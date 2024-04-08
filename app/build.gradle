@@ -5,13 +5,13 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
-    id 'realm-android'
     id 'com.google.gms.google-services'
 }
 
 apply plugin: 'kotlin-android'
 
 android {
+    namespace "com.mmfsin.flashjuice"
     compileSdk 34
 
     defaultConfig {

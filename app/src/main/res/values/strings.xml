@@ -30,6 +30,9 @@
     <string name="end_game_last_level">Último nivel superado:</string>
     <string name="end_game_not_all_juices">No encontraste todos los zumitos</string>
     <string name="end_game_none_juices">No encontraste ningún zumito</string>
+    <string name="end_game_new_own_record">¡Has superado tu propio récord!</string>
+    <string name="end_game_new_record_title">¿Quieres dejar tu record en el marcador?</string>
+    <string name="end_game_new_record_btn">Registrar nuevo record mundial</string>
 
     <!-- GOOD LEVEL -->
     <string name="good_level_next_level">Siguiente nivel</string>

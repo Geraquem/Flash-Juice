@@ -20,6 +20,7 @@
 
     <color name="result_failed">#DD4B4B</color>
     <color name="result_success">#4EC167</color>
+    <color name="new_record">#C8AB16</color>
 
     <color name="normal">#9CDCFF</color>
     <color name="hard">#81B6D3</color>
