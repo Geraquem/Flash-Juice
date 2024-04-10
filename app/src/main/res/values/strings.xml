@@ -28,6 +28,8 @@
 
     <!-- RANKING -->
     <string name="ranking_title">Mejores puntuaciones</string>
+    <string name="ranking_first">1.</string>
+    <string name="ranking_number">%s.</string>
 
     <!-- END GAME -->
     <string name="end_game_bad_timer_zero">Se acabó el tiempo</string>

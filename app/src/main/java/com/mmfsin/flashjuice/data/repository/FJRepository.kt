@@ -40,6 +40,6 @@ class FJRepository @Inject constructor() : IFJRepository {
         withContext(Dispatchers.IO) {
             latch.await()
         }
-        return records.toRecordList().sortedBy { it.record }
+        return records.toRecordList().sortedBy { it.record }.reversed()
     }
 }

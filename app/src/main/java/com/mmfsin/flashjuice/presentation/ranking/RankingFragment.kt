@@ -41,6 +41,7 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
     override fun setUI() {
         binding.apply {
             setToolbar()
+            clTop.visibility = View.INVISIBLE
             loading.visibility = View.VISIBLE
         }
     }
@@ -65,9 +66,18 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
         binding.apply {
             rvRecords.apply {
                 layoutManager = LinearLayoutManager(mContext)
-                adapter = RecordsAdapter(records)
+                adapter = RecordsAdapter(records.takeLast(9))
             }
+            if (records.isNotEmpty()) setWinner(records.first())
             loading.visibility = View.GONE
+        }
+    }
+
+    private fun setWinner(first: Record) {
+        binding.apply {
+            tvWinnerName.text = first.name
+            tvWinnerLevel.text = first.record.toString()
+            clTop.visibility = View.VISIBLE
         }
     }
 

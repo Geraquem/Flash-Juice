@@ -14,9 +14,10 @@ class RecordsAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemRecordBinding.bind(view)
+        private val c = binding.root.context
         fun bind(record: Record, position: Int) {
             binding.apply {
-                tvRecordNumber.text = position.toString()
+                tvPosition.text = c.getString(R.string.ranking_number, position.toString())
                 tvName.text = record.name
                 tvRecord.text = record.record.toString()
             }
@@ -30,7 +31,7 @@ class RecordsAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(records[position], position + 1)
+        holder.bind(records[position], position + 2)
     }
 
     override fun getItemCount(): Int = records.size
