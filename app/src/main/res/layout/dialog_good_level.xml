@@ -29,7 +29,7 @@
         android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingTop="24dp"
-        android:paddingBottom="64dp"
+        android:paddingBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/gl_left"
         app:layout_constraintRight_toRightOf="@id/gl_right"
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="36dp" />
 
         <TextView
             android:id="@+id/btn_start_again"

@@ -1,19 +1,17 @@
 package com.mmfsin.flashjuice.presentation
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
-import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getColor
+import androidx.core.view.WindowInsetsControllerCompat
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BedRockActivity
 import com.mmfsin.flashjuice.databinding.ActivityMainBinding
 import com.mmfsin.flashjuice.utils.ARGS_RECORD
-import com.mmfsin.flashjuice.utils.MY_RECORD
 import com.mmfsin.flashjuice.utils.ROOT_ACTIVITY_NAV_GRAPH
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,14 +29,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        changeStatusBar()
         setAds()
         setAnimateBackground()
+    }
+
+    private fun changeStatusBar() {
+        window.statusBarColor = getColor(this, R.color.white)
+        val controller = WindowInsetsControllerCompat(window, window.decorView)
+        controller.isAppearanceLightStatusBars = true
     }
 
     private fun setAds() {
         val adRequest = AdRequest.Builder().build()
         binding.adView.loadAd(adRequest)
-        bannerVisibility(visible = false)
         loadInterstitial(AdRequest.Builder().build())
     }
 
@@ -54,11 +58,6 @@ class MainActivity : AppCompatActivity() {
         args?.let { intent.putExtra(ARGS_RECORD, args) }
         intent.putExtra(ROOT_ACTIVITY_NAV_GRAPH, R.navigation.nav_graph_ranking)
         startActivity(intent)
-    }
-
-    fun bannerVisibility(visible: Boolean) {
-        val view = if (visible) View.VISIBLE else View.GONE
-        binding.flBanner.visibility = view
     }
 
     private fun loadInterstitial(adRequest: AdRequest) {
