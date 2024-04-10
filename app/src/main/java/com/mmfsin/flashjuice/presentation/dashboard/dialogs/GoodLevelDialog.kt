@@ -11,7 +11,7 @@ import com.mmfsin.flashjuice.presentation.dashboard.listeners.IGameEndListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GoodLevelDialog(private val level: Int, private val listener: IGameEndListener) :
+class GoodLevelDialog(private val level: Long, private val listener: IGameEndListener) :
     BaseDialog<DialogGoodLevelBinding>() {
 
     private val viewModel: ResultDialogViewModel by viewModels()

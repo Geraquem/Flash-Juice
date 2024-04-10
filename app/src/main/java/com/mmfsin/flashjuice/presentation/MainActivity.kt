@@ -9,8 +9,10 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BedRockActivity
 import com.mmfsin.flashjuice.databinding.ActivityMainBinding
+import com.mmfsin.flashjuice.utils.MY_RECORD
 import com.mmfsin.flashjuice.utils.ROOT_ACTIVITY_NAV_GRAPH
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,10 +55,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun openActivity(navGraph: Int, argsName: String? = null, args: String? = null) {
+    fun openRanking(args: Long? = null) {
         val intent = Intent(this, BedRockActivity::class.java)
-        args?.let { intent.putExtra(argsName, args) }
-        intent.putExtra(ROOT_ACTIVITY_NAV_GRAPH, navGraph)
+        args?.let { intent.putExtra(MY_RECORD, args) }
+        intent.putExtra(ROOT_ACTIVITY_NAV_GRAPH, R.navigation.nav_graph_ranking)
         startActivity(intent)
     }
 

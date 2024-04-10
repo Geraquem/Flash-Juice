@@ -101,6 +101,6 @@ class GetPositionsUseCase @Inject constructor() :
     }
 
     data class Params(
-        val level: Int
+        val level: Long
     )
 }

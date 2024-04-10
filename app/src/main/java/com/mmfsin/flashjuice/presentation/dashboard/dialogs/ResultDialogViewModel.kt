@@ -40,7 +40,7 @@ class ResultDialogViewModel @Inject constructor(
         )
     }
 
-    fun checkIfNewRecord(level: Int) {
+    fun checkIfNewRecord(level: Long) {
         executeUseCase(
             { checkIfRecordUseCase.execute(CheckIfRecordUseCase.Params(level)) },
             { result -> _event.value = ResultDialogEvent.CheckIfNewRecord(result) },

@@ -29,9 +29,7 @@ class MenuDialog(val difficult: (difficult: Difficult) -> Unit) :
         binding.apply {
             btnNormal.setOnClickListener { setDifficult(NORMAL) }
             btnHard.setOnClickListener { setDifficult(HARD) }
-            tvRanking.setOnClickListener {
-                (activity as MainActivity).openActivity(R.navigation.nav_graph_ranking)
-            }
+            tvRanking.setOnClickListener { (activity as MainActivity).openRanking() }
         }
     }
 

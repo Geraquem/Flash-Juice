@@ -13,6 +13,7 @@ import com.mmfsin.flashjuice.base.BedRockActivity
 import com.mmfsin.flashjuice.databinding.FragmentRankingBinding
 import com.mmfsin.flashjuice.domain.models.Record
 import com.mmfsin.flashjuice.presentation.ranking.adapter.RecordsAdapter
+import com.mmfsin.flashjuice.utils.MY_RECORD
 import com.mmfsin.flashjuice.utils.showErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,9 +23,15 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
     override val viewModel: RankingViewModel by viewModels()
     private lateinit var mContext: Context
 
+    private var newRecord: Long? = null
+
     override fun inflateView(
         inflater: LayoutInflater, container: ViewGroup?
     ) = FragmentRankingBinding.inflate(inflater, container, false)
+
+    override fun getBundleArgs() {
+        newRecord = activity?.intent?.getLongExtra(MY_RECORD, -1)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,7 +51,6 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
             setToolbarText(R.string.ranking_title)
         }
     }
-
 
     override fun observe() {
         viewModel.event.observe(this) { event ->

@@ -20,7 +20,7 @@ class DashboardViewModel @Inject constructor(
             { _event.value = DashboardEvent.SWW},
         )
     }
-    fun getPositions(level: Int) {
+    fun getPositions(level: Long) {
         executeUseCase(
             { getPositionsUseCase.execute(GetPositionsUseCase.Params(level)) },
             { result-> _event.value = DashboardEvent.GetPositions(result)},

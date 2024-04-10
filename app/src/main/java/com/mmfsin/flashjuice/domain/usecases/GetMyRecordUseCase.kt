@@ -9,10 +9,10 @@ import javax.inject.Inject
 
 class GetMyRecordUseCase @Inject constructor(
     @ApplicationContext val context: Context
-) : BaseUseCaseNoParams<Int>() {
+) : BaseUseCaseNoParams<Long>() {
 
-    override suspend fun execute(): Int {
+    override suspend fun execute(): Long {
         val mySharedPrefs = context.getSharedPreferences(MY_RECORD, Context.MODE_PRIVATE)
-        return mySharedPrefs.getInt(RECORD, 0)
+        return mySharedPrefs.getLong(RECORD, 0)
     }
 }

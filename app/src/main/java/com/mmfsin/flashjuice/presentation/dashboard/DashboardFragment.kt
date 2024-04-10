@@ -40,7 +40,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private var difficult: Difficult = NORMAL
 
     private lateinit var images: List<ImageView>
-    private var level = 1
+    private var level: Long = 1
     private var lifes = 5
     private var duration: Long = 1000
     private var juicesSuccess = 0
@@ -59,9 +59,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        countDown(200) {
-            showMenuDialog()
-        }
+        countDown(200) { showMenuDialog() }
     }
 
     private fun showMenuDialog() {

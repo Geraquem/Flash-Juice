@@ -4,6 +4,8 @@ import android.util.Log
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.mmfsin.flashjuice.base.BaseDialog
+import com.mmfsin.flashjuice.data.mappers.toRecordList
+import com.mmfsin.flashjuice.data.models.RecordDTO
 import com.mmfsin.flashjuice.domain.interfaces.IFJRepository
 import com.mmfsin.flashjuice.domain.models.Record
 import com.mmfsin.flashjuice.utils.RECORDS_ROOT
@@ -18,13 +20,13 @@ class FJRepository @Inject constructor() : IFJRepository {
 
     override suspend fun getRecords(): List<Record> {
         val latch = CountDownLatch(1)
-        val records = mutableListOf<Record>()
+        val records = mutableListOf<RecordDTO>()
         val root = reference.child(RECORDS_ROOT)
         root.get().addOnCompleteListener { dataSnapshot ->
             for (child in dataSnapshot.result.children) {
                 if (child.exists()) {
                     try {
-                        child.getValue(Record::class.java)?.let { record ->
+                        child.getValue(RecordDTO::class.java)?.let { record ->
                             records.add(record)
                         }
                     } catch (e: Exception) {
@@ -38,6 +40,6 @@ class FJRepository @Inject constructor() : IFJRepository {
         withContext(Dispatchers.IO) {
             latch.await()
         }
-        return records.sortedBy { it.record }
+        return records.toRecordList().sortedBy { it.record }
     }
 }

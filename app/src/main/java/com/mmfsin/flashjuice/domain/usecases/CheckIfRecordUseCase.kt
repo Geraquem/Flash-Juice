@@ -13,10 +13,10 @@ class CheckIfRecordUseCase @Inject constructor(
 
     override suspend fun execute(params: Params): Boolean {
         val mySharedPrefs = context.getSharedPreferences(MY_RECORD, Context.MODE_PRIVATE)
-        val previousRecord = mySharedPrefs.getInt(RECORD, 1)
+        val previousRecord = mySharedPrefs.getLong(RECORD, 1)
         return if (params.level > previousRecord) {
             mySharedPrefs.edit().apply() {
-                putInt(RECORD, params.level)
+                putLong(RECORD, params.level)
                 apply()
             }
             true
@@ -24,6 +24,6 @@ class CheckIfRecordUseCase @Inject constructor(
     }
 
     data class Params(
-        val level: Int
+        val level: Long
     )
 }
