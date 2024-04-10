@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BaseFragment
+import com.mmfsin.flashjuice.base.BedRockActivity
 import com.mmfsin.flashjuice.databinding.FragmentRankingBinding
 import com.mmfsin.flashjuice.domain.models.Record
 import com.mmfsin.flashjuice.presentation.ranking.adapter.RecordsAdapter
@@ -31,9 +33,18 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
 
     override fun setUI() {
         binding.apply {
+            setToolbar()
             loading.visibility = View.VISIBLE
         }
     }
+
+    private fun setToolbar() {
+        (activity as BedRockActivity).apply {
+            backListener { activity?.onBackPressedDispatcher?.onBackPressed() }
+            setToolbarText(R.string.ranking_title)
+        }
+    }
+
 
     override fun observe() {
         viewModel.event.observe(this) { event ->

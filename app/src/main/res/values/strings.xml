@@ -26,6 +26,9 @@
     <string name="dashboard_timer_restart">3</string>
     <string name="dashboard_timer_zero">0</string>
 
+    <!-- RANKING -->
+    <string name="ranking_title">Mejores puntuaciones</string>
+
     <!-- END GAME -->
     <string name="end_game_bad_timer_zero">Se acabó el tiempo</string>
     <string name="end_game_bad_no_lifes">Te has quedado sin vidas</string>

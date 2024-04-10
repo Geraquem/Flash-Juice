@@ -59,18 +59,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/tv_countdown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/rich"
-            android:text="@string/dashboard_timer_restart"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:visibility="gone"
-            tools:visibility="visible" />
-
         <Space
             android:layout_width="wrap_content"
             android:layout_height="30dp" />
