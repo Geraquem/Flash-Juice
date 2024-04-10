@@ -45,6 +45,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginHorizontal="16dp"
                     android:layout_toEndOf="@+id/iv_back"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textAllCaps="true"
                     android:textColor="@color/black"
                     android:textSize="20sp"
