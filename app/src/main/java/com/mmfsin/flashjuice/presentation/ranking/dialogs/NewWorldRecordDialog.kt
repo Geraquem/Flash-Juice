@@ -40,6 +40,7 @@ class NewWorldRecordDialog(
 
     override fun setListeners() {
         binding.apply {
+            btnClose.setOnClickListener { dismiss() }
             btnRegister.setOnClickListener {
                 tvError.visibility = View.GONE
                 val name = etName.text.toString()
