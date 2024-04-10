@@ -13,8 +13,11 @@ import com.mmfsin.flashjuice.base.BaseFragment
 import com.mmfsin.flashjuice.base.BedRockActivity
 import com.mmfsin.flashjuice.databinding.FragmentRankingBinding
 import com.mmfsin.flashjuice.domain.models.Record
+import com.mmfsin.flashjuice.presentation.dashboard.dialogs.GoodLevelDialog
 import com.mmfsin.flashjuice.presentation.ranking.adapter.RecordsAdapter
+import com.mmfsin.flashjuice.presentation.ranking.dialogs.NewWorldRecordDialog
 import com.mmfsin.flashjuice.utils.ARGS_RECORD
+import com.mmfsin.flashjuice.utils.countDown
 import com.mmfsin.flashjuice.utils.showErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -86,7 +89,10 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
     private fun checkIfNewRecord() {
         newRecord?.let { record ->
             if (record.toInt() != -1) {
-                Toast.makeText(mContext, "nuevoooooo", Toast.LENGTH_SHORT).show()
+                val dialog = NewWorldRecordDialog(record)
+                activity?.let {
+                    countDown(200) { dialog.show(it.supportFragmentManager, "") }
+                }
             }
         }
     }
