@@ -60,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
             ads:layout_constraintLeft_toRightOf="@id/tv_first_place"
             ads:layout_constraintRight_toLeftOf="@id/tv_winner_level"
             ads:layout_constraintTop_toTopOf="parent"

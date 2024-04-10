@@ -4,6 +4,7 @@ import android.util.Log
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.mmfsin.flashjuice.base.BaseDialog
+import com.mmfsin.flashjuice.data.mappers.toRecordDTOList
 import com.mmfsin.flashjuice.data.mappers.toRecordList
 import com.mmfsin.flashjuice.data.models.RecordDTO
 import com.mmfsin.flashjuice.domain.interfaces.IFJRepository
@@ -41,5 +42,16 @@ class FJRepository @Inject constructor() : IFJRepository {
             latch.await()
         }
         return records.toRecordList().sortedBy { it.record }.reversed()
+    }
+
+    override suspend fun setNewWorldRecords(records: List<Record>) {
+        val latch = CountDownLatch(1)
+        val root = reference.child(RECORDS_ROOT)
+        root.setValue(records.toRecordDTOList()).addOnCompleteListener {
+            latch.countDown()
+        }
+        withContext(Dispatchers.IO) {
+            latch.await()
+        }
     }
 }
