@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mmfsin.flashjuice.R
@@ -13,7 +12,6 @@ import com.mmfsin.flashjuice.base.BaseFragment
 import com.mmfsin.flashjuice.base.BedRockActivity
 import com.mmfsin.flashjuice.databinding.FragmentRankingBinding
 import com.mmfsin.flashjuice.domain.models.Record
-import com.mmfsin.flashjuice.presentation.dashboard.dialogs.GoodLevelDialog
 import com.mmfsin.flashjuice.presentation.ranking.adapter.RecordsAdapter
 import com.mmfsin.flashjuice.presentation.ranking.dialogs.NewWorldRecordDialog
 import com.mmfsin.flashjuice.utils.ARGS_RECORD

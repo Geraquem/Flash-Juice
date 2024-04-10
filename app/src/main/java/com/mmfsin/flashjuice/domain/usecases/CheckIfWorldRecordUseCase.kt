@@ -9,7 +9,7 @@ class CheckIfWorldRecordUseCase @Inject constructor(
 ) : BaseUseCase<CheckIfWorldRecordUseCase.Params, Boolean>() {
 
     override suspend fun execute(params: Params): Boolean {
-        if (params.level > -1) {
+        if (params.level > 30) {
             val records = repository.getRecords()
             records.forEach { record ->
                 if (params.level > record.record) {
