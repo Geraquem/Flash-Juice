@@ -46,7 +46,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private var poisonOne: Int = R.drawable.ic_poison_one
     private var poisonTwo: Int = R.drawable.ic_poison_two
     private var poisonThree: Int = R.drawable.ic_poison_three
-    private var poisonFour: Int = R.drawable.ic_error
+    private var poisonFour: Int = R.drawable.ic_poison_four
 
     override fun inflateView(
         inflater: LayoutInflater, container: ViewGroup?

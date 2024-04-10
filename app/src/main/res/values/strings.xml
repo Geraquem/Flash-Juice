@@ -21,7 +21,15 @@
     <string name="menu_ranking">Ver ranking</string>
 
     <!-- INSTRUCTIONS -->
-    <string name="instructions_title">Cómo jugar</string>
+    <string name="instructions_title">¿Cómo se juega?</string>
+    <string name="instructions_one">Primero se te mostrará la posición de todos los zumos y venenos.</string>
+    <string name="instructions_two">Cuando pase un segundo <b>todo se ocultará</b>.</string>
+    <string name="instructions_three">El juego trata de encontar los <b>cinco zumos de naranja</b> pulsando sobre la posición en la que se encontraban.</string>
+    <string name="instructions_four">Si los encuentras todos pasas de nivel.</string>
+    <string name="instructions_five">Si pulsas en un veneno, <b>pierdes una vida</b>.\nTienes <b>cinco vidas</b>.</string>
+    <string name="instructions_six">Cada vez el tiempo para ver las posiciones de los zumos irá más rápido así que ándate con ojo.</string>
+    <string name="instructions_seven">Existe un <b>ranking mundial</b> para ver las mejores puntuaciones, y si superas alguna de ellas tu nombre quedará registrado para que todo el mundo pueda ver lo máquina que eres.</string>
+    <string name="instructions_eight">¡A ver cuántos niveles eres capaz de superar!</string>
 
     <!-- DASHBOARD -->
     <string name="dashboard_level">Nivel %s</string>
