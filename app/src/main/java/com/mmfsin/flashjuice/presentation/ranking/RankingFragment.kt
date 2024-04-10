@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mmfsin.flashjuice.R
@@ -41,6 +42,7 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
     override fun setUI() {
         binding.apply {
             setToolbar()
+            checkIfNewRecord()
             clTop.visibility = View.INVISIBLE
             loading.visibility = View.VISIBLE
         }
@@ -78,6 +80,14 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
             tvWinnerName.text = first.name
             tvWinnerLevel.text = first.record.toString()
             clTop.visibility = View.VISIBLE
+        }
+    }
+
+    private fun checkIfNewRecord() {
+        newRecord?.let { record ->
+            if (record.toInt() != -1) {
+                Toast.makeText(mContext, "nuevoooooo", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

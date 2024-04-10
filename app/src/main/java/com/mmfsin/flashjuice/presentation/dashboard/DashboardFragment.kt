@@ -130,10 +130,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                     /** hide again */
                     countDown(duration) {
                         setBlackImages()
-                        countDown(100) {
-                            areImagesClickable(enabled = true)
-                            if (difficult == HARD) startHardMode()
-                        }
+                        countDown(100) { areImagesClickable(enabled = true) }
                     }
                 }
 
@@ -257,10 +254,9 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         }
     }
 
-    private fun startHardMode() {
-        binding.apply {
-            //TODO
-        }
+    override fun setNewWorldRecord() {
+        (activity as MainActivity).openRanking(args = level)
+        countDown(300) { showMenuDialog() }
     }
 
     private fun error() =

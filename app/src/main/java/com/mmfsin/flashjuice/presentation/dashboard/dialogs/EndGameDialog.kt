@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.mmfsin.flashjuice.R
@@ -52,6 +51,10 @@ class EndGameDialog(
         binding.apply {
             btnStartAgain.setOnClickListener {
                 listener.restart()
+                dismiss()
+            }
+            btnRegisterWorldRecord.setOnClickListener {
+                listener.setNewWorldRecord()
                 dismiss()
             }
         }
