@@ -10,7 +10,7 @@ class NewWorldRecordDialogViewModel @Inject constructor(
     private val setNewWorldRecordUseCase: SetNewWorldRecordUseCase
 ) : BaseViewModel<NewWorldRecordDialogEvent>() {
 
-    fun getGoodPhrase(name: String, record: Long) {
+    fun setNewWorldRecord(name: String, record: Long) {
         executeUseCase(
             {
                 setNewWorldRecordUseCase.execute(

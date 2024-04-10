@@ -31,6 +31,12 @@
     <string name="ranking_first">1.</string>
     <string name="ranking_number">%s.</string>
 
+    <!-- NEW WORLD RECORD -->
+    <string name="new_world_record_name">Introduce tu nombre</string>
+    <string name="new_world_record_error">El nombre no puede estar vacío</string>
+    <string name="new_world_record_record">Tu récord: %s</string>
+    <string name="new_world_record_btn">Enviar</string>
+
     <!-- END GAME -->
     <string name="end_game_bad_timer_zero">Se acabó el tiempo</string>
     <string name="end_game_bad_no_lifes">Te has quedado sin vidas</string>

@@ -79,7 +79,10 @@ class EndGameDialog(
                 }
 
                 is ResultDialogEvent.CheckIfNewWorldRecord -> {
-                    if (event.worldRecord) binding.llWorldRecord.visibility = View.VISIBLE
+                    if (event.worldRecord) {
+                        binding.tvPhrase.visibility = View.GONE
+                        binding.llWorldRecord.visibility = View.VISIBLE
+                    }
                 }
 
                 is ResultDialogEvent.SWW -> {}

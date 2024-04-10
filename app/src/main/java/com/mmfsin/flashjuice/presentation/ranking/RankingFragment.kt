@@ -89,7 +89,7 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
     private fun checkIfNewRecord() {
         newRecord?.let { record ->
             if (record.toInt() != -1) {
-                val dialog = NewWorldRecordDialog(record)
+                val dialog = NewWorldRecordDialog(record) { viewModel.getRecords() }
                 activity?.let {
                     countDown(200) { dialog.show(it.supportFragmentManager, "") }
                 }

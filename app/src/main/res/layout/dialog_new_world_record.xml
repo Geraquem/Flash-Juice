@@ -1,131 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_bottom_dialog"
+    android:background="@drawable/bg_white_box"
     android:clipChildren="false"
-    android:clipToPadding="false">
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:padding="24dp">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_left"
+    <TextView
+        style="@style/BigTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.07" />
+        android:layout_marginBottom="6dp"
+        android:text="@string/new_world_record_name" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_right"
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:autofillHints="name"
+        android:background="@drawable/bg_edit_text_new_record"
+        android:imeOptions="actionDone"
+        android:inputType="textPersonName|textCapSentences"
+        android:maxLength="40"
+        android:maxLines="1"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="12dp"
+        android:singleLine="true"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/tv_your_record"
+        style="@style/MediumTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.93" />
+        android:layout_marginBottom="24dp"
+        android:alpha="0.6"
+        android:text="@string/new_world_record_record" />
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/tv_error"
+        style="@style/MediumTextView_Bold"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:orientation="vertical"
-        android:paddingTop="24dp"
-        android:paddingBottom="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/gl_left"
-        app:layout_constraintRight_toRightOf="@id/gl_right"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginBottom="6dp"
+        android:text="@string/new_world_record_error"
+        android:textColor="@color/cancel"
+        android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/tv_phrase"
-            style="@style/BigTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/result"
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:textColor="@color/result_success"
-            android:textSize="46sp"
-            tools:text="A tope" />
+    <TextView
+        android:id="@+id/btn_register"
+        style="@style/MediumTextView_Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_white_box"
+        android:backgroundTint="@color/soft_blue"
+        android:elevation="6dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/new_world_record_btn"
+        android:textAllCaps="true"
+        android:textColor="@color/black" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieBadResult"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/good_result" />
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="10dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/black"
+        app:indicatorSize="36dp"
+        app:trackThickness="6dp" />
 
-        <TextView
-            android:id="@+id/tv_level_success"
-            style="@style/MediumTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:alpha="0.7"
-            android:fontFamily="@font/result"
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:textSize="42sp"
-            tools:text="@string/good_level_last_level" />
-
-        <TextView
-            android:id="@+id/tv_result"
-            style="@style/SmallTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
-            android:alpha="0.5"
-            android:gravity="center"
-            android:text="@string/good_level_all_juices"
-            android:textAllCaps="true" />
-
-        <include
-            android:id="@+id/juices_result"
-            layout="@layout/include_five_juices"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="36dp" />
-
-        <TextView
-            android:id="@+id/btn_register"
-            style="@style/MediumTextView_Bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_white_box"
-            android:backgroundTint="@color/green"
-            android:elevation="6dp"
-            android:layout_marginBottom="8dp"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/good_level_next_level"
-            android:textAllCaps="true"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/btn_cancel"
-            style="@style/MediumTextView_Bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_white_box"
-            android:backgroundTint="@color/green"
-            android:elevation="6dp"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/good_level_next_level"
-            android:textAllCaps="true"
-            android:textColor="@color/black" />
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
