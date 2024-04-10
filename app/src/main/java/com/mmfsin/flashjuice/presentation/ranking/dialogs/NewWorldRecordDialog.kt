@@ -46,6 +46,7 @@ class NewWorldRecordDialog(
                 val name = etName.text.toString()
                 if (name.isBlank()) tvError.visibility = View.VISIBLE
                 else {
+                    etName.isEnabled = false
                     loading.visibility = View.VISIBLE
                     btnRegister.visibility = View.GONE
                     viewModel.setNewWorldRecord(name, newRecord)
