@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.fragment.NavHostFragment
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.databinding.ActivityBedrockBinding
@@ -21,7 +23,15 @@ class BedRockActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBedrockBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        changeStatusBar()
         setUpNavGraph()
+    }
+
+    private fun changeStatusBar() {
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        val controller = WindowInsetsControllerCompat(window, window.decorView)
+        controller.isAppearanceLightStatusBars = true
     }
 
     private fun setUpNavGraph() {

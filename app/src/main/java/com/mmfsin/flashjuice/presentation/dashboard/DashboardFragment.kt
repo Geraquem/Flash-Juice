@@ -35,10 +35,10 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     private lateinit var mContext: Context
 
     private lateinit var images: List<ImageView>
-    private var level: Long = 4
-    private var lifes = 50
+    private var level: Long = 1
+    private var lifes = 5
     private var duration: Long = 1000
-    private var juicesSuccess = -21
+    private var juicesSuccess = 0
 
     private var dialogGood: GoodLevelDialog? = null
     private var dialogEndGame: EndGameDialog? = null

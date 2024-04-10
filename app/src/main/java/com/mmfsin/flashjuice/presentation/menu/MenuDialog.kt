@@ -16,9 +16,6 @@ class MenuDialog(val startGame: () -> Unit) :
 
     override fun setUI() {
         isCancelable = false
-
-        /** delete */
-//        setDifficult(NORMAL)
     }
 
     override fun setListeners() {
