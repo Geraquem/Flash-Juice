@@ -13,7 +13,7 @@ import com.mmfsin.flashjuice.base.BedRockActivity
 import com.mmfsin.flashjuice.databinding.FragmentRankingBinding
 import com.mmfsin.flashjuice.domain.models.Record
 import com.mmfsin.flashjuice.presentation.ranking.adapter.RecordsAdapter
-import com.mmfsin.flashjuice.utils.MY_RECORD
+import com.mmfsin.flashjuice.utils.ARGS_RECORD
 import com.mmfsin.flashjuice.utils.showErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,7 +30,7 @@ class RankingFragment : BaseFragment<FragmentRankingBinding, RankingViewModel>()
     ) = FragmentRankingBinding.inflate(inflater, container, false)
 
     override fun getBundleArgs() {
-        newRecord = activity?.intent?.getLongExtra(MY_RECORD, -1)
+        newRecord = activity?.intent?.getLongExtra(ARGS_RECORD, -1)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

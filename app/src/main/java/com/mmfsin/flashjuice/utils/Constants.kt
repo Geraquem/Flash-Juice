@@ -6,6 +6,7 @@ const val ROOT_ACTIVITY_NAV_GRAPH = "root_nav_graph"
 /** SHARED PREFS */
 const val MY_RECORD = "myRecord"
 const val RECORD = "record"
+const val ARGS_RECORD = "record"
 
 /** FIREBASE */
 const val RECORDS_ROOT = "records"

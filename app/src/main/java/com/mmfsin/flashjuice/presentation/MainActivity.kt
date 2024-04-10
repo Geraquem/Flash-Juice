@@ -12,6 +12,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BedRockActivity
 import com.mmfsin.flashjuice.databinding.ActivityMainBinding
+import com.mmfsin.flashjuice.utils.ARGS_RECORD
 import com.mmfsin.flashjuice.utils.MY_RECORD
 import com.mmfsin.flashjuice.utils.ROOT_ACTIVITY_NAV_GRAPH
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,16 +49,9 @@ class MainActivity : AppCompatActivity() {
         animationDrawable.start()
     }
 
-    fun closeKeyboard() {
-        this.currentFocus?.let { view ->
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
-            imm?.hideSoftInputFromWindow(view.windowToken, 0)
-        }
-    }
-
     fun openRanking(args: Long? = null) {
         val intent = Intent(this, BedRockActivity::class.java)
-        args?.let { intent.putExtra(MY_RECORD, args) }
+        args?.let { intent.putExtra(ARGS_RECORD, args) }
         intent.putExtra(ROOT_ACTIVITY_NAV_GRAPH, R.navigation.nav_graph_ranking)
         startActivity(intent)
     }

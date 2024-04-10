@@ -1,7 +1,9 @@
 package com.mmfsin.flashjuice.base
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.mmfsin.flashjuice.R
@@ -38,15 +40,11 @@ class BedRockActivity : AppCompatActivity() {
         binding.tvTitle.text = getString(title)
     }
 
-    fun setToolbarText(title: String) {
-        binding.tvTitle.text = title
-    }
-
-    fun openActivity(navGraph: Int, argsName: String, args: String) {
-        val intent = Intent(this, BedRockActivity::class.java)
-        intent.putExtra(argsName, args)
-        intent.putExtra(ROOT_ACTIVITY_NAV_GRAPH, navGraph)
-        startActivity(intent)
+    fun closeKeyboard() {
+        this.currentFocus?.let { view ->
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+            imm?.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
     private fun error() = showErrorDialog() { finish() }
