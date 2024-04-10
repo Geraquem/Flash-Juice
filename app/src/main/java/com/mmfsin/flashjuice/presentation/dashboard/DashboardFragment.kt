@@ -214,8 +214,8 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         }
     }
 
-    private fun showEndGameDialog(timerZero: Boolean = false) {
-        dialogEndGame = EndGameDialog(level, juicesSuccess, this@DashboardFragment, timerZero)
+    private fun showEndGameDialog() {
+        dialogEndGame = EndGameDialog(level, juicesSuccess, this@DashboardFragment)
         activity?.let {
             countDown(200) { dialogEndGame?.show(it.supportFragmentManager, "") }
         }

@@ -18,8 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class EndGameDialog(
     private val level: Long,
     private val juicesSuccess: Int,
-    private val listener: IGameEndListener,
-    private val timerZero: Boolean
+    private val listener: IGameEndListener
 ) : BaseDialog<DialogEndGameBinding>() {
 
     private val viewModel: ResultDialogViewModel by viewModels()
@@ -39,15 +38,9 @@ class EndGameDialog(
         binding.apply {
             tvNewRecord.visibility = View.GONE
             tvLevel.text = level.toString()
-
-            if (timerZero) {
-                tvTimesUp.text = getString(R.string.end_game_bad_timer_zero)
-                lottieBadResult.setAnimation(R.raw.times_up)
-            } else {
-                tvTimesUp.text = getString(R.string.end_game_bad_no_lifes)
-                lottieBadResult.setAnimation(R.raw.heart_broken)
-            }
-
+            llWorldRecord.visibility = View.GONE
+            tvTimesUp.text = getString(R.string.end_game_bad_no_lifes)
+            lottieBadResult.setAnimation(R.raw.heart_broken)
             val result = if (juicesSuccess == 0) R.string.end_game_none_juices
             else R.string.end_game_not_all_juices
             tvResult.text = getString(result)
@@ -83,13 +76,7 @@ class EndGameDialog(
                 }
 
                 is ResultDialogEvent.CheckIfNewWorldRecord -> {
-                    if (event.worldRecord) {
-                        Toast.makeText(
-                            activity?.applicationContext,
-                            "world record",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                    if (event.worldRecord) binding.llWorldRecord.visibility = View.VISIBLE
                 }
 
                 is ResultDialogEvent.SWW -> {}

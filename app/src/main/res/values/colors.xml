@@ -10,8 +10,12 @@
     <color name="soft_black">#636363</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#F1F4EF</color>
+
     <color name="orange">#F4B358</color>
     <color name="soft_orange">#FFD396</color>
+
+    <color name="blue">#46B5FF</color>
+    <color name="soft_blue">#BFE6FF</color>
 
     <color name="green">#75ED96</color>
     <color name="gray_background">#A3E4E1E1</color>

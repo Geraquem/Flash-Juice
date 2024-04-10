@@ -82,8 +82,8 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_bad_result"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"
             app:lottie_autoPlay="false"
@@ -176,6 +176,58 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="24dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_world_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_white_box"
+            android:backgroundTint="@color/soft_blue"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                style="@style/MediumTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="@string/end_game_world_record"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                tools:ignore="AllCaps" />
+
+            <TextView
+                style="@style/SmallTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="@string/end_game_world_record_question"
+                android:textAllCaps="true"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/btn_register_world_record"
+                style="@style/MediumTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_white_box"
+                android:elevation="6dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:paddingVertical="6dp"
+                android:text="@string/end_game_world_record_btn"
+                android:textAllCaps="true"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/btn_start_again"
