@@ -2,6 +2,7 @@ package com.mmfsin.flashjuice.presentation.dashboard.dialogs
 
 import com.mmfsin.flashjuice.base.BaseViewModel
 import com.mmfsin.flashjuice.domain.usecases.CheckIfRecordUseCase
+import com.mmfsin.flashjuice.domain.usecases.CheckIfWorldRecordUseCase
 import com.mmfsin.flashjuice.domain.usecases.GetBadPhraseUseCase
 import com.mmfsin.flashjuice.domain.usecases.GetGoodPhraseUseCase
 import com.mmfsin.flashjuice.domain.usecases.GetMyRecordUseCase
@@ -13,7 +14,8 @@ class ResultDialogViewModel @Inject constructor(
     private val getGoodPhraseUseCase: GetGoodPhraseUseCase,
     private val getBadPhraseUseCase: GetBadPhraseUseCase,
     private val getMyRecordUseCase: GetMyRecordUseCase,
-    private val checkIfRecordUseCase: CheckIfRecordUseCase
+    private val checkIfRecordUseCase: CheckIfRecordUseCase,
+    private val checkIfWorldRecordUseCase: CheckIfWorldRecordUseCase,
 ) : BaseViewModel<ResultDialogEvent>() {
 
     fun getGoodPhrase() {
@@ -44,6 +46,14 @@ class ResultDialogViewModel @Inject constructor(
         executeUseCase(
             { checkIfRecordUseCase.execute(CheckIfRecordUseCase.Params(level)) },
             { result -> _event.value = ResultDialogEvent.CheckIfNewRecord(result) },
+            { _event.value = ResultDialogEvent.SWW },
+        )
+    }
+
+    fun checkIfWorldNewRecord(level: Long) {
+        executeUseCase(
+            { checkIfWorldRecordUseCase.execute(CheckIfWorldRecordUseCase.Params(level)) },
+            { result -> _event.value = ResultDialogEvent.CheckIfNewWorldRecord(result) },
             { _event.value = ResultDialogEvent.SWW },
         )
     }

@@ -49,6 +49,7 @@ class GoodLevelDialog(private val level: Long, private val listener: IGameEndLis
 
                 is ResultDialogEvent.CheckIfNewRecord -> {}
                 is ResultDialogEvent.GetMyRecord -> {}
+                is ResultDialogEvent.CheckIfNewWorldRecord -> {}
                 is ResultDialogEvent.SWW -> {}
             }
         }

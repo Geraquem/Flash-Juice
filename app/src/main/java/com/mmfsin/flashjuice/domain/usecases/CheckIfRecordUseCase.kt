@@ -12,21 +12,15 @@ class CheckIfRecordUseCase @Inject constructor(
 ) : BaseUseCase<CheckIfRecordUseCase.Params, Boolean>() {
 
     override suspend fun execute(params: Params): Boolean {
-        try {
-
-            val mySharedPrefs = context.getSharedPreferences(MY_RECORD, Context.MODE_PRIVATE)
-            val previousRecord = mySharedPrefs.getLong(RECORD, 0)
-            return if (params.level > previousRecord) {
-                mySharedPrefs.edit().apply() {
-                    putLong(RECORD, params.level)
-                    apply()
-                }
-                true
-            } else false
-        } catch (e: Exception) {
-            val a = 2
-            return false
-        }
+        val mySharedPrefs = context.getSharedPreferences(MY_RECORD, Context.MODE_PRIVATE)
+        val previousRecord = mySharedPrefs.getLong(RECORD, 0)
+        return if (params.level > previousRecord) {
+            mySharedPrefs.edit().apply() {
+                putLong(RECORD, params.level)
+                apply()
+            }
+            true
+        } else false
     }
 
     data class Params(

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.mmfsin.flashjuice.R
@@ -76,7 +77,21 @@ class EndGameDialog(
                     viewModel.checkIfNewRecord(level)
                 }
 
-                is ResultDialogEvent.CheckIfNewRecord -> setNewRecordData(event.isNewRecord)
+                is ResultDialogEvent.CheckIfNewRecord -> {
+                    setNewRecordData(event.isNewRecord)
+                    viewModel.checkIfWorldNewRecord(level)
+                }
+
+                is ResultDialogEvent.CheckIfNewWorldRecord -> {
+                    if (event.worldRecord) {
+                        Toast.makeText(
+                            activity?.applicationContext,
+                            "world record",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
                 is ResultDialogEvent.SWW -> {}
             }
         }
