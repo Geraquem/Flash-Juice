@@ -15,11 +15,13 @@
 
     <!-- MENU -->
     <string name="menu_description">Encuentra los 5 zumitos de naranja antes de que se les vayan las vitaminas</string>
-    <string name="menu_difficult">Elige la dificultad de juego</string>
-    <string name="menu_normal">Normal</string>
-    <string name="menu_hard">Difícil</string>
+    <string name="menu_normal">Empezar</string>
+    <string name="menu_instructions">¿Cómo se juega?</string>
     <string name="menu_ranking_title">Mejores puntuaciones</string>
     <string name="menu_ranking">Ver ranking</string>
+
+    <!-- INSTRUCTIONS -->
+    <string name="instructions_title">Cómo jugar</string>
 
     <!-- DASHBOARD -->
     <string name="dashboard_level">Nivel %s</string>

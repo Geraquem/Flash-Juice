@@ -14,7 +14,8 @@
     <color name="orange">#F4B358</color>
     <color name="soft_orange">#FFD396</color>
 
-    <color name="blue">#46B5FF</color>
+    <color name="blue">#9CDCFF</color>
+    <color name="hard_blue">#81B6D3</color>
     <color name="soft_blue">#BFE6FF</color>
 
     <color name="green">#75ED96</color>
@@ -25,7 +26,4 @@
     <color name="result_failed">#DD4B4B</color>
     <color name="result_success">#4EC167</color>
     <color name="new_record">#C8AB16</color>
-
-    <color name="normal">#9CDCFF</color>
-    <color name="hard">#81B6D3</color>
 </resources>

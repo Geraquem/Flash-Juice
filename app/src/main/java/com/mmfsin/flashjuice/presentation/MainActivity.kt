@@ -60,6 +60,12 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun openInstructions() {
+        val intent = Intent(this, BedRockActivity::class.java)
+        intent.putExtra(ROOT_ACTIVITY_NAV_GRAPH, R.navigation.nav_graph_instructions)
+        startActivity(intent)
+    }
+
     private fun loadInterstitial(adRequest: AdRequest) {
 //        InterstitialAd.load(this,
 //            getString(R.string.insterstitial),

@@ -11,9 +11,6 @@ import androidx.fragment.app.viewModels
 import com.mmfsin.flashjuice.R
 import com.mmfsin.flashjuice.base.BaseFragment
 import com.mmfsin.flashjuice.databinding.FragmentDashboardBinding
-import com.mmfsin.flashjuice.domain.models.Difficult
-import com.mmfsin.flashjuice.domain.models.Difficult.HARD
-import com.mmfsin.flashjuice.domain.models.Difficult.NORMAL
 import com.mmfsin.flashjuice.domain.models.Positions
 import com.mmfsin.flashjuice.domain.models.Tags
 import com.mmfsin.flashjuice.domain.models.Tags.JUICE
@@ -36,8 +33,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
 
     override val viewModel: DashboardViewModel by viewModels()
     private lateinit var mContext: Context
-
-    private var difficult: Difficult = NORMAL
 
     private lateinit var images: List<ImageView>
     private var level: Long = 1
@@ -63,8 +58,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     }
 
     private fun showMenuDialog() {
-        val menuDialog = MenuDialog { diff ->
-            difficult = diff
+        val menuDialog = MenuDialog {
             (activity as MainActivity).apply {
                 if (this.firstTime) {
                     this.firstTime = false
@@ -72,7 +66,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
                 } else restart()
             }
         }
-
         activity?.let { menuDialog.show(it.supportFragmentManager, "") }
     }
 
