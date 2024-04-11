@@ -10,18 +10,37 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <ImageView
-        android:id="@+id/btn_close"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="end"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_cross"
-        app:tint="@color/black" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            style="@style/BigTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="6dp"
+            android:layout_toStartOf="@id/btn_close"
+            android:text="@string/new_world_record_title"
+            android:textAllCaps="true" />
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/ic_cross"
+            app:tint="@color/black" />
+
+    </RelativeLayout>
 
     <TextView
-        style="@style/BigTextView"
+        style="@style/MediumTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
@@ -31,7 +50,7 @@
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="8dp"
         android:autofillHints="name"
         android:background="@drawable/bg_edit_text_new_record"
         android:imeOptions="actionDone"
@@ -49,7 +68,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:alpha="0.6"
         android:text="@string/new_world_record_record" />
 
     <TextView

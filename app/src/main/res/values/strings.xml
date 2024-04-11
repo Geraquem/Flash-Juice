@@ -44,6 +44,7 @@
     <string name="ranking_number">%s.</string>
 
     <!-- NEW WORLD RECORD -->
+    <string name="new_world_record_title">¡Nuevo récord!</string>
     <string name="new_world_record_name">Introduce tu nombre</string>
     <string name="new_world_record_error">El nombre no puede estar vacío</string>
     <string name="new_world_record_record">Tu récord: %s</string>
