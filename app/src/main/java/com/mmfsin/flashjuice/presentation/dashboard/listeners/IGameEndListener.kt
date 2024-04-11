@@ -4,4 +4,5 @@ interface IGameEndListener {
     fun nextLevel()
     fun restart()
     fun setNewWorldRecord()
+    fun onBackWhenEndGame()
 }

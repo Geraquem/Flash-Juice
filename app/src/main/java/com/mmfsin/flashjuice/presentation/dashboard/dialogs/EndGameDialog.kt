@@ -2,6 +2,7 @@ package com.mmfsin.flashjuice.presentation.dashboard.dialogs
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -30,6 +31,17 @@ class EndGameDialog(
         super.onCreate(savedInstanceState)
         observe()
         viewModel.getBadPhrase()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        dialog?.setOnKeyListener { _, keyCode, _ ->
+            if (keyCode == KeyEvent.KEYCODE_BACK) {
+                listener.onBackWhenEndGame()
+                dismiss()
+                true
+            } else false
+        }
     }
 
     override fun setUI() {

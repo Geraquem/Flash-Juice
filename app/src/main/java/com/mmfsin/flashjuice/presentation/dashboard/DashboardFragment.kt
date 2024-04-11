@@ -77,9 +77,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     }
 
     override fun setListeners() {
-        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner) {
-            showMenuDialog()
-        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner) { showMenuDialog() }
     }
 
     private fun setLevelText() {
@@ -251,6 +249,8 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
         (activity as MainActivity).openRanking(args = level)
         countDown(300) { showMenuDialog() }
     }
+
+    override fun onBackWhenEndGame() = showMenuDialog()
 
     private fun error() =
         activity?.let { it.showErrorDialog { it.onBackPressedDispatcher.onBackPressed() } }
