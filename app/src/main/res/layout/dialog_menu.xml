@@ -63,6 +63,18 @@
             android:layout_marginBottom="24dp" />
 
         <TextView
+            android:id="@+id/tv_my_record"
+            style="@style/SmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="6dp"
+            android:alpha="0.5"
+            android:gravity="center"
+            android:textAllCaps="true"
+            tools:text="@string/menu_record_actual" />
+
+        <TextView
             android:id="@+id/btn_start"
             style="@style/MediumTextView_Bold"
             android:layout_width="match_parent"
