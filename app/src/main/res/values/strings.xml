@@ -38,6 +38,7 @@
 
     <!-- RANKING -->
     <string name="ranking_title">Mejores puntuaciones</string>
+    <string name="ranking_text">Estos son los niveles alcanzados por los 10 mejores jugadores</string>
     <string name="ranking_first">1.</string>
     <string name="ranking_number">%s.</string>
 

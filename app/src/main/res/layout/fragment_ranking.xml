@@ -12,100 +12,153 @@
     android:focusable="true"
     android:gravity="center">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_left"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        ads:layout_constraintGuide_percent="0.05" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_right"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        ads:layout_constraintGuide_percent="0.95" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_top"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/bg_white_box"
+        android:layout_height="0dp"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:elevation="6dp"
-        android:orientation="vertical"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="12dp"
-        ads:layout_constraintLeft_toLeftOf="@id/gl_left"
-        ads:layout_constraintRight_toRightOf="@id/gl_right"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
         ads:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_first_place"
-            style="@style/BigTextView_Bold"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="@string/ranking_first"
-            ads:layout_constraintLeft_toLeftOf="parent"
-            ads:layout_constraintTop_toTopOf="parent" />
+            android:paddingBottom="42dp">
 
-        <TextView
-            android:id="@+id/tv_winner_name"
-            style="@style/BigTextView_Bold"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
-            ads:layout_constraintLeft_toRightOf="@id/tv_first_place"
-            ads:layout_constraintRight_toLeftOf="@id/tv_winner_level"
-            ads:layout_constraintTop_toTopOf="parent"
-            tools:text="Maria del carmen" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                ads:layout_constraintGuide_percent="0.05" />
 
-        <TextView
-            android:id="@+id/tv_winner_level"
-            style="@style/BigTextView_Bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            ads:layout_constraintRight_toRightOf="parent"
-            ads:layout_constraintTop_toTopOf="parent"
-            tools:text="58" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                ads:layout_constraintGuide_percent="0.95" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/ll_top"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                ads:layout_constraintLeft_toLeftOf="@id/gl_left"
+                ads:layout_constraintRight_toRightOf="@id/gl_right"
+                ads:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UseCompoundDrawables">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_records"
-        style="@style/scroll_no_effects"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="10dp"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintLeft_toLeftOf="@id/gl_left"
-        ads:layout_constraintRight_toRightOf="@id/gl_right"
-        ads:layout_constraintTop_toBottomOf="@id/cl_top"
-        tools:itemCount="4"
-        tools:listitem="@layout/item_record" />
+                <TextView
+                    style="@style/MediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="@string/ranking_text" />
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/content_description"
+                    android:src="@drawable/ic_juice_logo" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_top"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_white_box"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                ads:layout_constraintLeft_toLeftOf="@id/gl_left"
+                ads:layout_constraintRight_toRightOf="@id/gl_right"
+                ads:layout_constraintTop_toBottomOf="@id/ll_top">
+
+                <TextView
+                    android:id="@+id/tv_first_place"
+                    style="@style/BigTextView_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/ranking_first"
+                    ads:layout_constraintLeft_toLeftOf="parent"
+                    ads:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_winner_name"
+                    style="@style/BigTextView_Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    ads:layout_constraintLeft_toRightOf="@id/tv_first_place"
+                    ads:layout_constraintRight_toLeftOf="@id/tv_winner_level"
+                    ads:layout_constraintTop_toTopOf="parent"
+                    tools:text="Maria del carmen" />
+
+                <TextView
+                    android:id="@+id/tv_winner_level"
+                    style="@style/BigTextView_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    ads:layout_constraintRight_toRightOf="parent"
+                    ads:layout_constraintTop_toTopOf="parent"
+                    tools:text="58" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_records"
+                style="@style/scroll_no_effects"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="12dp"
+                ads:layout_constraintLeft_toLeftOf="@id/gl_left"
+                ads:layout_constraintRight_toRightOf="@id/gl_right"
+                ads:layout_constraintTop_toBottomOf="@id/cl_top"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_record" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
         android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
         android:elevation="10dp"
-        android:indeterminate="true"
-        ads:layout_constraintLeft_toLeftOf="@id/gl_left"
-        ads:layout_constraintRight_toRightOf="@id/gl_right"
-        ads:layout_constraintTop_toTopOf="parent"
-        app:indicatorColor="@color/black"
-        app:indicatorSize="36dp"
-        app:trackThickness="6dp" />
+        android:visibility="gone">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="36dp"
+            android:indeterminate="true"
+            app:indicatorColor="@color/black"
+            app:indicatorSize="36dp"
+            app:trackThickness="6dp" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
