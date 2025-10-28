@@ -14,15 +14,7 @@ class App : Application() {
         super.onCreate()
         MobileAds.initialize(this) {}
 
-//        getFCMToken()
         disableNightMode()
-    }
-
-    private fun getFCMToken() {
-        FirebaseMessaging.getInstance().token.addOnCompleteListener {
-            if (it.isSuccessful) Log.i("**** FCM **** ", it.result)
-            else Log.i("FCM", "no token")
-        }
     }
 
     private fun disableNightMode() =
